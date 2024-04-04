@@ -32,7 +32,7 @@ function Teas() {
             setTeas(filteredTeaData);
         }
         fetchData();
-    }, [])
+    }, [teas])
 
 
     const teaCards = teas?.map((tea: Tea) => {
