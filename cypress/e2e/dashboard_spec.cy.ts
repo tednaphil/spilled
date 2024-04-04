@@ -4,7 +4,13 @@
 //   })
 // })
 
-describe('Spilled App', () => {
-  it
+describe('Spilled', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/')
+  })
+  it('Displays landing page', () => {
+    cy.get('h1').contains('Spilled')
+
+  })
 
 })
