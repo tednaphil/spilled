@@ -29,7 +29,7 @@ function Teas() {
         async function fetchData() {
             const fetchedTeaData = await fetchTea();
             const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            setTeas(filteredTeaData);//clean up/filter teas then set state
+            setTeas(filteredTeaData);
         }
         fetchData();
     }, [])
@@ -38,7 +38,7 @@ function Teas() {
 
     const teaCards = teas?.map((tea: Tea) => {
         return (
-            <Card img={tea.image} name={tea.name}/>
+            <Card img={tea.image} name={tea.name} key={tea.slug}/>
         )
     })
 
@@ -46,38 +46,7 @@ function Teas() {
         <>
         {teaCards}
         </>
-    )
-    // function filterTeas(tea:Tea){
-    //     return(tea.type === category)
-    // }
-    
-    // function displayTeas(data){
-    //     let filteredTea = data.filter(filterTeas)
-    //     return filteredTea?.map((tea:Tea) => {
-    //         <Card img = {tea.image} name = {tea.name}/>
-    //     })
-    // }
-
-   
-    // const teaCategory = teaData.filter((tea: Tea) => {
-    //     //Tea category
-    //     return (
-    //         <Card img = {tea.img} name = {tea.name}/>
-    //     )
-    // })
-    // interface Tea {name : string, img :string}
-    // interface Categories { categories: object[]}
-    // let categoryTeas: Categories[] = teaData.filter(() => {
-
-    // })
-    
-    
-    // function displayTeas() {
-            
-        
-    // }
-
-    
+    ) 
 }
 
 export default Teas;
