@@ -1,0 +1,19 @@
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+}
+.infoButton{
+    width: 250px;
+    height: 40px;
+    font-size: 2vh;
+    background-color: white;
+    border-radius: 5%;
+}
+article{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top:50px;
+}

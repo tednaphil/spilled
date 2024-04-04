@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink,Link } from "react-router-dom";
 import "./Nav.css";
 
 function Nav() {
   return (
     <header>
       <nav>
-        <h1>Spilled ☕</h1>
+        <Link to="/" className = "title"><h1>Spilled ☕</h1></Link>
         <NavLink to="/tea/blend">Blend</NavLink>
         <NavLink to="/tea/black">Black</NavLink>
         <NavLink to="/tea/green">Green</NavLink>
