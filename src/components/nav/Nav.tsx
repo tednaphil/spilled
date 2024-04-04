@@ -1,17 +1,26 @@
 import { NavLink,Link } from "react-router-dom";
 import "./Nav.css";
+import favorite from '../../favorite-save.png'
 
 function Nav() {
   return (
-    <header>
-      <nav>
-        <Link to="/" className = "title"><h1>Spilled ☕</h1></Link>
-        <NavLink to="/tea/blend">Blend</NavLink>
-        <NavLink to="/tea/black">Black</NavLink>
-        <NavLink to="/tea/green">Green</NavLink>
-        <NavLink to="/tea/oolong">Oolong</NavLink>
-        <NavLink to="/tea/white">White</NavLink>
-        <NavLink to="/tea/favorites">Favorites</NavLink>
+    <header className="header">
+      <nav className="nav-bar">
+        <div className="div-nav-left">
+          <Link to="/" className = "h1"><h1>Spilled</h1></Link>
+        </div>
+        <div className="div-nav-center">
+          <NavLink to="/tea/blend" className='navlink'>Blend</NavLink>
+          <NavLink to="/tea/black" className='navlink'>Black</NavLink>
+          <NavLink to="/tea/green" className='navlink'>Green</NavLink>
+          <NavLink to="/tea/oolong" className='navlink'>Oolong</NavLink>
+          <NavLink to="/tea/white" className='navlink'>White</NavLink>
+        </div>
+        <div className="div-nav-right">
+          <NavLink className='nav-favorites' to="/tea/favorites">
+            <img className='favorite-img' src={favorite} alt="bookmark with heart shape"/>
+          </NavLink>
+        </div>
       </nav>
     </header>
   );
