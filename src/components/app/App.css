@@ -1,7 +1,12 @@
 .App {
-  background-color: rgba(234, 234, 237, 0.162);
+  background-color: white;
   color: #010101;
-  font-family: 'cormorant', 'seriff';
+  font-family: 'cormorant', serif;
+  /* font-family: "Bodoni Moda", serif; */
+}
+
+p {
+  font-family: 'proxima-nova', sans-serif;
 }
 /* .App-header {
   background-color: #282c34;
