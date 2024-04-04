@@ -17,7 +17,7 @@ function Home() {
               aliquip ex ea commodo consequat.
             </p>
             <button className="infoButton">
-              <NavLink to="/tea/black">See Black tea's →</NavLink>
+              <NavLink to="/tea/black">See Black teas →</NavLink>
             </button>
           </div>
         </article>
@@ -33,7 +33,7 @@ function Home() {
             aliquip ex ea commodo consequat.
           </p>
           <button className="infoButton">
-            <NavLink to="/tea/black">See Black tea's →</NavLink>
+            <NavLink to="/tea/black">See Black teas →</NavLink>
           </button>
         </div>
       </article>
@@ -48,7 +48,7 @@ function Home() {
             aliquip ex ea commodo consequat.
           </p>
           <button className="infoButton">
-            <NavLink to="/tea/oolong">See Oolong tea's →</NavLink>
+            <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
           </button>
         </div>
       </article>
@@ -63,7 +63,7 @@ function Home() {
             aliquip ex ea commodo consequat.
           </p>
           <button className="infoButton">
-            <NavLink to="/tea/white">See White tea's →</NavLink>
+            <NavLink to="/tea/white">See White teas →</NavLink>
           </button>
         </div>
       </article>
