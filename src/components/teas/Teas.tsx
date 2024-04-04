@@ -7,7 +7,7 @@ import { fetchTea } from '../../apiCalls';
 
 function Teas() {
     const category = useParams<string>().category
-    const [teaData , setTeaData] = useState<[Tea] | null>(null) // change the [Tea] cuz im pretrty sure its and arrya of teas but it could be a object idk i cant see the data but thats just a place holder for now 
+    const [teas , setTeas] = useState<[Tea] | null>(null) // change the [Tea] cuz im pretrty sure its and arrya of teas but it could be a object idk i cant see the data but thats just a place holder for now 
 
     interface Tea {
         _id:string,
@@ -28,22 +28,36 @@ function Teas() {
     useEffect(() => {
         async function fetchData() {
             const fetchedTeaData = await fetchTea();
-            setTeaData(fetchedTeaData);
+            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
+            setTeas(filteredTeaData);//clean up/filter teas then set state
         }
         fetchData();
+    }, [])
+
+    // const filteredTeas = teaData?.filter((tea: Tea) => tea.type === category)
+
+    const teaCards = teas?.map((tea: Tea) => {
+        return (
+            <Card img={tea.image} name={tea.name}/>
+        )
     })
 
-    function filterTeas(tea:Tea){
-        return(tea.type === category)
-    }
+    return (
+        <>
+        {teaCards}
+        </>
+    )
+    // function filterTeas(tea:Tea){
+    //     return(tea.type === category)
+    // }
     
-    function displayTeas(){
-        let filteredTea = teaData?.filter(filterTeas)
-        return filteredTea?.map((tea:Tea) => {
-            <Card img = {tea.image} name = {tea.name}/>
-        })
-    }
-   
+    // function displayTeas(data){
+    //     let filteredTea = data.filter(filterTeas)
+    //     return filteredTea?.map((tea:Tea) => {
+    //         <Card img = {tea.image} name = {tea.name}/>
+    //     })
+    // }
+
    
     // const teaCategory = teaData.filter((tea: Tea) => {
     //     //Tea category
@@ -63,11 +77,7 @@ function Teas() {
         
     // }
 
-    return (
-        <>
-        {displayTeas()}
-        </>
-    )
+    
 }
 
 export default Teas;
