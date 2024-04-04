@@ -28,18 +28,26 @@ function Teas() {
     useEffect(() => {
         async function fetchData() {
             const fetchedTeaData = await fetchTea();
-            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            setTeas(filteredTeaData);
+            setTeas(fetchedTeaData)
+            // const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
+            // setTeas(filteredTeaData);
         }
         fetchData();
-    }, [teas])
+    }, [])
 
-
-    const teaCards = teas?.map((tea: Tea) => {
+    const filteredTeas = teas?.filter((tea: Tea) => tea.type === category)
+    const teaCards = filteredTeas?.map((tea: Tea) => {
         return (
-            <Card img={tea.image} name={tea.name} key={tea.slug}/>
-        )
+        <Card img={tea.image} name={tea.name} key={tea.slug}/>
+        ) 
     })
+
+
+    // const teaCards = teas?.map((tea: Tea) => {
+    //     return (
+    //         <Card img={tea.image} name={tea.name} key={tea.slug}/>
+    //     )
+    // })
 
     return (
         <>
