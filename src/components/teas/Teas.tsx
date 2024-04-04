@@ -7,7 +7,7 @@ import { fetchTea } from '../../apiCalls';
 
 function Teas() {
     const category = useParams<string>().category
-    const [teas , setTeas] = useState<[Tea] | null>(null) // change the [Tea] cuz im pretrty sure its and arrya of teas but it could be a object idk i cant see the data but thats just a place holder for now 
+    const [teas , setTeas] = useState<Tea[] | null>(null)
 
     interface Tea {
         _id:string,
@@ -34,7 +34,6 @@ function Teas() {
         fetchData();
     }, [])
 
-    // const filteredTeas = teaData?.filter((tea: Tea) => tea.type === category)
 
     const teaCards = teas?.map((tea: Tea) => {
         return (
