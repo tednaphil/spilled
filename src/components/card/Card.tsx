@@ -1,6 +1,12 @@
 import './Card.css';
 
-function Card(img: string, name: string) {
+
+interface CardProp {
+    img:string,
+    name:string
+}
+
+function Card({img,name}: CardProp) {
 
     return (
         <>
