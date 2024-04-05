@@ -19,17 +19,13 @@ const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
     }, [setIsRedirected])
 
     useEffect(() => {
-       window.onbeforeunload = () => {
+       window.onload = () => {
         //    setIsRedirected(false)
-           navigate('/', {replace: true})
+           navigate('../home', {replace: true})
        }
     }, [navigate, setIsRedirected])
 
     console.log('error', isRedirected)
-    // let window: React.
-    // window.onunload = () => {
-    //     navigate('/', {replace: true})
-    // }
 
     return (
         <div className='error_wrapper'>

@@ -11,16 +11,16 @@ function App() {
 
   const [isRedirected, setIsRedirected] = useState<boolean>()
   console.log('app state isRedirected', isRedirected)
-  // const navigate = useNavigate()
+
   return (
     <div className="App">
       <Nav />
       <main>
         <Routes>
-          <Route path='/' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/>
+          <Route path='/home' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/>
           <Route path='/tea/:category' element={<Teas setIsRedirected={setIsRedirected}/>}/>
           {/* {isRedirected ?  */}
-          <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
+          <Route path='/*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
             {/* navigate('/', {replace: true})
           } */}
         </Routes>

@@ -12,10 +12,10 @@ interface Props {
 function Home({ isRedirected, setIsRedirected }: Props) {
   const navigate = useNavigate()
   useEffect(() => {
-    window.onload = () => {
+    // window.onload = () => {
       //    setIsRedirected(false)
-         navigate('/', {replace: true})
-     }
+    //      navigate('/', {replace: true})
+    //  }
       setIsRedirected(false)
 
 }, [navigate, setIsRedirected])
