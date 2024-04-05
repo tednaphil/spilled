@@ -1,3 +1,5 @@
+// import { NavigateFunction } from 'react-router-dom';
+
 export interface Tea {
     _id:string,
     name:string,
@@ -13,3 +15,8 @@ export interface Tea {
     colorDescription:string,
     tasteDescription:string
 }
+
+// interface ErrorInterface {
+//     isRedirected: boolean,
+//     navigate: NavigateFunction,
+// }

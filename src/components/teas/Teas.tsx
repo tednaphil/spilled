@@ -6,8 +6,11 @@ import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import React from 'react';
 
+interface Props {
+    setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
+}
 
-function Teas() {
+function Teas({ setIsRedirected }: Props) {
     const category = useParams<string>().category
     const navigate = useNavigate()
 
@@ -25,9 +28,12 @@ function Teas() {
         } else {
             const fetchedTeaData = await fetchTea();
             if(!fetchedTeaData) {
-                navigate('*', {replace: true})
+                navigate('*', {
+                    state: {message: '404'},
+                    replace: true
+                })
             } else {
-
+                setIsRedirected(false)
                 const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
                 setTeas(filteredTeaData);
             }
