@@ -1,18 +1,24 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
 // import spilledTea from "../../Coffee-Burst.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect  } from 'react';
 
 interface Props {
+  isRedirected: boolean | any;
   setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
 }
 
-function Home({ setIsRedirected }: Props) {
-
+function Home({ isRedirected, setIsRedirected }: Props) {
+  const navigate = useNavigate()
   useEffect(() => {
-    setIsRedirected(false)
-}, [setIsRedirected])
+    window.onload = () => {
+      //    setIsRedirected(false)
+         navigate('/', {replace: true})
+     }
+      setIsRedirected(false)
+
+}, [navigate, setIsRedirected])
 
   return (
     <div>

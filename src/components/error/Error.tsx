@@ -13,16 +13,17 @@ const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
     // let location = useLocation().state
     // console.log(location)
     const navigate = useNavigate()
+
     useEffect(() => {
         setIsRedirected(true)
     }, [setIsRedirected])
 
     useEffect(() => {
        window.onbeforeunload = () => {
-        // setIsRedirected(false)
-        navigate('/', {replace: true})
+        //    setIsRedirected(false)
+           navigate('/', {replace: true})
        }
-    }, [])
+    }, [navigate, setIsRedirected])
 
     console.log('error', isRedirected)
     // let window: React.
