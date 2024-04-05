@@ -1,5 +1,6 @@
 import "./Home.css";
-import teas from "../../teas.png";
+import teas from "../../teas.svg";
+// import spilledTea from "../../Coffee-Burst.svg";
 import { NavLink } from "react-router-dom";
 
 function Home() {

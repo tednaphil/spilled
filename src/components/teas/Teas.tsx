@@ -13,8 +13,7 @@ function Teas() {
     const initialFavs: Tea[] = JSON.parse(sessionStorage.getItem("favs") || '[]');
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
 
-    useEffect(() => {
-        
+    useEffect(() => { 
         fetchData();
     }, [category])
 
