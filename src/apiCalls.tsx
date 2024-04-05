@@ -19,8 +19,7 @@ const fetchTea = async () => {
         if(!response.ok) {
             throw new Error('failed to fetch tea data')
         }
-        const fetchedData = await response.json();
-        return fetchedData;
+        return await response.json();
     } catch (error) {
         console.log('error',error)
     }
