@@ -15,7 +15,7 @@ function fetchTea() {
 
 const fetchTea = async () => {
     try {
-        const response = await fetch('https://boonakitea.cyclic.app/api/all');
+        const response = await fetch('https://boonakitea.cyclic.app/api/ll');
         if (!response.ok) {
             throw new Error('failed to fetch tea data')
         }
