@@ -1,5 +1,5 @@
 import "./Home.css";
-import teas from "../../teas.svg";
+import teas from "../../images/teas.svg";
 // import spilledTea from "../../Coffee-Burst.svg";
 import { NavLink } from "react-router-dom";
 

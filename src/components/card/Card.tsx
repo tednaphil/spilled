@@ -1,5 +1,5 @@
 import './Card.css';
-import { Tea } from '../../interface';
+import { Tea } from '../../utils/interface';
 
 
 interface CardProp {

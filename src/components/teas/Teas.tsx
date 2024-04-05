@@ -3,7 +3,7 @@ import Card from '../card/Card';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
-import { Tea } from '../../interface';
+import { Tea } from '../../utils/interface';
 
 
 function Teas() {

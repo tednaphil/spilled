@@ -1,6 +1,6 @@
 import './Error.css'
 import React from 'react'
-import spilledTea from "../../Coffee-Burst.svg";
+import spilledTea from "../../images/Coffee-Burst.svg";
 
 const Error: React.FC = () => {
     return (
