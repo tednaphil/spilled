@@ -1,13 +1,15 @@
 import './Teas.css';
 import Card from '../card/Card';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
+import React from 'react';
 
 
 function Teas() {
     const category = useParams<string>().category
+    const navigate = useNavigate()
 
     const [teas , setTeas] = useState<Tea[] | null>(null)
     const initialFavs: Tea[] = JSON.parse(sessionStorage.getItem("favs") || '[]');
@@ -22,8 +24,13 @@ function Teas() {
             return setTeas(favs)
         } else {
             const fetchedTeaData = await fetchTea();
-            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            setTeas(filteredTeaData);
+            if(!fetchedTeaData) {
+                navigate('*', {replace: true})
+            } else {
+
+                const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
+                setTeas(filteredTeaData);
+            }
         }
     }
 
