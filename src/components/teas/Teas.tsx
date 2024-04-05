@@ -8,6 +8,7 @@ import { fetchTea } from '../../apiCalls';
 function Teas() {
     const category = useParams<string>().category
     const [teas , setTeas] = useState<Tea[] | null>(null)
+    const [favs, setFavs] = useState<string[]>([])
 
     interface Tea {
         _id:string,
@@ -28,26 +29,17 @@ function Teas() {
     useEffect(() => {
         async function fetchData() {
             const fetchedTeaData = await fetchTea();
-            setTeas(fetchedTeaData)
-            // const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            // setTeas(filteredTeaData);
+            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
+            setTeas(filteredTeaData);
         }
         fetchData();
-    }, [])
+    }, [category])
 
-    const filteredTeas = teas?.filter((tea: Tea) => tea.type === category)
-    const teaCards = filteredTeas?.map((tea: Tea) => {
+    const teaCards = teas?.map((tea: Tea) => {
         return (
         <Card img={tea.image} name={tea.name} key={tea.slug}/>
         ) 
     })
-
-
-    // const teaCards = teas?.map((tea: Tea) => {
-    //     return (
-    //         <Card img={tea.image} name={tea.name} key={tea.slug}/>
-    //     )
-    // })
 
     return (
         <>
