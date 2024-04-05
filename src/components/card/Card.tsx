@@ -12,8 +12,8 @@ interface CardProp {
 
 function Card({img, name, slug, tea, addFavs}: CardProp) {
     function favTea(e: React.MouseEvent<HTMLButtonElement>) {
-        console.log((e.target as HTMLButtonElement).getAttribute('id'))
-        console.log(tea)
+        // console.log((e.target as HTMLButtonElement).getAttribute('id'))
+        // console.log(tea)
         addFavs(tea);
     }
 

@@ -14,30 +14,37 @@ function Teas() {
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
 
     useEffect(() => {
-        async function fetchData() {
-            const fetchedTeaData = await fetchTea();
-            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            if(filteredTeaData.length > 0) {
-                setTeas(filteredTeaData);
-            } else {
-                setTeas(favs);
-            }
-        }
+        
         fetchData();
     }, [category])
 
+    async function fetchData() {
+        if(category === 'favorites') {
+            return setTeas(favs)
+        } else {
+            const fetchedTeaData = await fetchTea();
+            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
+            setTeas(filteredTeaData);
+        }
+    }
+
     function addFavs(newFav: Tea ) {
+        console.log(newFav)
         if(favs.includes(newFav)){
-            favs.slice(favs.indexOf(newFav),1)
+           setFavs(favs.filter(fav => {
+                return fav.slug !== newFav.slug
+            }))
         }else{
          setFavs([...favs, newFav])
         }
-        sessionStorage.clear()
-        sessionStorage.setItem("favs", JSON.stringify(favs));
+        console.log(favs)
     }
 
-    console.log(favs)
-
+    useEffect(() => {
+        sessionStorage.clear()
+        sessionStorage.setItem("favs", JSON.stringify(favs));
+        fetchData()
+    }, [favs])
 
     const teaCards = teas?.map((tea: Tea) => {
         return (
