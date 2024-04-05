@@ -2,7 +2,7 @@ import './Error.css'
 import React from 'react'
 import spilledTea from "../../images/Coffee-Burst.svg";
 import { useEffect  } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface Props {
     isRedirected: boolean | any;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
-    // let location = useLocation().state
+    // let location = useLocation()
     // console.log(location)
     const navigate = useNavigate()
 
@@ -19,11 +19,13 @@ const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
     }, [setIsRedirected])
 
     useEffect(() => {
-       window.onload = () => {
+       window.onbeforeunload = () => {
         //    setIsRedirected(false)
-           navigate('../home', {replace: true})
+        if(isRedirected === true) {
+            navigate('../', {replace: true})
+        }
        }
-    }, [navigate, setIsRedirected])
+    }, [isRedirected, navigate, setIsRedirected])
 
     console.log('error', isRedirected)
 

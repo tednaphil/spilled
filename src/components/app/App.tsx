@@ -17,10 +17,10 @@ function App() {
       <Nav />
       <main>
         <Routes>
-          <Route path='/home' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/>
+          <Route path='/' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/>
           <Route path='/tea/:category' element={<Teas setIsRedirected={setIsRedirected}/>}/>
           {/* {isRedirected ?  */}
-          <Route path='/*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
+          <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
             {/* navigate('/', {replace: true})
           } */}
         </Routes>
