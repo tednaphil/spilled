@@ -4,14 +4,14 @@ import Nav from '../nav/Nav';
 import Home from '../home/Home';
 import Teas from '../teas/Teas';
 import Error from '../error/Error'
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { useState} from 'react';
 
 function App() {
 
   const [isRedirected, setIsRedirected] = useState<boolean>()
   console.log('app state isRedirected', isRedirected)
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <div className="App">
       <Nav />
@@ -19,11 +19,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home setIsRedirected={setIsRedirected}/>}/>
           <Route path='/tea/:category' element={<Teas setIsRedirected={setIsRedirected}/>}/>
-          {/* <Route path='/tea/favorites' element={<Favorites />}/> */}
-          {isRedirected ? 
-          <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> :
-            navigate('/', {replace: true})
-          }
+          {/* {isRedirected ?  */}
+          <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
+            {/* navigate('/', {replace: true})
+          } */}
         </Routes>
       </main>
     </div>

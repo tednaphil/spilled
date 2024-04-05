@@ -28,10 +28,7 @@ function Teas({ setIsRedirected }: Props) {
         } else {
             const fetchedTeaData = await fetchTea();
             if(!fetchedTeaData) {
-                navigate('*', {
-                    state: {message: '404'},
-                    replace: true
-                })
+                navigate('*', {replace: true})
             } else {
                 setIsRedirected(false)
                 const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);

@@ -12,15 +12,24 @@ interface Props {
 const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
     // let location = useLocation().state
     // console.log(location)
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     useEffect(() => {
         setIsRedirected(true)
     }, [setIsRedirected])
+
+    useEffect(() => {
+       window.onbeforeunload = () => {
+        // setIsRedirected(false)
+        navigate('/', {replace: true})
+       }
+    }, [])
+
     console.log('error', isRedirected)
     // let window: React.
     // window.onunload = () => {
     //     navigate('/', {replace: true})
     // }
+
     return (
         <div className='error_wrapper'>
             <h1>Hey there</h1>
