@@ -1,5 +1,5 @@
 
-import './favorites.css'
+import './Favorites.css'
 
 function Favorites() {
     return (
