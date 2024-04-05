@@ -3,57 +3,74 @@ import Card from '../card/Card';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
-import { Tea } from '../../interface';
 
 
 function Teas() {
     const category = useParams<string>().category
+    const [teaData , setTeaData] = useState<[Tea] | null>(null) // change the [Tea] cuz im pretrty sure its and arrya of teas but it could be a object idk i cant see the data but thats just a place holder for now 
 
-    const [teas , setTeas] = useState<Tea[] | null>(null)
-    const [favs, setFavs] = useState<Tea[]>([])
+    interface Tea {
+        _id:string,
+        name:string,
+        slug:string,
+        altnames:string,
+        image:string,
+        origin:string,
+        type:string,
+        caffeine:string,
+        caffenieLevel:string,
+        decription:string,
+        sources:[string],
+        colorDescription:string,
+        tasteDescription:string
+    }
 
     useEffect(() => {
         async function fetchData() {
             const fetchedTeaData = await fetchTea();
-            const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-            if(filteredTeaData.length > 0) {
-                setTeas(filteredTeaData);
-            } else {
-                setTeas(favs);
-            }
+            setTeaData(fetchedTeaData);
         }
         fetchData();
-    }, [category])
-
-    function addFavs(newFav: Tea ) {
-        setFavs([...favs, newFav])
-    }
-
-    console.log(favs)
-
-
-    const teaCards = teas?.map((tea: Tea) => {
-        return (
-            <Card
-                tea={tea}
-                img={tea.image}
-                name={tea.name}
-                slug={tea.slug}
-                key={tea.slug}
-                addFavs={addFavs}
-            />
-        )
     })
 
+    function filterTeas(tea:Tea){
+        return(tea.type === category)
+    }
+    
+    function displayTeas(){
+        let filteredTea = teaData?.filter(filterTeas)
+        return filteredTea?.map((tea:Tea) => {
+            <Card img = {tea.image} name = {tea.name}/>
+        })
+    }
+   
+   
+    // const teaCategory = teaData.filter((tea: Tea) => {
+    //     //Tea category
+    //     return (
+    //         <Card img = {tea.img} name = {tea.name}/>
+    //     )
+    // })
+    // interface Tea {name : string, img :string}
+    // interface Categories { categories: object[]}
+    // let categoryTeas: Categories[] = teaData.filter(() => {
+
+    // })
+    
+    
+    // function displayTeas() {
+            
+        
+    // }
+
     return (
-        <section className='cards-section'>
-            {teaCards}
-        </section>
-    ) 
+        <>
+        {displayTeas()}
+        </>
+    )
 }
 
 export default Teas;
-
 /*
 {
         "_id": "63092102a643c85c74b00e73",
