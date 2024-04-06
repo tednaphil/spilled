@@ -3,7 +3,8 @@ import teas from "../../images/teas.svg";
 // import spilledTea from "../../Coffee-Burst.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { blackTea, whiteTea, oolongTea, greenTea } from '../../utils/interface';
+import { allHardcodedTeas, TeaHardcoded } from '../../utils/interface';
+import TeaEd from '../teaEd/TeaEd'
 
 interface Props {
   isRedirected: boolean | any;
@@ -20,6 +21,17 @@ function Home({ isRedirected, setIsRedirected }: Props) {
     setIsRedirected(false);
   }, [navigate, setIsRedirected]);
 
+const teaInfo = allHardcodedTeas.map((tea: TeaHardcoded) => {
+  return (
+    <TeaEd 
+      name={tea.type}
+      slug={tea.type}
+      tea={tea}
+      key={Date.now()}
+    />
+  )
+})
+
   return (
     <div>
       <div className="intro-wrapper">
@@ -28,8 +40,8 @@ function Home({ isRedirected, setIsRedirected }: Props) {
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
-              Did you know that all 'teas' originate from the leaves of the Camellia 
-              Sinensis plant?(break this up) Any 'tea' that is not from this plant is actually an herbal blend! (break here) What makes each tea unique is 
+              Did you know that all 'teas' originate from the leaves of the Camellia
+              Sinensis plant?(break this up) Any 'tea' that is not from this plant is actually an herbal blend! (break here) What makes each tea unique is
               the creation process is goes through, including:
             </p>
             <ol>
@@ -45,12 +57,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>Black Tea</h2>
-          <p className="info-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+        
           <button className="infoButton">
             <NavLink to="/tea/black">See Black teas →</NavLink>
           </button>
@@ -60,12 +67,26 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>Oolong Tea</h2>
-          <p className="info-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <div className="info-desc">
+            <dl>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+            </dl>
+          </div>
           <button className="infoButton">
             <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
           </button>
@@ -75,12 +96,26 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>White Tea</h2>
-          <p className="info-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <div className="info-desc">
+            <dl>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+            </dl>
+          </div>
           <button className="infoButton">
             <NavLink to="/tea/white">See White teas →</NavLink>
           </button>
@@ -90,12 +125,26 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>Blends</h2>
-          <p className="info-desc">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <div className="info-desc">
+            <dl>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+              <div>
+                <dt></dt>
+                <dd>{}</dd>
+              </div>
+            </dl>
+          </div>
           <button className="infoButton">
             <NavLink to="/tea/blend">See tea blends →</NavLink>
           </button>

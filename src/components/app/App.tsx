@@ -18,6 +18,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/>
+          <Route/>
           <Route path='/tea/:category' element={<Teas setIsRedirected={setIsRedirected}/>}/>
           <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected}/>}/> 
         </Routes>
