@@ -1,6 +1,6 @@
 import './Teas.css';
 import Card from '../card/Card';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
@@ -85,7 +85,9 @@ function Teas({ setIsRedirected }: Props) {
     return (
         <>
         <h2>{catHeader}</h2>
-        { noFaves() && <p>You don't have any favorites - go find some!</p>}
+        { noFaves() && <>
+        <p>You don't have any favorites - go find some!</p>
+        <Link to="/">Go Home</Link></>}
         <section className='cards-section'>
             {teaCards}
         </section>
