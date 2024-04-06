@@ -1,26 +1,41 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-self: center;
-    width: 70%;
-    padding-left: 2%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+  text-align: center;
 }
 
 .tea-img {
-    width: 700px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+h3 {
+  margin: 0;
 }
 
 .img-wrapper {
-    text-align: center;
+  position: relative;
 }
-
-.name-wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-
 .fav-btn {
-    padding: 0px 12px 0px 12px;
-}
+  position: absolute;
+  top: 5px;
+  right: 30px;
+  padding: 5px 10px;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 100;
+  border:none;
+  background-color: transparent;
+}   
 
+.tasting-notes {
+  font-size: small;
+  text-align: left;
+  text-wrap: auto;
+  width: 50%;
+}
