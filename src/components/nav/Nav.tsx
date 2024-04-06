@@ -1,6 +1,6 @@
 import { NavLink,Link } from "react-router-dom";
 import "./Nav.css";
-import favorite from '../../favorite-save.png'
+import favorite from '../../images/favorite-save.png'
 
 function Nav() {
   return (
