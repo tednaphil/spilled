@@ -66,6 +66,7 @@ function Teas({ setIsRedirected }: Props) {
                 name={tea.name}
                 slug={tea.slug}
                 key={tea.slug}
+                description={tea.tasteDescription}
                 addFavs={addFavs}
             />
         )

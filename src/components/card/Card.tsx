@@ -7,10 +7,11 @@ interface CardProp {
   name: string;
   slug: string;
   tea: Tea;
+  description: string;
   addFavs: (newFav: Tea) => void;
 }
 
-function Card({ img, name, slug, tea, addFavs }: CardProp) {
+function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   const [color, setColor] = useState("#B1AE91");
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     // console.log((e.target as HTMLButtonElement).getAttribute('id'))
@@ -34,7 +35,7 @@ function Card({ img, name, slug, tea, addFavs }: CardProp) {
           <img className="tea-img" src={img} alt={`img of ${name}`} />
         </div>
         <h3>{name}</h3>
-        <p className="tasting-notes">WOMPWOMPMWOMPWMPMWPD FMSPDF</p>
+        <p className="tasting-notes">{description}</p>
       </div>
     </>
   );
