@@ -25,16 +25,18 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <article className="article-intro">
           <img src={teas} />
           <div className="info">
-            <h2 className="home-h2">Home</h2>
+            <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+              Did you know that all 'teas' originate from the leaves of the Camellia 
+              Sinensis plant?(break this up) Any 'tea' that is not from this plant is actually an herbal blend! (break here) What makes each tea unique is 
+              the creation process is goes through, including:
             </p>
-            <button className="infoButton">
-              <NavLink to="/tea/black">See Black teas →</NavLink>
-            </button>
+            <ol>
+              <li><strong>Withering</strong> - Letting the teas dry</li>
+              <li><strong>Bruising/Rolling</strong> - Crushing the leaves to break the cell wall and release enzymes</li>
+              <li><strong>Oxidization/Fermentation</strong> - Enzymes released in the Rolling phase interact with oxygen in the air, resulting in chemical changes</li>
+              <li><strong>Heating</strong> - This halts the process of oxidization once the desired levels are achieved</li>
+            </ol>
           </div>
         </article>
       </div>

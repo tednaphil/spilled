@@ -25,18 +25,36 @@ function Card({ img, name, slug, tea, addFavs }: CardProp) {
   //
 
   return (
-    <>
-      <div className="card" id={slug}>
-        <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{color:color}}>
-          ♥
-        </button>
-        <div className="img-wrapper">
-          <img className="tea-img" src={img} alt={`img of ${name}`} />
+    // <div className="card-container">
+    //   <div className="card" id={slug}>
+    //     <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{color:color}}>
+    //       ♥
+    //     </button>
+    //     <div className="img-wrapper">
+    //       <img className="tea-img" src={img} alt={`img of ${name}`} />
+    //     </div>
+    //     <h3>{name}</h3>
+    //     <p className="tasting-notes">WOMPWOMPMWOMPWMPMWPD FMSPDF</p>
+    //   </div>
+    // </div>
+
+    <div className="card-cont" >
+      <div className="card-inner">
+        <div className="card-front" id={slug}>
+          <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
+            ♥
+          </button>
+          <div className="img-wrapper">
+            <img className="tea-img" src={img} alt={`img of ${name}`} />
+          </div>
+          <h3>{name}</h3>
+          <p className="tasting-notes">WOMPWOMPMWOMPWMPMWPD FMSPDF</p>
         </div>
-        <h3>{name}</h3>
-        <p className="tasting-notes">WOMPWOMPMWOMPWMPMWPD FMSPDF</p>
+        <div className="card-back">
+          
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

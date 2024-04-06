@@ -27,4 +27,10 @@ const fetchTea = async () => {
     }
 }
 
+// const fetchSingleTea = async () => {
+//     try {
+//         const response = await fetch
+//     }
+// }
+
 export { fetchTea };
