@@ -1,8 +1,25 @@
 import "./Home.css";
-import teas from "../../teas.png";
-import { NavLink } from "react-router-dom";
+import teas from "../../images/teas.svg";
+// import spilledTea from "../../Coffee-Burst.svg";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useEffect  } from 'react';
 
-function Home() {
+interface Props {
+  isRedirected: boolean | any;
+  setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
+}
+
+function Home({ isRedirected, setIsRedirected }: Props) {
+  const navigate = useNavigate()
+  useEffect(() => {
+    // window.onload = () => {
+      //    setIsRedirected(false)
+    //      navigate('/', {replace: true})
+    //  }
+      setIsRedirected(false)
+
+}, [navigate, setIsRedirected])
+
   return (
     <div>
       <div className="intro-wrapper">

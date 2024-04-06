@@ -16,13 +16,14 @@ function fetchTea() {
 const fetchTea = async () => {
     try {
         const response = await fetch('https://boonakitea.cyclic.app/api/all');
-        if(!response.ok) {
+        if (!response.ok) {
             throw new Error('failed to fetch tea data')
         }
-        const fetchedData = await response.json();
-        return fetchedData;
-    } catch (error) {
-        console.log('error',error)
+        return await response.json();
+    } catch (error: any) {
+        // console.log('error', error)
+        console.log('error code', error.status)
+
     }
 }
 
