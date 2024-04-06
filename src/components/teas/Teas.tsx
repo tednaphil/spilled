@@ -72,9 +72,11 @@ function Teas({ setIsRedirected }: Props) {
         )
     })
 
+    const catHeader = `${category?.split('')[0].toUpperCase()}${category?.slice(1)}`
+
     return (
         <>
-        <h2>{category}</h2>
+        <h2>{catHeader}</h2>
         <section className='cards-section'>
             {teaCards}
         </section>
