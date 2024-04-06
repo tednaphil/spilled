@@ -74,9 +74,18 @@ function Teas({ setIsRedirected }: Props) {
 
     const catHeader = `${category?.split('')[0].toUpperCase()}${category?.slice(1)}`
 
+    const noFaves = (): boolean => {
+        if (category === 'favorites' && !favs.length) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
         <>
         <h2>{catHeader}</h2>
+        { noFaves() && <p>You don't have any favorites - go find some!</p>}
         <section className='cards-section'>
             {teaCards}
         </section>
