@@ -43,7 +43,7 @@ function Teas({ setIsRedirected }: Props) {
 
     function addFavs(newFav: Tea ) {
         console.log(newFav)
-        if(favs.includes(newFav)){
+        if(favs.some(fav => fav.slug === newFav.slug)){
            setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug
             }))
@@ -73,9 +73,12 @@ function Teas({ setIsRedirected }: Props) {
     })
 
     return (
+        <>
+        <h2>{category}</h2>
         <section className='cards-section'>
             {teaCards}
         </section>
+        </>
     ) 
 }
 
