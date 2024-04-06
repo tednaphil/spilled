@@ -3,6 +3,7 @@ import teas from "../../images/teas.svg";
 // import spilledTea from "../../Coffee-Burst.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { blackTea, whiteTea, oolongTea, greenTea } from '../../utils/interface';
 
 interface Props {
   isRedirected: boolean | any;
