@@ -70,25 +70,11 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Oolong Tea</h2>
           <div className="info-desc">
-            <dl>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-            </dl>
+       
           </div>
+          <button className="infoButton">
+            <NavLink to="/tea/oolong/education">More info →</NavLink>
+          </button>
           <button className="infoButton">
             <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
           </button>
@@ -99,25 +85,10 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
-            <dl>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-            </dl>
           </div>
+          <button className="infoButton">
+            <NavLink to="/tea/white/education">More info →</NavLink>
+          </button>
           <button className="infoButton">
             <NavLink to="/tea/white">See White teas →</NavLink>
           </button>
@@ -128,24 +99,6 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
-            <dl>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-              <div>
-                <dt></dt>
-                <dd>{}</dd>
-              </div>
-            </dl>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/blend">See tea blends →</NavLink>

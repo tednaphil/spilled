@@ -31,12 +31,12 @@ function Teas({ setIsRedirected }: Props) {
                 navigate('*', {replace: true})
             } else {
                 setIsRedirected(false)
-                setFilteredTeas(fetchedTeaData)
+                filterTeas(fetchedTeaData)
             }
         }
     }
 
-    function setFilteredTeas(fetchedTeaData: any) {
+    function filterTeas(fetchedTeaData: any) {
         const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
         !filteredTeaData.length ? navigate('*', {replace: true}) : setTeas(filteredTeaData);
     }
