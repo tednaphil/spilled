@@ -21,6 +21,7 @@ describe('Spilled', () => {
   })
   it('Displays tea pages from nav bar', () => {
     cy.get('nav').contains('a', 'Blends').click()
+    // .url().should('eq', '')
     //check url
     .get('nav').contains('a', 'White').click()
     //check url
@@ -40,6 +41,9 @@ describe('Spilled', () => {
     //check for added fav
     //simulate fav button click
     //check that favs page is empty
+  })
+  it('Displays error message if api call fails', () => {
+    
   })
 
 })
