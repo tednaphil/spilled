@@ -21,16 +21,16 @@ function Home({ isRedirected, setIsRedirected }: Props) {
     setIsRedirected(false);
   }, [navigate, setIsRedirected]);
 
-const teaInfo = allHardcodedTeas.map((tea: TeaHardcoded) => {
-  return (
-    <TeaEd 
-      name={tea.type}
-      slug={tea.type}
-      tea={tea}
-      key={Date.now()}
-    />
-  )
-})
+// const teaInfo = allHardcodedTeas.map((tea: TeaHardcoded) => {
+//   return (
+//     <TeaEd 
+//       name={tea.type}
+//       slug={tea.type}
+//       tea={tea}
+//       key={Date.now()}
+//     />
+//   )
+// })
 
   return (
     <div>
@@ -57,7 +57,9 @@ const teaInfo = allHardcodedTeas.map((tea: TeaHardcoded) => {
         <img src={teas} />
         <div className="info">
           <h2>Black Tea</h2>
-        
+          <button className="infoButton">
+            <NavLink to="/tea/black/education">More info →</NavLink>
+          </button>
           <button className="infoButton">
             <NavLink to="/tea/black">See Black teas →</NavLink>
           </button>
