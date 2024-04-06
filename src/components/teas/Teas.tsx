@@ -28,13 +28,17 @@ function Teas({ setIsRedirected }: Props) {
         } else {
             const fetchedTeaData = await fetchTea();
             if(!fetchedTeaData) {
-                navigate('..*', {replace: true})
+                navigate('*', {replace: true})
             } else {
                 setIsRedirected(false)
-                const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category);
-                setTeas(filteredTeaData);
+                setFilteredTeas(fetchedTeaData)
             }
         }
+    }
+
+    function setFilteredTeas(fetchedTeaData: any) {
+        const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
+        !filteredTeaData.length ? navigate('*', {replace: true}) : setTeas(filteredTeaData);
     }
 
     function addFavs(newFav: Tea ) {
