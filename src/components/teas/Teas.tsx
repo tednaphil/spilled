@@ -50,7 +50,6 @@ function Teas({ setIsRedirected }: Props) {
         }else{
          setFavs([...favs, newFav])
         }
-        console.log(favs)
     }
 
     useEffect(() => {

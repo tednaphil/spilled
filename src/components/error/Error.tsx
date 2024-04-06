@@ -27,8 +27,6 @@ const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
        }
     }, [isRedirected, navigate, setIsRedirected])
 
-    console.log('error', isRedirected)
-
     return (
         <div className='error_wrapper'>
             <h1>Hey there</h1>
