@@ -1,4 +1,4 @@
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Nav.css";
 import favorite from '../../images/favorite-save.png'
 
@@ -7,7 +7,7 @@ function Nav() {
     <header className="header">
       <nav className="nav-bar">
         <div className="div-nav-left">
-          <Link to="/" className = "h1"><h1>Spilled</h1></Link>
+          <Link to="/" className="h1"><h1>Spilled</h1></Link>
         </div>
         <div className="div-nav-center">
           <NavLink to="/tea/blends" className='navlink'>Blends</NavLink>
@@ -18,7 +18,7 @@ function Nav() {
         </div>
         <div className="div-nav-right">
           <NavLink className='nav-favorites' to="/tea/favorites">
-            <img className='favorite-img' src={favorite} alt="bookmark with heart shape"/>
+            <img className='favorite-img' src={favorite} alt="bookmark with heart shape" />
           </NavLink>
         </div>
       </nav>

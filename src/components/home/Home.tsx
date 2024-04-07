@@ -2,7 +2,7 @@ import "./Home.css";
 import teas from "../../images/teas.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { allHardcodedTeas, TeaHardcoded } from '../../utils/interface';
+import { allHardcodedTeas } from '../../utils/interface';
 
 interface Props {
   isRedirected: boolean | any;
@@ -23,7 +23,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
     <div>
       <div className="intro-wrapper">
         <article className="article-intro">
-          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup'/>
+          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' />
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
@@ -44,7 +44,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>Black Tea</h2>
-             <p>{allHardcodedTeas[3].summary}</p>
+          <p>{allHardcodedTeas[3].summary}</p>
           <button className="infoButton">
             <NavLink to="/tea/black/education">More info →</NavLink>
           </button>
@@ -73,7 +73,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
-          <p>{allHardcodedTeas[1].summary}</p>
+            <p>{allHardcodedTeas[1].summary}</p>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/white/education">More info →</NavLink>
@@ -88,7 +88,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Green Tea</h2>
           <div className="info-desc">
-          <p>{allHardcodedTeas[0].summary}</p>
+            <p>{allHardcodedTeas[0].summary}</p>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/green/education">More info →</NavLink>
