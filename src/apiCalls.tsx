@@ -27,10 +27,16 @@ const fetchTea = async () => {
     }
 }
 
-// const fetchSingleTea = async () => {
-//     try {
-//         const response = await fetch
-//     }
-// }
+const fetchSingleTea = async () => {
+    try {
+        const response = await fetch('')
+        if (!response.ok) {
+            throw new Error("Couldn't find that tea!")
+        }
+        return await response.json()
+    } catch (error: any) {
+        throw error
+    }
+}
 
-export { fetchTea };
+export { fetchTea, fetchSingleTea };
