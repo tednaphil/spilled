@@ -6,6 +6,7 @@ import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import React from 'react';
 import pic from '../../images/logo192.png';
+import multiTeas from '../../images/multi-teas.jpg'
 
 interface Props {
     setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
@@ -53,7 +54,7 @@ function Teas({ setIsRedirected }: Props) {
         }
         data.forEach((d) => {
             if(d.image.includes('herokuapp')) {
-                d.image = pic
+                d.image = multiTeas
             }
         })
 
