@@ -23,7 +23,6 @@ function TeaEd() {
     const teaArticle = targetTea?.map((tea: TeaHardcoded) => {
         return (
           <TeaArticle 
-            name={tea.type}
             slug={tea.type}
             tea={tea}
             key={Date.now()}

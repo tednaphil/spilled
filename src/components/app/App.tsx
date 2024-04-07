@@ -5,7 +5,7 @@ import Home from '../home/Home';
 import Teas from '../teas/Teas';
 import Error from '../error/Error'
 import TeaEd from '../teaEd/TeaEd'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useState} from 'react';
 
 function App() {

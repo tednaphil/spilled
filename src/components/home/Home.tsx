@@ -1,10 +1,8 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
-// import spilledTea from "../../Coffee-Burst.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { allHardcodedTeas, TeaHardcoded } from '../../utils/interface';
-import TeaEd from '../teaEd/TeaEd'
 
 interface Props {
   isRedirected: boolean | any;
@@ -21,22 +19,11 @@ function Home({ isRedirected, setIsRedirected }: Props) {
     setIsRedirected(false);
   }, [navigate, setIsRedirected]);
 
-// const teaInfo = allHardcodedTeas.map((tea: TeaHardcoded) => {
-//   return (
-//     <TeaEd 
-//       name={tea.type}
-//       slug={tea.type}
-//       tea={tea}
-//       key={Date.now()}
-//     />
-//   )
-// })
-
   return (
     <div>
       <div className="intro-wrapper">
         <article className="article-intro">
-          <img src={teas} />
+          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup'/>
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
@@ -57,6 +44,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} />
         <div className="info">
           <h2>Black Tea</h2>
+             <p>{allHardcodedTeas[3].summary}</p>
           <button className="infoButton">
             <NavLink to="/tea/black/education">More info →</NavLink>
           </button>
@@ -70,7 +58,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Oolong Tea</h2>
           <div className="info-desc">
-       
+            <p>{allHardcodedTeas[2].summary}</p>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/oolong/education">More info →</NavLink>
@@ -85,6 +73,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
+          <p>{allHardcodedTeas[1].summary}</p>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/white/education">More info →</NavLink>
@@ -97,8 +86,25 @@ function Home({ isRedirected, setIsRedirected }: Props) {
       <article className="article-tea">
         <img src={teas} />
         <div className="info">
+          <h2>Green Tea</h2>
+          <div className="info-desc">
+          <p>{allHardcodedTeas[0].summary}</p>
+          </div>
+          <button className="infoButton">
+            <NavLink to="/tea/green/education">More info →</NavLink>
+          </button>
+          <button className="infoButton">
+            <NavLink to="/tea/green">See Green teas →</NavLink>
+          </button>
+        </div>
+      </article>
+      <article className="article-tea">
+        <img src={teas} />
+        <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
+            <p>Blends can be made up of any tea base! Blends can also comprise of non-tea 'tea'. Such as Rooibos, Pu-Erh, Yerba Mate, and Hemp!</p>
+            <p>Our site focuses on just the Camellia Sinensis plant to ease the transition into tea.</p>
           </div>
           <button className="infoButton">
             <NavLink to="/tea/blend">See tea blends →</NavLink>
