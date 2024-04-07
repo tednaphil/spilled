@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    min-height: fit-content; 
+    min-height: fit-content;
     font-family: 'proxima-nova', sans-serif;
 }
 
@@ -29,7 +29,8 @@ a:hover {
 h1 {
     margin: 0;
     font-size: 1.5em;
-    font-family: "Macondo Swash Caps", cursive;    font-weight: 400;
+    font-family: "Macondo Swash Caps", cursive;
+    font-weight: 400;
 }
 
 .div-nav-left {
@@ -42,7 +43,8 @@ h1 {
     display: flex;
 }
 
-.favorite-img, .nav-favorites {
+.favorite-img,
+.nav-favorites {
     height: 1.5em;
     width: 1.5em;
 }
