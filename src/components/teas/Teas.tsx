@@ -50,9 +50,8 @@ function Teas({ setIsRedirected }: Props) {
         }else{
          setFavs([...favs, newFav])
         }
-        console.log(favs)
     }
-
+    
     useEffect(() => {
         sessionStorage.clear()
         sessionStorage.setItem("favs", JSON.stringify(favs));
@@ -67,6 +66,7 @@ function Teas({ setIsRedirected }: Props) {
                 name={tea.name}
                 slug={tea.slug}
                 key={tea.slug}
+                favs={sessionStorage.getItem("favs")}
                 addFavs={addFavs}
             />
         )

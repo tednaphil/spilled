@@ -13,7 +13,7 @@ export interface Tea {
     decription:string,
     sources:[string],
     colorDescription:string,
-    tasteDescription:string
+    tasteDescription:string,
 }
 
 // interface ErrorInterface {

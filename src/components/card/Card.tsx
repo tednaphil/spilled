@@ -8,19 +8,23 @@ interface CardProp {
   slug: string;
   tea: Tea;
   addFavs: (newFav: Tea) => void;
+  favs: Tea[];
 }
 
-function Card({ img, name, slug, tea, addFavs }: CardProp) {
+function Card({ img, name, slug, tea, addFavs,favs }: CardProp) {
   const [color, setColor] = useState("#B1AE91");
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     // console.log((e.target as HTMLButtonElement).getAttribute('id'))
     // console.log(tea)
+    const [favs, setFavs] = useState<Tea[]>(JSON.parse(sessionStorage.getItem("favs")))|| [];
+
     addFavs(tea);
-    if (color !== "#B1AE91") {
-      setColor("#B1AE91");
-    } else {
+    if(favs.some(fav => fav.slug === slug)) {
       setColor("#895B1E");
+    } else {
+      setColor("#B1AE91");
     }
+    
   }
   //
 
