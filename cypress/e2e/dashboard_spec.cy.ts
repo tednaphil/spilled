@@ -18,13 +18,13 @@ describe('Spilled', () => {
     .get('.div-nav-center').contains('a', 'White')
     .get('img').should('have.attr', 'src').should('include', 'data:image')
     .get('article').first().within(() => {
-      cy.get('h2').contains('Home')
-      .get('p').contains('Lorem ipsum')
+      cy.get('h2').contains('Let\'s \'spill the tea\' on tea!')
+      .get('p').contains('Did you know')
       .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
     .get('article').last().within(() => {
       cy.get('h2').contains('Blends')
-      .get('p').contains('Lorem ipsum')
+      .get('p').contains('Blends can be made up of any tea base!')
       .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
     //test main secion content - we need to add classes to some elements
@@ -41,6 +41,9 @@ describe('Spilled', () => {
     .get('.nav-favorites').click()
     .url().should('include', 'favorites')
     //check that empty favorites page displays message
+
+  })
+  it('Displays tea info pages', () => {
 
   })
 
@@ -75,6 +78,9 @@ describe('Spilled', () => {
     // test error page content
     //stub 500 statusCode
     //test error page content
+  })
+  it('Displays error message if visiting a bad path', () => {
+
   })
 
 })
