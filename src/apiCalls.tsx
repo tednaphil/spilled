@@ -1,17 +1,3 @@
-/*
-function fetchTea() {
-    return fetch('https://boonakitea.cyclic.app/api/all')
-        .then(response => {
-            if(!response.ok) {
-                throw new Error('There was an issue getting teas.')
-            }
-            return response.json()
-        })
-        .then(data => {
-            return data
-        })
-}
-*/
 
 const fetchTea = async () => {
     try {
@@ -27,4 +13,16 @@ const fetchTea = async () => {
     }
 }
 
-export { fetchTea };
+const fetchSingleTea = async (tea: string) => {
+    try {
+        const response = await fetch(`https://boonakitea.cyclic.app/api/${tea}`)
+        if (!response.ok) {
+            throw new Error("Couldn't find that tea!")
+        }
+        return await response.json()
+    } catch (error: any) {
+        throw error
+    }
+}
+
+export { fetchTea, fetchSingleTea };

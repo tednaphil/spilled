@@ -1,4 +1,4 @@
-.card {
+.card-cont {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -21,6 +21,7 @@ h3 {
 .img-wrapper {
   position: relative;
 }
+
 .fav-btn {
   position: absolute;
   top: 5px;
@@ -29,9 +30,9 @@ h3 {
   font-size: 50px;
   cursor: pointer;
   z-index: 100;
-  border:none;
+  border: none;
   background-color: transparent;
-}   
+}
 
 .tasting-notes {
   font-size: small;
