@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import React from 'react';
+import pic from '../../images/logo192.png';
+import multiTeas from '../../images/multi-teas.jpg'
 
 interface Props {
     setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
@@ -40,7 +42,23 @@ function Teas({ setIsRedirected }: Props) {
 
     function filterTeas(fetchedTeaData: any) {
         const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
-        !filteredTeaData.length ? navigate('*', { replace: true }) : setTeas(filteredTeaData);
+        !filteredTeaData.length ? navigate('*', { replace: true }) : organizeTeas(filteredTeaData);
+    }
+
+    function organizeTeas(data: Tea[]) {
+        const index = data.findIndex(d => d.name === 'Black Tea' || d.name === 'Green Tea'
+            || d.name === 'Wulong (oolong) Tea' || d.name === 'White Tea'
+        )
+        if(index !== -1) {
+            data.splice(index, 1)
+        }
+        data.forEach((d) => {
+            if(d.image.includes('herokuapp')) {
+                d.image = multiTeas
+            }
+        })
+
+        setTeas(data);
     }
 
     function addFavs(newFav: Tea) {
