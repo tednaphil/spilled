@@ -44,6 +44,7 @@ describe('Spilled', () => {
 
   })
   it('Displays tea info pages', () => {
+    //add interception of new network request
 
   })
 
@@ -55,16 +56,15 @@ describe('Spilled', () => {
 
   it('Adds and removes teas from Favorites list', () => {
     cy.get('nav').contains('a', 'White').click()
-    .get('div.card').first().within(() => {
-      cy.get('h3').contains('Baihoi Yinzhen')
-      .get('button').contains('Fav').click()
+    .get('#baihoiyinzhen').within(() => {
+      cy.get('.fav-btn').click()
     })
-    //add assertions for new tea details
     cy.get('.nav-favorites').click()
     .url().should('include', 'favorites')
-    .get('div.card').within(() => {
+    .get('#baihoiyinzhen').within(() => {
       cy.get('h3').contains('Baihoi Yinzhen')
-      .get('button').click()
+    // add assertions for new tea details
+      .get('.fav-btn').click()
     }).should('not.exist')
     //check that favs page is empty and displays message
     
