@@ -1,54 +1,74 @@
 import './Teas.css';
 import Card from '../card/Card';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import React from 'react';
+import pic from '../../images/logo192.png';
+import multiTeas from '../../images/multi-teas.jpg'
 
 interface Props {
     setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
 }
 
 function Teas({ setIsRedirected }: Props) {
-    const category = useParams<string>().category
+
     const navigate = useNavigate()
 
-    const [teas , setTeas] = useState<Tea[] | null>(null)
     const initialFavs: Tea[] = JSON.parse(sessionStorage.getItem("favs") || '[]');
+    const category = useParams<string>().category
+
+    const [teas, setTeas] = useState<Tea[] | null>(null)
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
 
-    useEffect(() => { 
+    useEffect(() => {
         fetchData();
     }, [category])
 
     async function fetchData() {
-        if(category === 'favorites') {
+        if (category === 'favorites') {
             return setTeas(favs)
         } else {
             const fetchedTeaData = await fetchTea();
-            if(!fetchedTeaData) {
-                navigate('*', {replace: true})
+            if (!fetchedTeaData) {
+                navigate('*', { replace: true })
             } else {
                 setIsRedirected(false)
-                setFilteredTeas(fetchedTeaData)
+                filterTeas(fetchedTeaData)
             }
         }
     }
 
-    function setFilteredTeas(fetchedTeaData: any) {
+    function filterTeas(fetchedTeaData: any) {
         const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
-        !filteredTeaData.length ? navigate('*', {replace: true}) : setTeas(filteredTeaData);
+        !filteredTeaData.length ? navigate('*', { replace: true }) : organizeTeas(filteredTeaData);
     }
 
-    function addFavs(newFav: Tea ) {
+    function organizeTeas(data: Tea[]) {
+        const index = data.findIndex(d => d.name === 'Black Tea' || d.name === 'Green Tea'
+            || d.name === 'Wulong (oolong) Tea' || d.name === 'White Tea'
+        )
+        if(index !== -1) {
+            data.splice(index, 1)
+        }
+        data.forEach((d) => {
+            if(d.image.includes('herokuapp')) {
+                d.image = multiTeas
+            }
+        })
+
+        setTeas(data);
+    }
+
+    function addFavs(newFav: Tea) {
         console.log(newFav)
-        if(favs.some(fav => fav.slug === newFav.slug)){
-           setFavs(favs.filter(fav => {
+        if (favs.some(fav => fav.slug === newFav.slug)) {
+            setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug
             }))
-        }else{
-         setFavs([...favs, newFav])
+        } else {
+            setFavs([...favs, newFav])
         }
     }
     
@@ -66,42 +86,33 @@ function Teas({ setIsRedirected }: Props) {
                 name={tea.name}
                 slug={tea.slug}
                 key={tea.slug}
-                favs={sessionStorage.getItem("favs")}
+                description={tea.tasteDescription}
                 addFavs={addFavs}
             />
         )
     })
 
+    const catHeader = `${category?.split('')[0].toUpperCase()}${category?.slice(1)}`
+
+    const noFaves = (): boolean => {
+        if (category === 'favorites' && !favs.length) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     return (
         <>
-        <h2>{category}</h2>
+        <h2>{catHeader}</h2>
+        { noFaves() && <>
+        <p>You don't have any favorites - go find some!</p>
+        <Link to="/">Go Home</Link></>}
         <section className='cards-section'>
             {teaCards}
         </section>
         </>
-    ) 
+    )
 }
 
 export default Teas;
-
-/*
-{
-        "_id": "63092102a643c85c74b00e73",
-        "name": "Darjeeling Tea",
-        "slug": "darjeeling",
-        "altnames": "",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Darjeeling%2C_India%2C_Darjeeling_tea_in_variety%2C_Black_tea.jpg/1920px-Darjeeling%2C_India%2C_Darjeeling_tea_in_variety%2C_Black_tea.jpg?20210606141050",
-        "origin": "India",
-        "type": "black",
-        "caffeine": "50-120mg",
-        "caffeineLevel": "very high",
-        "decription": "Darjeeling tea is a black tea that is grown and processed in the Darjeeling or Kalimpong Districts in West Bengal, also among the only teas in the world with a Geographical Indication trademark",
-        "sources": [
-            "https://en.wikipedia.org/wiki/Darjeeling_tea",
-            "https://www.thespruceeats.com/tea-flushes-in-darjeeling-765194",
-            "https://www.seriouseats.com/why-you-should-drink-more-darjeeling-tea-what-is-first-flush"
-        ],
-        "colorDescription": "ranging from golden yellow to orange to deep red.",
-        "tasteDescription": "musky-sweet tasting notes similar to muscat wine"
-    }
- */
