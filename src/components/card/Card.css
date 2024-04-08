@@ -12,11 +12,9 @@
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
-
   width: 100%;
   height: 100%;
-  text-align: baseline;
-  text-indent: 1em;
+  text-align: center;
 }
 
 .card-front, .card-back {
@@ -28,15 +26,14 @@
 }
 
 .card-back {
-  /* top: 50;
-  left: 0; */
+  top: 0;
+  left: 0;
   transform: rotateY(180deg);
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-color: rgb(191, 191, 191);
-  color: white;
-  font-weight: 500;
+  background-color: rgb(177,174,145, .5);
+  color: black;
 }
 
 .tea-img {
@@ -47,6 +44,7 @@
 
 h3 {
   margin: 0;
+  float: inline-start;
 }
 
 .img-wrapper {
@@ -68,6 +66,6 @@ h3 {
 .tasting-notes {
   font-size: small;
   text-align: left;
-  text-wrap: auto;
+  text-wrap: wrap;
   width: 50%;
 }

@@ -26,12 +26,6 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     transform: 'rotateY(0deg)'
   }
 
-  const tcss = {
-    transform: 'rotateY(180deg)'
-  }
-
-console.log(isClicked)
-
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
     if (color !== "#B1AE91") {
@@ -62,9 +56,9 @@ console.log(targetTea)
           <p className="tasting-notes">{description}</p>
         </div>
         <div className="card-back">
-          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.mainIngredients}</p>
-          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.caffeine}</p>
-          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.origin}</p>
+          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.mainIngredients}</p>
+          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.caffeine}</p>
+          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.origin}</p>
         </div>
       </div>
     </div>
