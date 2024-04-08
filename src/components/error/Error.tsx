@@ -29,10 +29,10 @@ const navigate = useNavigate()
 
   return (
     <div className='error_wrapper'>
+      <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
       <h1>Uh oh!</h1>
-      <p className='error-message'>We couldn't find that page!</p>
-      <Link to='/'>Go back home</Link>
-      <img src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
+      <p className='error-message'>We couldn't find that page</p>
+      <Link className='home-link'to='/'>Go back home</Link>
     </div>
   )
 }
