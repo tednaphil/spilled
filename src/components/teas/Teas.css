@@ -11,3 +11,16 @@
     font-size: 1.5rem;
 
 }
+
+.no-favs {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.home-link {
+    font-family: 'proxima-nova', sans-serif;
+    border-radius: 3px;
+    margin-left: 46%;
+    outline: 1px black solid;
+    display: inline-block;
+}
