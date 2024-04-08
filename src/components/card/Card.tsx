@@ -1,6 +1,7 @@
 import "./Card.css";
 import { Tea } from "../../utils/interface";
 import { useState } from "react";
+import { fetchSingleTea } from "../../apiCalls";
 interface CardProp {
   img: string;
   name: string;
@@ -11,7 +12,9 @@ interface CardProp {
 }
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
+
   const [color, setColor] = useState("#B1AE91");
+
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
     if (color !== "#B1AE91") {
@@ -19,6 +22,11 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     } else {
       setColor("#895B1E");
     }
+  }
+
+  async function fetchTea(e: React.MouseEvent<HTMLImageElement>): Promise<any> {
+    let tea = await fetchSingleTea(slug)
+    console.log(tea[0].mainIngredients)
   }
 
   return (   
@@ -29,7 +37,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
             ♥
           </button>
           <div className="img-wrapper">
-            <img className="tea-img" src={img} alt={`img of ${name}`} />
+            <img className="tea-img" src={img} alt={`img of ${name}`} onClick={(e) => fetchTea(e)}/>
           </div>
           <h3>{name}</h3>
           <p className="tasting-notes">{description}</p>

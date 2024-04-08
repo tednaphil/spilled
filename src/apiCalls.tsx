@@ -6,21 +6,22 @@ const fetchTea = async () => {
             throw new Error('failed to fetch tea data')
         }
         return await response.json();
-    } catch (error: any) {
+    } catch (error) {
         // console.log('error', error)
-        console.log('error code', error.status)
+        console.log('error code', error)
 
     }
 }
 
-const fetchSingleTea = async (tea: string) => {
+const fetchSingleTea = async (slug: string) => {
     try {
-        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${tea}`)
+        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${slug}`)
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
+        // console.log(response.json())
         return await response.json()
-    } catch (error: any) {
+    } catch (error) {
         throw error
     }
 }
