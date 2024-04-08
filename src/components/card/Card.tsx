@@ -1,7 +1,8 @@
 import "./Card.css";
 import { Tea } from "../../utils/interface";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetchSingleTea } from "../../apiCalls";
+import { transform } from "typescript";
 interface CardProp {
   img: string;
   name: string;
@@ -13,8 +14,19 @@ interface CardProp {
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
 
-  const [targetTea, setTargetTea] = useState<any>(null)
+  const [targetTea, setTargetTea] = useState<any>({})
+  const [isClicked, setIsClicked] = useState<boolean>(false)
   const [color, setColor] = useState("#B1AE91");
+
+  const css = {
+    transform: 'rotateY(180deg)',
+  }
+
+  const ncss = {
+    transform: 'rotateY(0)'
+  }
+
+console.log(isClicked)
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
@@ -25,32 +37,30 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     }
   }
 
-  async function fetchTea(e: React.MouseEvent<HTMLImageElement>): Promise<any> {
+  async function fetchTea(e: React.MouseEvent<HTMLDivElement>): Promise<any> {
     let tea = await fetchSingleTea(slug)
     let target = tea[0]
     setTargetTea(target)
-    console.log('tea', target)
-    console.log('target ingredients', target.mainIngredients)
   }
 
-  // console.log('targetTEa', typeof(targetTea[0]))
+console.log(targetTea)
   return (   
-    <div className="card-cont" >
-      <div className="card-inner">
+    <div className="card-cont" onClick={(e) => {fetchTea(e) ; setIsClicked(!isClicked ? true : false)}} style={isClicked ? css : ncss}>
+      <div className="card-inner" style={isClicked ? css : ncss}>
         <div className="card-front" id={slug}>
           <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
             ♥
           </button>
           <div className="img-wrapper">
-            <img className="tea-img" src={img} alt={`img of ${name}`} onClick={(e) => fetchTea(e)}/>
+            <img className="tea-img" src={img} alt={`img of ${name}`} />
           </div>
           <h3>{name}</h3>
           <p className="tasting-notes">{description}</p>
         </div>
-        <div className="card-back">
-          <p>{}</p>
-          <p></p>
-          <p></p>
+        <div className="card-back" >
+          <p>{targetTea.mainIngredients}</p>
+          <p>{targetTea.caffeine}</p>
+          <p>{targetTea.origin}</p>
         </div>
       </div>
     </div>
