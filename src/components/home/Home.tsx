@@ -4,12 +4,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { allHardcodedTeas } from '../../utils/interface';
 
-interface Props {
-  isRedirected: boolean | any;
-  setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-}
 
-function Home({ isRedirected, setIsRedirected }: Props) {
+
+function Home() {
   const navigate = useNavigate();
   useEffect(() => {
     // window.onload = () => {
