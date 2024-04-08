@@ -8,11 +8,9 @@ import React from 'react';
 import pic from '../../images/logo192.png';
 import multiTeas from '../../images/multi-teas.jpg'
 
-interface Props {
-    setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
-}
 
-function Teas({ setIsRedirected }: Props) {
+
+function Teas() {
 
     const navigate = useNavigate()
 
@@ -38,7 +36,6 @@ function Teas({ setIsRedirected }: Props) {
                 setError('There was a problem getting the tea. Try again later!')
                 return
             } else {
-                setIsRedirected(false)
                 filterTeas(fetchedTeaData)
             }
         }

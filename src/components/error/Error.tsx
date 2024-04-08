@@ -1,22 +1,23 @@
 import './Error.css'
 import React from 'react'
 import spilledTea from "../../images/Coffee-Burst.svg";
-import { useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-interface Props {
-    isRedirected: boolean | any;
-    setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>;
-    // error: string;
-}
 
-const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
-
+const Error = () => {
+const [isRedirected, setIsRedirected] = useState<boolean>(false);
 const navigate = useNavigate()
 
   useEffect(() => {
     setIsRedirected(true)
   }, [setIsRedirected])
+   useEffect(() => {
+    if (performance.navigation.type === 1) {
+      navigate("/")
+      
+    }
+  }, [navigate]);
 
   useEffect(() => {
     window.onbeforeunload = () => {
