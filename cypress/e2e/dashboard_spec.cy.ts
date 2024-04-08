@@ -76,7 +76,7 @@ describe('Spilled', () => {
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Blends').click()
     .get('p').contains('There was a problem')
-    // test error page content
+    // test remaining error page content
     //stub 500 statusCode
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
       statusCode: 500,
@@ -84,13 +84,13 @@ describe('Spilled', () => {
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Blends').click()
     .get('p').contains('There was a problem')
-    //test error page content
+    //test remaining error page content
   })
   it('Displays error message if visiting a bad path', () => {
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
-      statusCode: 404,
-    }).as('getTeas')
-    .visit('http://localhost:3000/teas/badpath')
+    // cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+    //   statusCode: 404,
+    // }).as('getTeas')
+    cy.visit('http://localhost:3000/teas/badpath')
     //check content and url
 
   })
