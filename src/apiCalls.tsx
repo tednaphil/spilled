@@ -8,8 +8,10 @@ const fetchTea = async () => {
         return await response.json();
     } catch (error: any) {
         // console.log('error', error)
-        console.log('error code', error.status)
-
+        // console.log('error code', error.status)
+        console.log(error.message)
+        // return error.message
+        // throw Error('Server error')
     }
 }
 
