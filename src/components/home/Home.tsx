@@ -1,20 +1,12 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { allHardcodedTeas } from '../../utils/interface';
 
 
 
+
 function Home() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    // window.onload = () => {
-    //    setIsRedirected(false)
-    //      navigate('/', {replace: true})
-    //  }
-    setIsRedirected(false);
-  }, [navigate, setIsRedirected]);
 
   return (
     <div>
