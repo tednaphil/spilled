@@ -82,7 +82,7 @@ describe('Spilled', () => {
       statusCode: 500,
     }).as('getTeas')
     .visit('http://localhost:3000/')
-    .get('nav').contains('a', 'Blends').click()
+    .get('nav').contains('a', 'Black').click()
     .get('p').contains('There was a problem')
     //test remaining error page content
   })

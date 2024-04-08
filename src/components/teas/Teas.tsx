@@ -35,7 +35,7 @@ function Teas({ setIsRedirected }: Props) {
             // console.log('fetchedTeaData return', fetchedTeaData)
             if (!fetchedTeaData) {
                 // navigate('*', { replace: true })
-                setError('There was a problem getting the tea.')
+                setError('There was a problem getting the tea. Try again later!')
                 return
             } else {
                 setIsRedirected(false)
