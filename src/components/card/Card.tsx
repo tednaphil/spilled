@@ -23,7 +23,11 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   }
 
   const ncss = {
-    transform: 'rotateY(0)'
+    transform: 'rotateY(0deg)'
+  }
+
+  const tcss = {
+    transform: 'rotateY(180deg)'
   }
 
 console.log(isClicked)
@@ -57,10 +61,10 @@ console.log(targetTea)
           <h3>{name}</h3>
           <p className="tasting-notes">{description}</p>
         </div>
-        <div className="card-back" >
-          <p>{targetTea.mainIngredients}</p>
-          <p>{targetTea.caffeine}</p>
-          <p>{targetTea.origin}</p>
+        <div className="card-back">
+          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.mainIngredients}</p>
+          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.caffeine}</p>
+          <p className="card-back-text" style={isClicked ? tcss : ncss}>{targetTea.origin}</p>
         </div>
       </div>
     </div>

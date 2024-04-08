@@ -1,7 +1,7 @@
 .card-cont {
   display: flex;
   position: relative;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-self: center;
   width: 100%;
@@ -34,14 +34,10 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-color: rgb(108, 193, 208);
+  background-color: rgb(191, 191, 191);
   color: white;
   font-weight: 500;
 }
-
-/* .card-cont, .card-inner {
-  transform: rotateY(180deg);
-} */
 
 .tea-img {
   width: 300px;
