@@ -11,23 +11,26 @@ interface CardProp {
   favs: Tea[];
 }
 
-function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
-  const [color, setColor] = useState("#B1AE91");
+function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
+  const [color, setColor] = useState(
+    favs.some((fav) => fav.slug === slug) ? "#895B1E" : "#B1AE91"
+  );
+
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
-    if(favs.some(fav => fav.slug === slug)) {
-      setColor("#895B1E");
-    } else {
-      setColor("#B1AE91");
-    }
-    
+    setColor(color === "#B1AE91" ? "#895B1E" : "#B1AE91");
   }
 
-  return (   
-    <div className="card-cont" >
+  return (
+    <div className="card-cont">
       <div className="card-inner">
         <div className="card-front" id={slug}>
-          <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
+          <button
+            className="fav-btn"
+            id={slug}
+            onClick={(e) => favTea(e)}
+            style={{ color: color }}
+          >
             ♥
           </button>
           <div className="img-wrapper">
@@ -36,9 +39,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
           <h3>{name}</h3>
           <p className="tasting-notes">{description}</p>
         </div>
-        <div className="card-back">
-    
-        </div>
+        <div className="card-back"></div>
       </div>
     </div>
   );
