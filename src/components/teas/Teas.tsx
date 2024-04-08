@@ -21,6 +21,7 @@ function Teas({ setIsRedirected }: Props) {
 
     const [teas, setTeas] = useState<Tea[] | null>(null)
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
+    const [error, setError] = useState<string>('');
 
     useEffect(() => {
         fetchData();
@@ -31,8 +32,11 @@ function Teas({ setIsRedirected }: Props) {
             return setTeas(favs)
         } else {
             const fetchedTeaData = await fetchTea();
+            // console.log('fetchedTeaData return', fetchedTeaData)
             if (!fetchedTeaData) {
-                navigate('*', { replace: true })
+                // navigate('*', { replace: true })
+                setError('There was a problem getting the tea.')
+                return
             } else {
                 setIsRedirected(false)
                 filterTeas(fetchedTeaData)
@@ -105,9 +109,13 @@ function Teas({ setIsRedirected }: Props) {
     return (
         <>
         <h2>{catHeader}</h2>
+        { error && <>
+            <h3>Uh oh!</h3>
+            <p>{error}</p>
+        </>}
         { noFaves() && <>
-        <p>You don't have any favorites - go find some!</p>
-        <Link to="/">Go Home</Link></>}
+        <p className="no-favs">You don't have any favorites - go find some!</p>
+        <Link className="home-link" to="/">Go Home</Link></>}
         <section className='cards-section'>
             {teaCards}
         </section>
