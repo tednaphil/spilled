@@ -1,8 +1,7 @@
 import "./Card.css";
 import { Tea } from "../../utils/interface";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { fetchSingleTea } from "../../apiCalls";
-import { transform } from "typescript";
 interface CardProp {
   img: string;
   name: string;
@@ -41,9 +40,14 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     setTargetTea(target)
   }
 
-console.log(targetTea)
-  return (   
-    <div className="card-cont" onClick={(e) => {fetchTea(e) ; setIsClicked(!isClicked ? true : false)}} style={isClicked ? css : ncss}>
+  function ingredients(tea: any): string {
+    let teaReturn: string;
+    tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
+    return teaReturn
+  }
+
+  return (
+    <div className="card-cont" onClick={(e) => { fetchTea(e); setIsClicked(!isClicked ? true : false) }} style={isClicked ? css : ncss}>
       <div className="card-inner" style={isClicked ? css : ncss}>
         <div className="card-front" id={slug}>
           <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
@@ -52,11 +56,13 @@ console.log(targetTea)
           <div className="img-wrapper">
             <img className="tea-img" src={img} alt={`img of ${name}`} />
           </div>
-          <h3>{name}</h3>
-          <p className="tasting-notes">{description}</p>
+          <div className="text-wrapper">
+            <h3>{name}</h3>
+            <p className="tasting-notes">{description}</p>
+          </div>
         </div>
         <div className="card-back">
-          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.mainIngredients}</p>
+          <p className="card-back-text" style={isClicked ? css : ncss}>{ingredients(targetTea)}</p>
           <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.caffeine}</p>
           <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.origin}</p>
         </div>
