@@ -13,6 +13,7 @@ interface CardProp {
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
 
+  const [targetTea, setTargetTea] = useState<any>(null)
   const [color, setColor] = useState("#B1AE91");
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
@@ -26,9 +27,13 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
 
   async function fetchTea(e: React.MouseEvent<HTMLImageElement>): Promise<any> {
     let tea = await fetchSingleTea(slug)
-    console.log(tea[0].mainIngredients)
+    let target = tea[0]
+    setTargetTea(target)
+    console.log('tea', target)
+    console.log('target ingredients', target.mainIngredients)
   }
 
+  // console.log('targetTEa', typeof(targetTea[0]))
   return (   
     <div className="card-cont" >
       <div className="card-inner">
@@ -43,7 +48,9 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
           <p className="tasting-notes">{description}</p>
         </div>
         <div className="card-back">
-    
+          <p>{}</p>
+          <p></p>
+          <p></p>
         </div>
       </div>
     </div>
