@@ -108,14 +108,15 @@ function Teas({ setIsRedirected }: Props) {
 
     return (
         <>
-        <h2>{catHeader}</h2>
+        <h2 className='cat-header'>{catHeader}</h2>
         { error && <>
-            <h3>Uh oh!</h3>
-            <p>{error}</p>
+            <h3 className='error-message'>Uh oh!</h3>
+            <p className='error-message'>{error}</p>
         </>}
         { noFaves() && <>
-        <p className="no-favs">You don't have any favorites - go find some!</p>
-        <Link className="home-link" to="/">Go Home</Link></>}
+            <p className="no-favs">You don't have any favorites - go find some!</p>
+            <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
+        </>}
         <section className='cards-section'>
             {teaCards}
         </section>

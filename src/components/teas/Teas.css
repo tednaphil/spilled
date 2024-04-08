@@ -6,7 +6,19 @@
     grid-gap: 20px;
 }
 
-.no-favs {
-    text-align: center;
-    font-size: 1.5rem;
+.cat-header {
+    margin-left: 20px;
 }
+
+.no-favs {
+    font-size: 1.3rem;
+}
+
+#no-favs-link,
+.no-favs,
+.cat-header,
+.error-message {
+    margin-left: 20px
+}
+
+
