@@ -69,7 +69,7 @@ describe('Spilled', () => {
     //check that favs page is empty and displays message
     
   })
-  it('Displays error message if api call fails', () => {
+  it('Displays error message if api calls fail', () => {
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
       statusCode: 400,
     }).as('getTeas')
@@ -77,6 +77,11 @@ describe('Spilled', () => {
     .get('nav').contains('a', 'Blends').click()
     // test error page content
     //stub 500 statusCode
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+      statusCode: 500,
+    }).as('getTeas')
+    .visit('http://localhost:3000/')
+    .get('nav').contains('a', 'Blends').click()
     //test error page content
   })
   it('Displays error message if visiting a bad path', () => {
