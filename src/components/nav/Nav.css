@@ -20,6 +20,7 @@ a {
 a:hover {
     background-color: hsla(120, 7%, 92%, 0.461);
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .navlink {
