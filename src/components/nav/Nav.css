@@ -20,10 +20,19 @@ a {
 a:hover {
     background-color: hsla(120, 7%, 92%, 0.461);
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .navlink {
     margin-left: 20px;
+}
+
+.active {
+     background-color: hsla(120, 7%, 92%, 0.461);
+     /* background-color: #B1AE91; */
+    border-radius: 15px;
+    /* color: #895B1E; */
+    font-size: 1.5rem;
 }
 
 h1 {

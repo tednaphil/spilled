@@ -8,11 +8,9 @@ import React from 'react';
 import pic from '../../images/logo192.png';
 import multiTeas from '../../images/multi-teas.jpg'
 
-interface Props {
-    setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
-}
 
-function Teas({ setIsRedirected }: Props) {
+
+function Teas() {
 
     const navigate = useNavigate()
 
@@ -21,6 +19,7 @@ function Teas({ setIsRedirected }: Props) {
 
     const [teas, setTeas] = useState<Tea[] | null>(null)
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
+    const [error, setError] = useState<string>('');
 
     useEffect(() => {
         fetchData();
@@ -31,10 +30,12 @@ function Teas({ setIsRedirected }: Props) {
             return setTeas(favs)
         } else {
             const fetchedTeaData = await fetchTea();
+            // console.log('fetchedTeaData return', fetchedTeaData)
             if (!fetchedTeaData) {
-                navigate('*', { replace: true })
+                // navigate('*', { replace: true })
+                setError('There was a problem getting the tea. Try again later!')
+                return
             } else {
-                setIsRedirected(false)
                 filterTeas(fetchedTeaData)
             }
         }
@@ -71,7 +72,7 @@ function Teas({ setIsRedirected }: Props) {
             setFavs([...favs, newFav])
         }
     }
-
+    
     useEffect(() => {
         sessionStorage.clear()
         sessionStorage.setItem("favs", JSON.stringify(favs));
@@ -88,6 +89,7 @@ function Teas({ setIsRedirected }: Props) {
                 key={tea.slug}
                 description={tea.tasteDescription}
                 addFavs={addFavs}
+                favs={favs}
             />
         )
     })
@@ -104,10 +106,15 @@ function Teas({ setIsRedirected }: Props) {
 
     return (
         <>
-        <h2>{catHeader}</h2>
+        <h2 className='cat-header'>{catHeader}</h2>
+        { error && <>
+            <h3 className='error-message'>Uh oh!</h3>
+            <p className='error-message'>{error}</p>
+        </>}
         { noFaves() && <>
-        <p>You don't have any favorites - go find some!</p>
-        <Link to="/">Go Home</Link></>}
+            <p className="no-favs">You don't have any favorites - go find some!</p>
+            <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
+        </>}
         <section className='cards-section'>
             {teaCards}
         </section>
