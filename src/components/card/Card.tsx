@@ -47,24 +47,26 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   }
 
   return (
-    <div className="card-cont" onClick={(e) => { fetchTea(e); setIsClicked(!isClicked ? true : false) }} style={isClicked ? css : ncss}>
-      <div className="card-inner" style={isClicked ? css : ncss}>
-        <div className="card-front" id={slug}>
-          <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
-            ♥
-          </button>
-          <div className="img-wrapper">
-            <img className="tea-img" src={img} alt={`img of ${name}`} />
+    <div className="card-wrapper">
+      <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
+        ♥
+      </button>
+      <div className="card-cont" onClick={(e) => { fetchTea(e); setIsClicked(!isClicked ? true : false) }} style={isClicked ? css : ncss}>
+        <div className="card-inner" style={isClicked ? css : ncss}>
+          <div className="card-front" id={slug}>
+            <div className="img-wrapper">
+              <img className="tea-img" src={img} alt={`img of ${name}`} />
+            </div>
+            <div className="text-wrapper">
+              <h3>{name}</h3>
+              <p className="tasting-notes">{description}</p>
+            </div>
           </div>
-          <div className="text-wrapper">
-            <h3>{name}</h3>
-            <p className="tasting-notes">{description}</p>
+          <div className="card-back">
+            <p className="card-back-text" style={isClicked ? css : ncss}>{ingredients(targetTea)}</p>
+            <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.caffeine}</p>
+            <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.origin}</p>
           </div>
-        </div>
-        <div className="card-back">
-          <p className="card-back-text" style={isClicked ? css : ncss}>{ingredients(targetTea)}</p>
-          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.caffeine}</p>
-          <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.origin}</p>
         </div>
       </div>
     </div>
