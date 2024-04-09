@@ -41,7 +41,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt=''/>
         <div className="info">
           <h2>Black Tea</h2>
           <p>{allHardcodedTeas[3].summary}</p>
@@ -54,7 +54,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt=''/>
         <div className="info">
           <h2>Oolong Tea</h2>
           <div className="info-desc">
@@ -69,7 +69,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt=''/>
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
@@ -84,7 +84,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt=''/>
         <div className="info">
           <h2>Green Tea</h2>
           <div className="info-desc">
@@ -99,7 +99,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt=''/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
