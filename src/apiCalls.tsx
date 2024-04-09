@@ -7,7 +7,6 @@ const fetchTea = async () => {
         }
         return await response.json();
     } catch (error) {
-        // console.log('error', error)
         console.log('error code', error)
 
     }
@@ -19,9 +18,8 @@ const fetchSingleTea = async (slug: string) => {
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
-        // console.log(response.json())
         return await response.json()
-    } catch (error) {
+    } catch (error: any) {
         throw error
     }
 }
