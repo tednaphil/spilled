@@ -44,54 +44,32 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Black Tea</h2>
-          <button className="infoButton">
-            <NavLink to="/tea/black/education">Education →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/black">See Black teas →</NavLink>
-          </button>
+            <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/black" className='home-nav-link'>See Black teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Oolong Tea</h2>
-          <div className="info-desc">
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/oolong/education">Education →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
-          </button>
+            <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/oolong" className='home-nav-link'>See Oolong teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>White Tea</h2>
-          <div className="info-desc">
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/white/education">Education →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/white">See White teas →</NavLink>
-          </button>
+            <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/white" className='home-nav-link'>See White teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Green Tea</h2>
-          <div className="info-desc">
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/green/education">Education →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/green">See Green teas →</NavLink>
-          </button>
+            <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
@@ -102,9 +80,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
             <p>Blends can be made up of any tea base! Blends can also comprise of non-tea 'tea'. Such as Rooibos, Pu-Erh, Yerba Mate, and Hemp!</p>
             <p>Our site focuses on just the Camellia Sinensis plant to ease the transition into tea.</p>
           </div>
-          <button className="infoButton">
-            <NavLink to="/tea/blend">See tea blends →</NavLink>
-          </button>
+            <NavLink to="/tea/blend" className='home-nav-link'>See tea blends →</NavLink>
         </div>
       </article>
     </div>

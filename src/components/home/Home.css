@@ -5,12 +5,16 @@
     width: 50%;
 }
 
-.infoButton {
-    width: 250px;
-    height: 40px;
-    font-size: 2vh;
+.education-link, .home-nav-link {
+    width: fit-content;
+    height: fit-content;
+    font-size: 3vh;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.education-link:hover, .home-nav-link:hover {
     background-color: white;
-    border-radius: 5%;
 }
 
 .article-tea {
@@ -39,6 +43,6 @@
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 5em;
     font-weight: 300;
 }
