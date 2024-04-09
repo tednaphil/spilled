@@ -16,9 +16,8 @@ interface CardProp {
 }
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
-  console.log(slug)
+  
   let location = useLocation().pathname
-  console.log(location)
 
   const [targetTea, setTargetTea] = useState<any>({})
   const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
