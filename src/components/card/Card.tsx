@@ -63,9 +63,16 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
             </div>
           </div>
           <div className="card-back">
-            <p className="card-back-text" style={isClicked ? css : ncss}>{ingredients(targetTea)}</p>
-            <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.caffeine}</p>
-            <p className="card-back-text" style={isClicked ? css : ncss}>{targetTea.origin}</p>
+            <dl className='card-back-dl' style={isClicked ? css : ncss}>
+              <dt><strong>Caffeine content:</strong></dt>
+              <dd className="card-back-text">{targetTea.caffeine}</dd>
+              <dt><strong>Main Ingredients:</strong></dt>
+              <dd className="card-back-text" >{ingredients(targetTea)}</dd>
+              <dt><strong>Origin:</strong></dt>
+              <dd className="card-back-text">{targetTea.origin}</dd>
+              <dt><strong>Tasting notes:</strong></dt>
+              <dd className="card-back-text">{targetTea.tasteDescription}</dd>
+            </dl>
           </div>
         </div>
       </div>
