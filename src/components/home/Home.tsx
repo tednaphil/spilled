@@ -2,7 +2,6 @@ import "./Home.css";
 import teas from "../../images/teas.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { allHardcodedTeas } from '../../utils/interface';
 
 interface Props {
   isRedirected: boolean | any;

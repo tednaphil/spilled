@@ -7,7 +7,7 @@ function Nav() {
     <header className="header">
       <nav className="nav-bar">
         <div className="div-nav-left">
-          <Link to="/" className="h1"><h1>Spilled</h1></Link>
+          <Link to="/" className="h1"><h1 className="h1">Spilled</h1></Link>
         </div>
         <div className="div-nav-center">
           <NavLink to="/tea/blend" className='navlink'>Blends</NavLink>
