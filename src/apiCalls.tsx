@@ -11,14 +11,15 @@ const fetchTea = async () => {
     }
 }
 
-const fetchSingleTea = async (tea: string) => {
+const fetchSingleTea = async (slug: string) => {
     try {
-        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${tea}`)
+        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${slug}`)
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
+        // console.log(response.json())
         return await response.json()
-    } catch (error: any) {
+    } catch (error) {
         throw error
     }
 }
