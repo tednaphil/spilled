@@ -1,21 +1,23 @@
 import './Error.css'
 import React from 'react'
 import spilledTea from "../../images/Coffee-Burst.svg";
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
-interface Props {
-    isRedirected: boolean | any;
-    setIsRedirected: React.Dispatch<React.SetStateAction<boolean | undefined>>
-}
 
-const Error: React.FC<Props> = ({ isRedirected, setIsRedirected }) => {
-
+const Error = () => {
+const [isRedirected, setIsRedirected] = useState<boolean>(false);
 const navigate = useNavigate()
 
   useEffect(() => {
     setIsRedirected(true)
   }, [setIsRedirected])
+   useEffect(() => {
+    if (performance.navigation.type === 1) {
+      navigate("/")
+      
+    }
+  }, [navigate]);
 
   useEffect(() => {
     window.onbeforeunload = () => {
@@ -27,10 +29,12 @@ const navigate = useNavigate()
   }, [isRedirected, navigate, setIsRedirected])
 
   return (
-    <div className='error_wrapper'>
-      <h1>Hey there</h1>
-      <img src={spilledTea} alt='Cofee cup tipped over with liquid spilling out' />
-    </div>
+    <article className='error-wrapper'>
+      <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
+      <h1>Uh oh!</h1>
+      <p className='error-message'>We couldn't find that page</p>
+      <Link className='home-link'to='/'>Go back home</Link>
+    </article>
   )
 }
 

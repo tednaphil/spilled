@@ -1,0 +1,20 @@
+.error-wrapper{
+    text-align: center;
+
+}
+
+#error-image {
+    height:40vh;
+}
+
+.home-link {
+    font-family: 'proxima-nova', sans-serif;
+    border-radius: 15px;
+    outline: 1px black solid;
+    display: inline-block;
+    & :hover {
+        background-color: hsla(120, 7%, 92%, 0.461);
+        /* transform: scale(1.5); */
+
+    }
+}

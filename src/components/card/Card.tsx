@@ -9,13 +9,16 @@ interface CardProp {
   tea: Tea;
   description: string;
   addFavs: (newFav: Tea) => void;
+  favs: Tea[];
 }
 
-function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
+function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
 
   const [targetTea, setTargetTea] = useState<any>({})
   const [isClicked, setIsClicked] = useState<boolean>(false)
-  const [color, setColor] = useState("#B1AE91");
+  const [color, setColor] = useState(
+    favs.some((fav) => fav.slug === slug) ? "#895B1E" : "#B1AE91"
+  );
 
   const css = {
     transform: 'rotateY(180deg)',
@@ -25,13 +28,10 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     transform: 'rotateY(0deg)'
   }
 
+
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
-    if (color !== "#B1AE91") {
-      setColor("#B1AE91");
-    } else {
-      setColor("#895B1E");
-    }
+    setColor(color === "#B1AE91" ? "#895B1E" : "#B1AE91");
   }
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement>): Promise<any> {

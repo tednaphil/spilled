@@ -3,13 +3,11 @@ const fetchTea = async () => {
     try {
         const response = await fetch('https://boonakitea.cyclic.app/api/all');
         if (!response.ok) {
-            throw new Error('failed to fetch tea data')
+            throw new Error('Failed to fetch tea data')
         }
         return await response.json();
-    } catch (error) {
-        // console.log('error', error)
-        console.log('error code', error)
-
+    } catch (error: any) {
+        throw error
     }
 }
 
