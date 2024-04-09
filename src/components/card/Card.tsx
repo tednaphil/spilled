@@ -59,9 +59,9 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     <div className="card-wrapper">
   {location !== '/tea/favorites' ? 
       <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
-        <img src={heartIsClicked ? favActive : favInactive} alt='favorite' className="unfav-btn" aria-label='unfavorite'/>
+        <img src={heartIsClicked ? favActive : favInactive} alt={heartIsClicked ? 'favorite active' : 'favorite inactive'} className="unfav-btn" aria-label='favorite' role="button"/>
       </button> :
-      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
+      <button className="fav-btn" id={`${slug}-unfavorite`} onClick={(e) => favTea(e)}>
         <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'/>
       </button>
 }
