@@ -23,7 +23,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
     <div>
       <div className="intro-wrapper">
         <article className="article-intro">
-          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' />
+          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' className="home-img"/>
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
@@ -41,7 +41,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} alt=''/>
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Black Tea</h2>
           <p>{allHardcodedTeas[3].summary}</p>
@@ -54,7 +54,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt=''/>
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Oolong Tea</h2>
           <div className="info-desc">
@@ -69,7 +69,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt=''/>
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
@@ -84,7 +84,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt=''/>
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Green Tea</h2>
           <div className="info-desc">
@@ -99,7 +99,7 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt=''/>
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">

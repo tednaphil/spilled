@@ -64,7 +64,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
         ♥
       </button> :
       <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
-        <img src={unFav} alt='unfavorite'></img>
+        <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'></img>
       </button>
 }
       <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={isClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>

@@ -64,7 +64,12 @@ h3 {
   position: relative;
 }
 
-.fav-btn {
+.unfav-btn {
+  height: 30px;
+  width: 30px;
+}
+
+.fav-btn{
   position: absolute;
   top: 4px;
   right: -55px;
