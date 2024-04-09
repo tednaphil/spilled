@@ -57,7 +57,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
       <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
         ♥
       </button>
-      <div className="card-cont" onClick={(e) => { fetchTea(e)}} style={isClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
+      <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={isClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
         <div className="card-inner" style={isClicked ? css : ncss}>
           <div className="card-front" id={slug}>
             <div className="img-wrapper">
