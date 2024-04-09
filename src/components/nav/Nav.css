@@ -14,12 +14,13 @@ a {
     text-decoration: none;
     font-size: 1em;
     color: #010101;
-    padding: 5px;
+    padding: 7px;
 }
 
 a:hover {
     background-color: hsla(120, 7%, 92%, 0.461);
     border-radius: 15px;
+    text-decoration: underline;
 }
 
 .navlink {

@@ -44,9 +44,8 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Black Tea</h2>
-          <p>{allHardcodedTeas[3].summary}</p>
           <button className="infoButton">
-            <NavLink to="/tea/black/education">More info →</NavLink>
+            <NavLink to="/tea/black/education">Education →</NavLink>
           </button>
           <button className="infoButton">
             <NavLink to="/tea/black">See Black teas →</NavLink>
@@ -58,10 +57,9 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Oolong Tea</h2>
           <div className="info-desc">
-            <p>{allHardcodedTeas[2].summary}</p>
           </div>
           <button className="infoButton">
-            <NavLink to="/tea/oolong/education">More info →</NavLink>
+            <NavLink to="/tea/oolong/education">Education →</NavLink>
           </button>
           <button className="infoButton">
             <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
@@ -73,10 +71,9 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>White Tea</h2>
           <div className="info-desc">
-            <p>{allHardcodedTeas[1].summary}</p>
           </div>
           <button className="infoButton">
-            <NavLink to="/tea/white/education">More info →</NavLink>
+            <NavLink to="/tea/white/education">Education →</NavLink>
           </button>
           <button className="infoButton">
             <NavLink to="/tea/white">See White teas →</NavLink>
@@ -88,10 +85,9 @@ function Home({ isRedirected, setIsRedirected }: Props) {
         <div className="info">
           <h2>Green Tea</h2>
           <div className="info-desc">
-            <p>{allHardcodedTeas[0].summary}</p>
           </div>
           <button className="infoButton">
-            <NavLink to="/tea/green/education">More info →</NavLink>
+            <NavLink to="/tea/green/education">Education →</NavLink>
           </button>
           <button className="infoButton">
             <NavLink to="/tea/green">See Green teas →</NavLink>
