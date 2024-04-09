@@ -3,6 +3,8 @@ import { Tea } from "../../utils/interface";
 import { useState } from "react";
 import { fetchSingleTea } from "../../apiCalls";
 import unFav from '../../images/remove-icon.svg'
+import favInactive from '../../images/heart-inactive.svg'
+import favActive from '../../images/heart-active.svg'
 import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
@@ -19,7 +21,8 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   console.log(location)
 
   const [targetTea, setTargetTea] = useState<any>({})
-  const [isClicked, setIsClicked] = useState<boolean>(false)
+  const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
+  const [heartIsClicked, setHeartIsClicked] = useState<boolean>(false)
   const [color, setColor] = useState("#B1AE91");
 
   const css = {
@@ -32,11 +35,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
-    if (color !== "#B1AE91") {
-      setColor("#B1AE91");
-    } else {
-      setColor("#895B1E");
-    }
+    setHeartIsClicked(!heartIsClicked ? true : false)
   }
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
@@ -45,9 +44,9 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
       let tea = await fetchSingleTea(slug)
       let target = tea[0]
       setTargetTea(target) 
-      setIsClicked(!isClicked ? true : false)
+      setCardIsClicked(!cardIsClicked ? true : false)
     } else {
-      setIsClicked(false)
+      setCardIsClicked(false)
     }
   }
 
@@ -61,14 +60,14 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
     <div className="card-wrapper">
   {location !== '/tea/favorites' ? 
       <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
-        ♥
+        <img src={heartIsClicked ? favActive : favInactive} alt='favorite' className="unfav-btn" aria-label='unfavorite'></img>
       </button> :
       <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
         <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'></img>
       </button>
 }
-      <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={isClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
-        <div className="card-inner" style={isClicked ? css : ncss}>
+      <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
+        <div className="card-inner" style={cardIsClicked ? css : ncss}>
           <div className="card-front" id={`${slug}-tea`}>
             <div className="img-wrapper">
               <img className="tea-img" src={img} alt={`img of ${name}`} />
@@ -79,7 +78,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
             </div>
           </div>
           <div className="card-back">
-            <dl className='card-back-dl' style={isClicked ? css : ncss}>
+            <dl className='card-back-dl' style={cardIsClicked ? css : ncss}>
               <dt><strong>Caffeine content:</strong></dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
               <dt><strong>Main Ingredients:</strong></dt>
