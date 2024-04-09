@@ -75,7 +75,7 @@ describe('Spilled', () => {
     }).as('getTeas')
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Blends').click()
-    .get('p').contains('There was a problem')
+    .get('p').contains('Failed to fetch tea data')
     // test remaining error page content
     //stub 500 statusCode
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
@@ -83,7 +83,7 @@ describe('Spilled', () => {
     }).as('getTeas')
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Black').click()
-    .get('p').contains('There was a problem')
+    .get('p').contains('Failed to fetch tea data')
     //test remaining error page content
   })
   it('Displays error message if visiting a bad path', () => {
