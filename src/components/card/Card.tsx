@@ -23,7 +23,6 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   const [targetTea, setTargetTea] = useState<any>({})
   const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
   const [heartIsClicked, setHeartIsClicked] = useState<boolean>(false)
-  const [color, setColor] = useState("#B1AE91");
 
   const css = {
     transform: 'rotateY(180deg)',
@@ -59,11 +58,11 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   return (
     <div className="card-wrapper">
   {location !== '/tea/favorites' ? 
-      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
-        <img src={heartIsClicked ? favActive : favInactive} alt='favorite' className="unfav-btn" aria-label='unfavorite'></img>
+      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
+        <img src={heartIsClicked ? favActive : favInactive} alt='favorite' className="unfav-btn" aria-label='unfavorite'/>
       </button> :
-      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
-        <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'></img>
+      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
+        <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'/>
       </button>
 }
       <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
