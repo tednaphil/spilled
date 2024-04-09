@@ -2,6 +2,8 @@ import "./Card.css";
 import { Tea } from "../../utils/interface";
 import { useState } from "react";
 import { fetchSingleTea } from "../../apiCalls";
+import unFav from '../../images/remove-icon.svg'
+import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
   name: string;
@@ -12,6 +14,9 @@ interface CardProp {
 }
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
+  console.log(slug)
+  let location = useLocation().pathname
+  console.log(location)
 
   const [targetTea, setTargetTea] = useState<any>({})
   const [isClicked, setIsClicked] = useState<boolean>(false)
@@ -54,12 +59,17 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
 
   return (
     <div className="card-wrapper">
+  {location !== '/tea/favorites' ? 
       <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
         ♥
+      </button> :
+      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)} style={{ color: color }}>
+        <img src={unFav} alt='unfavorite'></img>
       </button>
+}
       <div className="card-cont" role='button' aria-label='Details' onClick={(e) => { fetchTea(e)}} style={isClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
         <div className="card-inner" style={isClicked ? css : ncss}>
-          <div className="card-front" id={slug}>
+          <div className="card-front" id={`${slug}-tea`}>
             <div className="img-wrapper">
               <img className="tea-img" src={img} alt={`img of ${name}`} />
             </div>
