@@ -1,5 +1,10 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
+import blend from "../../images/blend.svg";
+import black from "../../images/black.svg";
+import oolong from "../../images/oolong.svg";
+import green from "../../images/green.svg";
+import white from "../../images/white.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 
 
@@ -27,7 +32,7 @@ function Home() {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img"/>
+        <img src={black} alt='' className="home-img"/>
         <div className="info">
           <h2>Black Tea</h2>
             <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
@@ -35,7 +40,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img"/>
+        <img src={oolong} alt='' className="home-img"/>
         <div className="info">
           <h2>Oolong Tea</h2>
             <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
@@ -43,7 +48,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img"/>
+        <img src={white} alt='' className="home-img"/>
         <div className="info">
           <h2>White Tea</h2>
             <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
@@ -51,7 +56,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img"/>
+        <img src={green} alt='' className="home-img"/>
         <div className="info">
           <h2>Green Tea</h2>
             <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
@@ -59,7 +64,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img"/>
+        <img src={blend} alt='' className="home-img"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
