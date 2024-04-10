@@ -8,7 +8,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 function App() {
-
   const [isRedirected, setIsRedirected] = useState<boolean>()
   const location = useLocation().pathname
 
@@ -19,11 +18,11 @@ function App() {
         <p id='location-path'>{location === '/' ? '/home' : location}</p>
       </div>
       <main>
-        <Routes>
-          <Route path='/' element={<Home isRedirected={isRedirected} setIsRedirected={setIsRedirected} />} />
+        <Routes >
+          <Route path='/' element={<Home />} />
           <Route path='/tea/:category/education' element={<TeaEd />} />
-          <Route path='/tea/:category' element={<Teas setIsRedirected={setIsRedirected} />} />
-          <Route path='*' element={<Error isRedirected={isRedirected} setIsRedirected={setIsRedirected} />} />
+          <Route path='/tea/:category' element={<Teas />} />
+          <Route path='*' element={<Error/>} />
         </Routes>
       </main>
     </div>

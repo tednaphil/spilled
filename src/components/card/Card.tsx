@@ -13,7 +13,9 @@ interface CardProp {
   tea: Tea;
   description: string;
   addFavs: (newFav: Tea) => void;
+  favs: Tea[];
 }
+
 
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   
@@ -30,6 +32,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   const ncss = {
     transform: 'rotateY(0deg)'
   }
+
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
