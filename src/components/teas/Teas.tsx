@@ -60,7 +60,6 @@ function Teas() {
     }
 
     function addFavs(newFav: Tea) {
-        console.log(newFav)
         if (favs.some(fav => fav.slug === newFav.slug)) {
             setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug
