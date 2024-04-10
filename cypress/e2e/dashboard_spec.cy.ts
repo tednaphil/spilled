@@ -60,12 +60,12 @@ describe('Spilled', () => {
 
   it('Adds and removes teas from Favorites list', () => {
     cy.get('nav').contains('a', 'White').click()
-    .get('#baihoiyinzhen.fav-btn').click()
+    .get('#baihoiyinzhen-favorite.fav-btn').click()
     cy.get('.nav-favorites').click()
     .url().should('include', 'favorites')
     .get('h3').contains('Baihoi Yinzhen')
     //addassertions for tea details
-    .get('#baihoiyinzhen.fav-btn').click()
+    .get('#baihoiyinzhen-unfavorite.fav-btn').click()
     .should('not.exist')
     //check that favs page is empty and displays message
     
