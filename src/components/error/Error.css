@@ -1,5 +1,8 @@
 .error-wrapper{
     text-align: center;
+    & .error-message {
+        margin-left: 0;
+    }
 
 }
 
@@ -14,6 +17,5 @@
     display: inline-block;
     & :hover {
         background-color: hsla(120, 7%, 92%, 0.461);
-        /* transform: scale(1.5); */
     }
 }

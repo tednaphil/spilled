@@ -7,8 +7,6 @@ import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import multiTeas from '../../images/multi-teas.jpg'
 
-
-
 function Teas() {
 
     const navigate = useNavigate()

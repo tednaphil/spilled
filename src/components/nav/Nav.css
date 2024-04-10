@@ -46,3 +46,19 @@
     height: 1.5em;
     width: 1.5em;
 }
+
+@media screen and (max-width: 767px) {
+    .div-nav-center {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .div-nav-center {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+    }
+}

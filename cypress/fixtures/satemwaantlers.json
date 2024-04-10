@@ -1,0 +1,19 @@
+[
+    {
+        "_id": "63092102a643c85c74b00e8f",
+        "name": "Satemwa Antlers",
+        "slug": "satemwaantlers",
+        "altnames": "",
+        "image": "https://tea-api-boonaki.herokuapp.com/assets/satemwa-antlers.jpg",
+        "origin": "Malawi",
+        "type": "white",
+        "caffeine": "10-25mg",
+        "caffeineLevel": "moderate",
+        "description": "A white tea made from a blend of select Superior Cultivars from Malawi, making it rich in theanine and antioxidants.",
+        "colorDescription": "golden yellow",
+        "tasteDescription": "delicate sweetness of apricot and lychee lingers on the pallet",
+        "sources": [
+            ""
+        ]
+    }
+]

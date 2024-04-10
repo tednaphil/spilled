@@ -18,53 +18,68 @@ function Home() {
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
-              Did you know that all 'teas' originate from the leaves of the Camellia
-              Sinensis plant?(break this up) Any 'tea' that is not from this plant is actually an herbal blend! (break here) What makes each tea unique is
-              the creation process is goes through, including:
+              <b>Did you know that all 'teas' originate from the leaves of the Camellia Sinensis plant?
+              <br/><br/>
+              Any 'tea' that is not from this plant is actually an herbal blend!</b> 
             </p>
-            <ol>
-              <li><strong>Withering</strong> - Letting the teas dry</li>
-              <li><strong>Bruising/Rolling</strong> - Crushing the leaves to break the cell wall and release enzymes</li>
-              <li><strong>Oxidization/Fermentation</strong> - Enzymes released in the Rolling phase interact with oxygen in the air, resulting in chemical changes</li>
-              <li><strong>Heating</strong> - This halts the process of oxidization once the desired levels are achieved</li>
-            </ol>
+            <p className="creation-p">
+              What makes each tea <em>unique</em> is the creation process it goes through, including:
+            </p>
+            <section className="creation-wrapper">
+              <div className="creation-info">
+                <h3>1. Withering</h3>
+                <p>Letting the teas dry</p>
+              </div>
+              <div className="creation-info">
+                <h3>2. Bruising/Rolling</h3>
+                <p>Crushing the leaves to break the cell wall and release enzymes</p>
+              </div>
+              <div className="creation-info">
+                <h3>3. Oxidization / Fermentation</h3>
+                <p>Enzymes released in the Rolling phase interact with oxygen in the air, resulting in chemical changes</p>
+              </div>
+              <div className="creation-info">
+                <h3>4. Heating</h3>
+                <p>This halts the process of oxidization once the desired levels are achieved</p>
+              </div>
+            </section>
           </div>
         </article>
       </div>
       <article className="article-tea">
-        <img src={black} alt='' className="home-img"/>
+        <img src={black} alt='Black Tea' className="home-img tea-image" id='home-article-black'/>
         <div className="info">
           <h2>Black Tea</h2>
             <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
             <NavLink to="/tea/black" className='home-nav-link'>See Black teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
-        <img src={oolong} alt='' className="home-img"/>
+      <article className="article-tea"  id='home-article-oolong'>
+        <img src={oolong} alt='Oolong Tea' className="home-img"/>
         <div className="info">
           <h2>Oolong Tea</h2>
             <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
             <NavLink to="/tea/oolong" className='home-nav-link'>See Oolong teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
-        <img src={white} alt='' className="home-img"/>
+      <article className="article-tea"  id='home-article-white'>
+        <img src={white} alt='White Tea' className="home-img"/>
         <div className="info">
           <h2>White Tea</h2>
             <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
             <NavLink to="/tea/white" className='home-nav-link'>See White teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
-        <img src={green} alt='' className="home-img"/>
+      <article className="article-tea"  id='home-article-green'>
+        <img src={green} alt='Green Tea' className="home-img"/>
         <div className="info">
           <h2>Green Tea</h2>
             <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
             <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
-        <img src={blend} alt='' className="home-img"/>
+      <article className="article-tea"  id='home-article-blend'>
+        <img src={blend} alt='Tea Blend' className="home-img"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
