@@ -70,25 +70,23 @@ describe('Spilled', () => {
   })
 
   it('Displays tea info pages', () => {
-    //Test black education
     cy.get('#home-article-black').within(() => {
       cy.get('h2').contains('Black')
         .get('a').contains('Education').click()
     })
       .url().should('include', 'http://localhost:3000/tea/black/education')
-    cy.get('h1').last().contains('black') //does not sense capital because it is a CSS feature
+    cy.get('h1').last().contains('black')
       .get('section').first().contains('h2', 'Summary')
       .get('section').first().contains('p', 'Black tea is')
       .get('section').last().contains('h2', 'Climate')
       .get('section').last().contains('p').should('have.text', 'The climate plays a significant role in black tea production. Tea plants thrive in regions with moderate temperatures, high humidity, and consistent rainfall. Altitude also influences the flavor profile of black tea, with higher altitude teas often possessing more complex flavors.')
     cy.get('.link-wrapper').contains('a').click()
-      // test green education
       .get('#home-article-green').within(() => {
         cy.get('h2').contains('Green')
           .get('a').should('have.length', '2').contains('Education').click()
       })
       .url().should('include', 'http://localhost:3000/tea/green/education')
-    cy.get('h1').last().contains('green') //does not sense capital because it is a CSS feature
+    cy.get('h1').last().contains('green')
       .get('section').first().contains('h2', 'Summary')
       .get('section').first().contains('p', 'Green tea is')
       .get('section').last().contains('h2', 'Climate')
@@ -104,23 +102,19 @@ describe('Spilled', () => {
   })
 
   it('Displays tea details on card click', () => {
-    //tests first blends tea card
     cy.get('.div-nav-center').contains('a', 'Blends').click()
       .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
       .get('.card-cont').first().get('.card-back-text').first().contains('40-')
-    //last blends tea card
     cy.get('.div-nav-center').contains('a', 'Blends').click()
       .get('.card-cont').last().should('have.id', 'englishbreakfast-tea').click()
       .get('.card-cont').last().within(() => {
         cy.get('dd').first().contains('60-')
       })
-    //first white tea card
     cy.get('.div-nav-center').contains('a', 'White').click()
       .get('.card-cont').first().should('have.id', 'baihoiyinzhen-tea').click()
       .get('.card-cont').first().within(() => {
         cy.get('dd').first().contains('0-5mg')
       })
-    //last white tea card
     cy.get('.div-nav-center').contains('a', 'White').click()
       .get('.card-cont').last().should('have.id', 'satemwaantlers-tea').click()
       .get('.card-cont').last().within(() => {
@@ -157,10 +151,22 @@ describe('Spilled', () => {
   })
 
   it('Displays error message if visiting a bad path', () => {
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
-      statusCode: 404,
-    }).as('getTeas')
     cy.visit('http://localhost:3000/teas/badpath')
-    //check content and url
+    .get('#error-image').should('have.attr', 'src')
+    .get('h1').contains('Uh oh!')
+    .get('.error-message').contains('We couldn\'t find that page')
+    .get('.home-link').contains('Go back home').click()
+    .get('img').should('have.attr', 'src').should('include', 'data:image')
+    .get('article').first().within(() => {
+      cy.get('h2').contains('Let\'s \'spill the tea\' on tea!')
+        .get('p').contains('Did you know')
+        .get('ol').children().should('have.length', '4')
+        .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+    })
+    .get('article').last().within(() => {
+      cy.get('h2').contains('Blends')
+        .get('p').contains('Blends can be made up of any tea base!')
+        .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+    })
   })
 })
