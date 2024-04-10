@@ -18,6 +18,8 @@ function Teas() {
     const [teas, setTeas] = useState<Tea[] | null>(null)
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
     const [error, setError] = useState<string>('');
+    const [favNames, setFavNames] = useState<Array<string>>([])
+    
 
     useEffect(() => {
         fetchData();
@@ -62,9 +64,14 @@ function Teas() {
         if (favs.some(fav => fav.slug === newFav.slug)) {
             setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug
+            },
+            setFavNames(favNames.filter(fav => {
+                return fav !== newFav.name
             }))
+        ))
         } else {
             setFavs([...favs, newFav])
+            setFavNames([...favNames, newFav.name])
         }
     }
     
@@ -84,7 +91,7 @@ function Teas() {
                 key={tea.slug}
                 description={tea.tasteDescription}
                 addFavs={addFavs}
-                favs={favs}
+                favNames={favNames}
             />
         )
     })
