@@ -49,9 +49,9 @@ describe('Spilled', () => {
   })
 
   it('Displays tea pages from info article buttons', () => {
-    cy.get('.article-tea').first().contains('button', 'See Black teas →').click()
+    cy.get('.article-tea').first().contains('.home-nav-link', 'See Black teas →').click()
     .get('h1').click()
-    .get('.article-tea').last().contains('button', 'See tea blends →').click()
+    .get('.article-tea').last().contains('.home-nav-link', 'See tea blends →').click()
   })
 
   it('Displays tea details on card click', () => {
