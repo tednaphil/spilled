@@ -21,4 +21,11 @@
     margin-left: 20px
 }
 
+.api-error {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: -80px;
+}
+
 

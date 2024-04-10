@@ -1,5 +1,6 @@
 import './Teas.css';
 import Card from '../card/Card';
+import spilledTea from "../../images/Coffee-Burst.svg";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
@@ -63,20 +64,22 @@ function Teas() {
         if (favs.some(fav => fav.slug === newFav.slug)) {
             setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug
-            },
-            setFavNames(favNames.filter(fav => {
-                return fav !== newFav.name
-            }))
-        ))
+            })
+        )
         } else {
             setFavs([...favs, newFav])
-            setFavNames([...favNames, newFav.name])
         }
     }
     
     useEffect(() => {
         sessionStorage.clear()
         sessionStorage.setItem("favs", JSON.stringify(favs));
+        const allFavs: string | null | Tea[] = sessionStorage.getItem("favs") || '{}'
+        const parsedFavs = JSON.parse(allFavs)
+        const favNames1 = parsedFavs.map((f: Tea) => {
+            return f.name
+        })
+        setFavNames(favNames1)
         fetchData()
     }, [favs])
 
@@ -108,10 +111,13 @@ function Teas() {
     return (
         <>
         <h2 className='cat-header'>{catHeader}</h2>
-        { error && <>
-            <h3 className='error-message'>Uh oh!</h3>
-            <p className='error-message'>{error}</p>
-        </>}
+        { error && 
+            <section className="api-error">
+                <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
+                <h3 className='error-message'>Uh oh!</h3>
+                <p className='error-message'>{error}</p>
+            </section>
+        }
         { noFaves() && <>
             <p className="no-favs">You don't have any favorites - go find some!</p>
             <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
