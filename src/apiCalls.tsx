@@ -1,4 +1,3 @@
-
 const fetchTea = async () => {
     try {
         const response = await fetch('https://boonakitea.cyclic.app/api/all');
