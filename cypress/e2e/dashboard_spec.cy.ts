@@ -43,7 +43,7 @@ describe('Spilled', () => {
       .get('article').last().within(() => {
         cy.get('h2').contains('Blends')
           .get('p').contains('Blends can be made up of any tea base!')
-          .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+          .get('img').should('have.attr', 'src').should('include', '/static/media/blend')
       })  
   })
 
@@ -164,7 +164,7 @@ describe('Spilled', () => {
     .get('article').last().within(() => {
       cy.get('h2').contains('Blends')
         .get('p').contains('Blends can be made up of any tea base!')
-        .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+        .get('img').should('have.attr', 'src').should('include', '/static/media/blend')
     })
   })
 })

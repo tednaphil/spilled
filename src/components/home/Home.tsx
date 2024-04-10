@@ -55,7 +55,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-oolong'>
-        <img src={oolong} alt='Oolong Tea' className="home-img"/>
+        <img src={oolong} alt='Oolong Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>Oolong Tea</h2>
             <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
@@ -63,7 +63,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-white'>
-        <img src={white} alt='White Tea' className="home-img"/>
+        <img src={white} alt='White Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>White Tea</h2>
             <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
@@ -71,7 +71,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-green'>
-        <img src={green} alt='Green Tea' className="home-img"/>
+        <img src={green} alt='Green Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>Green Tea</h2>
             <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
@@ -79,7 +79,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-blend'>
-        <img src={blend} alt='Tea Blend' className="home-img"/>
+        <img src={blend} alt='Tea Blend' className="home-img tea-image"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
