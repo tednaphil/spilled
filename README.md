@@ -1,6 +1,6 @@
 # <p align="center">🍵Spilled🫖</p>
 
-<p align="center">Abstract</p>
+<p align="center">Single-user application focused on providing educational content on tea-types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
 
 ### <p align="center">Contributors</p>
 <div align="center">
@@ -22,6 +22,7 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=fff&style=for-the-badge" alt="css badge">
   <img src="https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=for-the-badge" alt="router badge">
   <img src="https://img.shields.io/badge/Cypress-69D3A7?logo=cypress&logoColor=fff&style=for-the-badge" alt="cypress badge">
+  <img src="https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge" alt="vercel badge">
 </div>
 
 ## Installation Instructions:
@@ -52,15 +53,24 @@
 
 ## Context:
 <!-- wins, challenges, time spent, goals, approaches etc -->
-- ~ hours to complete test suite and functionality
+- ~30 hours to complete test suite of and functionality
 - Goals
   ```
+  - Learn and implement Typescript in a one week sprint
+  - Develop robust e-2-e test suite with intercepted network requests
+  - Consistent and modular file structure
+  
   ```
 - Wins
   ```
+  - Handling errors in a sophisticated manner
+  - Automatic deployments with Vercel
+  - Use of boolean logic to reduce code strain and complexity
   ```
 - Challenges
   ```
+  - Stepping back to see the crossover between JS and TS
+  - Session storage usage
   ```
 <!--
 - Future Features
