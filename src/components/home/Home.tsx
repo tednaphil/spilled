@@ -42,14 +42,14 @@ function Home() {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img tea-image"/>
+        <img src={teas} alt='' className="home-img tea-image" id='home-article-black'/>
         <div className="info">
           <h2>Black Tea</h2>
             <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
             <NavLink to="/tea/black" className='home-nav-link'>See Black teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
+      <article className="article-tea"  id='home-article-oolong'>
         <img src={teas} alt='' className="home-img tea-image"/>
         <div className="info">
           <h2>Oolong Tea</h2>
@@ -57,7 +57,7 @@ function Home() {
             <NavLink to="/tea/oolong" className='home-nav-link'>See Oolong teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
+      <article className="article-tea"  id='home-article-white'>
         <img src={teas} alt='' className="home-img tea-image"/>
         <div className="info">
           <h2>White Tea</h2>
@@ -65,7 +65,7 @@ function Home() {
             <NavLink to="/tea/white" className='home-nav-link'>See White teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
+      <article className="article-tea"  id='home-article-green'>
         <img src={teas} alt='' className="home-img tea-image"/>
         <div className="info">
           <h2>Green Tea</h2>
@@ -73,7 +73,7 @@ function Home() {
             <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea">
+      <article className="article-tea"  id='home-article-blend'>
         <img src={teas} alt='' className="home-img tea-image"/>
         <div className="info">
           <h2>Blends</h2>
