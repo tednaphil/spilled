@@ -8,10 +8,18 @@ describe('Spilled', () => {
       statusCode: 200,
       fixture: 'single_tea'
     }).as('getEarlGrey')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/jasminedragonpearl', {
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/englishbreakfast', {
       statusCode: 200,
-      fixture: 'single_tea'
-    }).as('getEarlGrey')
+      fixture: 'englishbreakfast'
+    }).as('getEnglishbreakfast')
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/baihoiyinzhen', {
+      statusCode: 200,
+      fixture: 'baihoiyinzhen'
+    }).as('getBaihoiyinzhen')
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/satemwaantlers', {
+      statusCode: 200,
+      fixture: 'satemwaantlers'
+    }).as('getSatemwaantlers')
     .visit('http://localhost:3000/')
   })
 
@@ -54,6 +62,11 @@ describe('Spilled', () => {
   })
 
   it('Displays tea info pages', () => {
+    cy.get('article').last().within(() => {
+      cy.get('h2').contains('Blends')
+      .get('p').contains('Blends can be made up of any tea base!')
+      .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+    })
     //click an education link
     //check url
     //check educational tea article page content
@@ -66,12 +79,28 @@ describe('Spilled', () => {
   })
 
   it('Displays tea details on card click', () => {
+    //tests first blends tea card
     cy.get('.div-nav-center').contains('a', 'Blends').click()
     .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
     .get('.card-cont').first().get('.card-back-text').first().contains('40-')
+    //last blends tea card
     cy.get('.div-nav-center').contains('a', 'Blends').click()
-    .get('.card-cont').last().should('have.id', 'jasminedragonpearl-tea').click()
-    .get('.card-cont').first().get('.card-back-text').first().contains('10-')
+    .get('.card-cont').last().should('have.id', 'englishbreakfast-tea').click()
+    .get('.card-cont').last().within(() => {
+      cy.get('dd').first().contains('60-')
+    })
+    //first white tea card
+    cy.get('.div-nav-center').contains('a', 'White').click()
+    .get('.card-cont').first().should('have.id', 'baihoiyinzhen-tea').click()
+    .get('.card-cont').first().within(() => {
+      cy.get('dd').first().contains('0-5mg')
+    })
+    //last white tea card
+    cy.get('.div-nav-center').contains('a', 'White').click()
+    .get('.card-cont').last().should('have.id', 'satemwaantlers-tea').click()
+    .get('.card-cont').last().within(() => {
+      cy.get('dd').first().contains('10-25mg')
+    })
   })
 
   // it('Adds and removes teas from Favorites list', () => {
