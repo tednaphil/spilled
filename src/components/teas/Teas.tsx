@@ -6,8 +6,6 @@ import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
 import multiTeas from '../../images/multi-teas.jpg'
 
-
-
 function Teas() {
 
     const navigate = useNavigate()
@@ -58,7 +56,6 @@ function Teas() {
     }
 
     function addFavs(newFav: Tea) {
-        console.log(newFav)
         if (favs.some(fav => fav.slug === newFav.slug)) {
             setFavs(favs.filter(fav => {
                 return fav.slug !== newFav.slug

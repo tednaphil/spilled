@@ -16,11 +16,9 @@ interface CardProp {
   favs: Tea[];
 }
 
-
 function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   
   let location = useLocation().pathname
-
   const [targetTea, setTargetTea] = useState<any>({})
   const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
   const [heartIsClicked, setHeartIsClicked] = useState<boolean>(false)
@@ -40,7 +38,6 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   }
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
-    console.log(e.key)
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
       let tea = await fetchSingleTea(slug)
       let target = tea[0]
