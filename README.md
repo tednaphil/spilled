@@ -1,6 +1,7 @@
-# <p align="center">🍵Spilled🫖</p>
+# <p align="center">[🍵Spilled🫖](https://spilled-o6wf5rm61-corys-projects-8e9f64e4.vercel.app/)</p>
+<p align='center' >👆<b>Click the heading to visit the deploy link</b>👆</p>
 
-<p align="center">Single-user application focused on providing educational content on tea-types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
+<p align="center">Single-user application focused on providing educational content on tea types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
 
 ### <p align="center">Contributors</p>
 <div align="center">
