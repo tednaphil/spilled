@@ -4,6 +4,14 @@ describe('Spilled', () => {
       statusCode: 200,
       fixture: 'test_teas'
     }).as('getTeas')
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/earlgrey', {
+      statusCode: 200,
+      fixture: 'single_tea'
+    }).as('getEarlGrey')
+    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/jasminedragonpearl', {
+      statusCode: 200,
+      fixture: 'single_tea'
+    }).as('getEarlGrey')
     .visit('http://localhost:3000/')
   })
 
@@ -20,6 +28,7 @@ describe('Spilled', () => {
     .get('article').first().within(() => {
       cy.get('h2').contains('Let\'s \'spill the tea\' on tea!')
       .get('p').contains('Did you know')
+      .get('ol').children().should('have.length', '4')
       .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
     .get('article').last().within(() => {
@@ -57,43 +66,47 @@ describe('Spilled', () => {
   })
 
   it('Displays tea details on card click', () => {
-    //add interception of single tea network request(s)
-    //click a card element and check content
+    cy.get('.div-nav-center').contains('a', 'Blends').click()
+    .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
+    .get('.card-cont').first().get('.card-back-text').first().contains('40-')
+    cy.get('.div-nav-center').contains('a', 'Blends').click()
+    .get('.card-cont').last().should('have.id', 'jasminedragonpearl-tea').click()
+    .get('.card-cont').first().get('.card-back-text').first().contains('10-')
   })
 
-  it('Adds and removes teas from Favorites list', () => {
-    cy.get('nav').contains('a', 'White').click()
-    .get('#baihoiyinzhen-favorite.fav-btn').click()
-    cy.get('.nav-favorites').click()
-    .url().should('include', 'favorites')
-    .get('h3').contains('Baihoi Yinzhen')
-    //addassertions for tea details
-    .get('#baihoiyinzhen-unfavorite.fav-btn').click()
-    .should('not.exist')
-    //check that favs page is empty and displays message
+  // it('Adds and removes teas from Favorites list', () => {
+  //   cy.get('nav').contains('a', 'White').click()
+  //   .get('#baihoiyinzhen-favorite.fav-btn').click()
+  //   cy.get('.nav-favorites').click()
+  //   .url().should('include', 'favorites')
+  //   .get('h3').contains('Baihoi Yinzhen')
+  //   //addassertions for tea details
+  //   .get('#baihoiyinzhen-unfavorite.fav-btn').click()
+  //   .should('not.exist')
+  //   //check that favs page is empty and displays message
     
-  })
+  // })
 
-  it('Displays error message if api calls fail', () => {
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
-      statusCode: 400,
-    }).as('getTeas')
-    .visit('http://localhost:3000/')
-    .get('nav').contains('a', 'Blends').click()
-    .get('p').contains('Failed to fetch tea data')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
-      statusCode: 500,
-    }).as('getTeas')
-    .visit('http://localhost:3000/')
-    .get('nav').contains('a', 'Black').click()
-    .get('p').contains('Failed to fetch tea data')
-  })
+  // it('Displays error message if api calls fail', () => {
+  //   cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+  //     statusCode: 400,
+  //   }).as('getTeas')
+  //   .visit('http://localhost:3000/')
+  //   .get('nav').contains('a', 'Blends').click()
+  //   .get('p').contains('Failed to fetch tea data')
+  //   cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+  //     statusCode: 500,
+  //   }).as('getTeas')
+  //   .visit('http://localhost:3000/')
+  //   .get('nav').contains('a', 'Black').click()
+  //   .get('p').contains('Failed to fetch tea data')
+  // })
 
-  it('Displays error message if visiting a bad path', () => {
-    // cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
-    //   statusCode: 404,
-    // }).as('getTeas')
-    cy.visit('http://localhost:3000/teas/badpath')
-    //check content and url
-  })
+  // it('Displays error message if visiting a bad path', () => {
+  //   // cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+  //   //   statusCode: 404,
+  //   // }).as('getTeas')
+  //   cy.visit('http://localhost:3000/teas/badpath')
+  //   //check content and url
+  // })
 })

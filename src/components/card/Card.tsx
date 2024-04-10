@@ -40,7 +40,6 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
   }
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
-    console.log(e.key)
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
       let tea = await fetchSingleTea(slug)
       let target = tea[0]
@@ -50,6 +49,7 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
       setCardIsClicked(false)
     }
   }
+  console.log(targetTea)
 
   function ingredients(tea: any): string {
     let teaReturn: string;
@@ -67,9 +67,9 @@ function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
         <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'/>
       </button>
 }
-      <div className="card-cont" role='button' aria-label={`${slug} tea Details`} onClick={(e) => { fetchTea(e)}} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
+      <div className="card-cont" id={`${slug}-tea`} role='button' aria-label={`${slug} tea Details`} onClick={(e) => { fetchTea(e)}} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
         <div className="card-inner" style={cardIsClicked ? css : ncss}>
-          <div className="card-front" id={`${slug}-tea`}>
+          <div className="card-front" >
             <div className="img-wrapper">
               <img className="tea-img" src={img} alt={`img of ${name}`} />
             </div>
