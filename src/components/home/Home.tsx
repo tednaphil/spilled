@@ -1,5 +1,10 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
+import blend from "../../images/blend.svg";
+import black from "../../images/black.svg";
+import oolong from "../../images/oolong.svg";
+import green from "../../images/green.svg";
+import white from "../../images/white.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 
 
@@ -42,7 +47,7 @@ function Home() {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} alt='' className="home-img tea-image" id='home-article-black'/>
+        <img src={black} alt='Black Tea' className="home-img tea-image" id='home-article-black'/>
         <div className="info">
           <h2>Black Tea</h2>
             <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
@@ -50,7 +55,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-oolong'>
-        <img src={teas} alt='' className="home-img tea-image"/>
+        <img src={oolong} alt='Oolong Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>Oolong Tea</h2>
             <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
@@ -58,7 +63,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-white'>
-        <img src={teas} alt='' className="home-img tea-image"/>
+        <img src={white} alt='White Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>White Tea</h2>
             <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
@@ -66,7 +71,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-green'>
-        <img src={teas} alt='' className="home-img tea-image"/>
+        <img src={green} alt='Green Tea' className="home-img tea-image"/>
         <div className="info">
           <h2>Green Tea</h2>
             <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
@@ -74,7 +79,7 @@ function Home() {
         </div>
       </article>
       <article className="article-tea"  id='home-article-blend'>
-        <img src={teas} alt='' className="home-img tea-image"/>
+        <img src={blend} alt='Tea Blend' className="home-img tea-image"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">

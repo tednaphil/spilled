@@ -10,7 +10,7 @@
     height:40vh;
 }
 
-.home-link {
+#error-home-link {
     font-family: 'proxima-nova', sans-serif;
     border-radius: 15px;
     outline: 1px black solid;
