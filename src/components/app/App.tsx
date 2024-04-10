@@ -4,13 +4,19 @@ import Home from '../home/Home';
 import Teas from '../teas/Teas';
 import Error from '../error/Error'
 import TeaEd from '../teaEd/TeaEd'
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import {useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const [isRedirected, setIsRedirected] = useState<boolean>()
+  const location = useLocation().pathname
+
   return (
     <div className="App">
       <Nav />
+      <div id='location-path-cont'>
+        <p id='location-path'>{location === '/' ? '/home' : location}</p>
+      </div>
       <main>
         <Routes >
           <Route path='/' element={<Home />} />

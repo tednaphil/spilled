@@ -2,6 +2,10 @@ import "./Card.css";
 import { Tea } from "../../utils/interface";
 import { useState } from "react";
 import { fetchSingleTea } from "../../apiCalls";
+import unFav from '../../images/remove-icon.svg'
+import favInactive from '../../images/heart-inactive.svg'
+import favActive from '../../images/heart-active.svg'
+import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
   name: string;
@@ -12,13 +16,14 @@ interface CardProp {
   favs: Tea[];
 }
 
-function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
+
+function Card({ img, name, slug, tea, description, addFavs }: CardProp) {
+  
+  let location = useLocation().pathname
 
   const [targetTea, setTargetTea] = useState<any>({})
-  const [isClicked, setIsClicked] = useState<boolean>(false)
-  const [color, setColor] = useState(
-    favs.some((fav) => fav.slug === slug) ? "#895B1E" : "#B1AE91"
-  );
+  const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
+  const [heartIsClicked, setHeartIsClicked] = useState<boolean>(false)
 
   const css = {
     transform: 'rotateY(180deg)',
@@ -31,13 +36,19 @@ function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
-    setColor(color === "#B1AE91" ? "#895B1E" : "#B1AE91");
+    setHeartIsClicked(!heartIsClicked ? true : false)
   }
 
-  async function fetchTea(e: React.MouseEvent<HTMLDivElement>): Promise<any> {
-    let tea = await fetchSingleTea(slug)
-    let target = tea[0]
-    setTargetTea(target)
+  async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
+    console.log(e.key)
+    if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+      let tea = await fetchSingleTea(slug)
+      let target = tea[0]
+      setTargetTea(target) 
+      setCardIsClicked(!cardIsClicked ? true : false)
+    } else {
+      setCardIsClicked(false)
+    }
   }
 
   function ingredients(tea: any): string {
@@ -48,12 +59,17 @@ function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
 
   return (
     <div className="card-wrapper">
-      <button className="fav-btn" id={slug} onClick={(e) => favTea(e)} style={{ color: color }}>
-        ♥
+  {location !== '/tea/favorites' ? 
+      <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
+        <img src={heartIsClicked ? favActive : favInactive} alt={heartIsClicked ? 'favorite active' : 'favorite inactive'} className="unfav-btn" aria-label='favorite' role="button"/>
+      </button> :
+      <button className="fav-btn" id={`${slug}-unfavorite`} onClick={(e) => favTea(e)}>
+        <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite'/>
       </button>
-      <div className="card-cont" onClick={(e) => { fetchTea(e); setIsClicked(!isClicked ? true : false) }} style={isClicked ? css : ncss}>
-        <div className="card-inner" style={isClicked ? css : ncss}>
-          <div className="card-front" id={slug}>
+}
+      <div className="card-cont" role='button' aria-label={`${slug} tea Details`} onClick={(e) => { fetchTea(e)}} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
+        <div className="card-inner" style={cardIsClicked ? css : ncss}>
+          <div className="card-front" id={`${slug}-tea`}>
             <div className="img-wrapper">
               <img className="tea-img" src={img} alt={`img of ${name}`} />
             </div>
@@ -63,7 +79,7 @@ function Card({ img, name, slug, tea, description, addFavs, favs }: CardProp) {
             </div>
           </div>
           <div className="card-back">
-            <dl className='card-back-dl' style={isClicked ? css : ncss}>
+            <dl className='card-back-dl' style={cardIsClicked ? css : ncss}>
               <dt><strong>Caffeine content:</strong></dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
               <dt><strong>Main Ingredients:</strong></dt>

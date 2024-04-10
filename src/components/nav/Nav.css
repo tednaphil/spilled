@@ -10,43 +10,32 @@
     font-family: 'proxima-nova', sans-serif;
 }
 
-a {
+.navlink {
     text-decoration: none;
     font-size: 1em;
     color: #010101;
-    padding: 5px;
-}
-
-a:hover {
-    background-color: hsla(120, 7%, 92%, 0.461);
-    border-radius: 15px;
-    cursor: pointer;
-}
-
-.navlink {
+    padding: 7px;
     margin-left: 20px;
 }
 
-.active {
-     background-color: hsla(120, 7%, 92%, 0.461);
-     /* background-color: #B1AE91; */
+.navlink:hover, .h1:hover {
+    background-color: hsla(120, 7%, 92%, 0.461);
     border-radius: 15px;
-    /* color: #895B1E; */
-    font-size: 1.5rem;
+    text-decoration: underline;
 }
 
-h1 {
+.h1 {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #010101;
     margin: 0;
-    font-size: 1.5em;
+    margin-left: 20px;
+    font-size: 1.3em;
     font-family: "Macondo Swash Caps", cursive;
     font-weight: 400;
 }
 
-.div-nav-left {
-    margin-left: 20px;
-}
-
-.div-nav-right {
+.div-nav-right, .div-nav-left {
     margin-right: 20px;
     height: min-content;
     display: flex;

@@ -1,29 +1,50 @@
 import { TeaHardcoded } from '../../utils/interface';
 import { NavLink } from "react-router-dom";
+import './TeaArticle.css'
 
 interface Props {
   tea: TeaHardcoded,
   slug: string,
-  key: number,
 }
 
-function TeaArticle({ tea, slug, key }: Props) {
+function TeaArticle({ tea, slug }: Props) {
   return (
-    <div className='tea-article' id={`${slug}`}>
-      <h1>{tea.type}</h1>
-      <p>{tea.summary}</p>
-      <p>{tea.creation}</p>
-      <p>{tea.withering}</p>
-      <p>{tea.rolling}</p>
-      <p>{tea.oxidation}</p>
-      <p>{tea.heating}</p>
-      <p>{tea.climate}</p>
-      <button className="infoButton">
-        <NavLink to='/'>⃪ Go back</NavLink>
-      </button>
-      <button className="infoButton">
-        <NavLink to={`/tea/${slug}`}>See {slug} tea →</NavLink>
-      </button>
+    <div className='container'>
+      <h1>{tea.type} tea</h1>
+      <section className='tea-section' id='ed-summary'>
+        <h2 className='education-h2'>Summary</h2>
+        <p>{tea.summary}</p>
+      </section>
+    <div className='education-wrapper'>
+      <section className='tea-section'>
+        <h2 className='education-h2'>1. Creation</h2>
+        <p>{tea.creation}</p>
+      </section>
+      <section className='tea-section'>
+        <h2 className='education-h2'>2. Withering</h2>
+        <p>{tea.withering}</p>
+      </section>
+      <section className='tea-section'>
+        <h2 className='education-h2'>3. Rolling</h2>
+        <p>{tea.rolling}</p>
+      </section>
+      <section className='tea-section'>
+        <h2 className='education-h2'>4. Oxidation</h2>
+        <p>{tea.oxidation}</p>
+      </section>
+      <section className='tea-section'>
+        <h2 className='education-h2'>5. Heating</h2>
+        <p>{tea.heating}</p>
+      </section>
+      <section className='tea-section'>
+        <h2 className='education-h2'>Climate</h2>
+        <p>{tea.climate}</p>
+      </section>
+    </div>
+    <div className='link-wrapper'>
+      <NavLink to='/' className='home-link'>⃪ Go back</NavLink>
+      <NavLink to={`/tea/${slug}`} className='teas-link'>See {slug} tea →</NavLink>
+      </div>
     </div>
   )
 }
