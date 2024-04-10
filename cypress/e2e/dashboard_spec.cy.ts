@@ -43,9 +43,11 @@ describe('Spilled', () => {
     //check that empty favorites page displays message
 
   })
-  it('Displays tea info pages', () => {
-  
 
+  it('Displays tea info pages', () => {
+    //click an education link
+    //check url
+    //check educational tea article page content
   })
 
   it('Displays tea pages from info article buttons', () => {
@@ -56,6 +58,7 @@ describe('Spilled', () => {
 
   it('Displays tea details on card click', () => {
     //add interception of single tea network request(s)
+    //click a card element and check content
   })
 
   it('Adds and removes teas from Favorites list', () => {
@@ -70,6 +73,7 @@ describe('Spilled', () => {
     //check that favs page is empty and displays message
     
   })
+
   it('Displays error message if api calls fail', () => {
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
       statusCode: 400,
@@ -77,23 +81,19 @@ describe('Spilled', () => {
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Blends').click()
     .get('p').contains('Failed to fetch tea data')
-    // test remaining error page content
-    //stub 500 statusCode
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
       statusCode: 500,
     }).as('getTeas')
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Black').click()
     .get('p').contains('Failed to fetch tea data')
-    //test remaining error page content
   })
+
   it('Displays error message if visiting a bad path', () => {
     // cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
     //   statusCode: 404,
     // }).as('getTeas')
     cy.visit('http://localhost:3000/teas/badpath')
     //check content and url
-
   })
-
 })
