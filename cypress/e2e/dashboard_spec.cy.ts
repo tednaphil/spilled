@@ -51,12 +51,20 @@ describe('Spilled', () => {
   it('Displays tea pages from nav bar', () => {
     cy.get('nav').contains('a', 'Blends').click()
       .url().should('include', 'blend')
+      .get('.card-cont').should('have.length', '2')
+      .get('img').should('have.attr', 'src').should('include', 'data:image')
+      .get('.card-cont').first().contains('h3', 'Earl Grey')
       //check content on page
       .get('nav').contains('a', 'White').click()
       .url().should('include', 'white')
+      .get('.card-cont').should('have.length', '2')
+      .get('img').should('have.attr', 'src').should('include', 'data:image')
+      .get('.card-cont').first().contains('h3', 'Baihoi Yinzhen')
       //check content on page
       .get('.nav-favorites').click()
       .url().should('include', 'favorites')
+      .get('p').contains('don\'t have any favorites')
+      .get('a').contains('Go Home')
     //check that empty favorites page displays message
 
   })

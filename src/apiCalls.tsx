@@ -17,7 +17,6 @@ const fetchSingleTea = async (slug: string) => {
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
-        // console.log(response.json())
         return await response.json()
     } catch (error: any) {
         throw error
