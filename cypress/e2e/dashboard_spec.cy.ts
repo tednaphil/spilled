@@ -20,6 +20,7 @@ describe('Spilled', () => {
       statusCode: 200,
       fixture: 'satemwaantlers'
     }).as('getSatemwaantlers')
+    cy.viewport(1117, 700)
       .visit('http://localhost:3000/')
   })
 
@@ -36,7 +37,7 @@ describe('Spilled', () => {
       .get('article').first().within(() => {
         cy.get('h2').contains('Let\'s \'spill the tea\' on tea!')
           .get('p').contains('Did you know')
-          .get('ol').children().should('have.length', '4')
+          .get('.creation-wrapper').children().should('have.length', '4')
           .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
       })
       .get('article').last().within(() => {
@@ -66,7 +67,7 @@ describe('Spilled', () => {
   })
 
   it('Displays tea info pages', () => {
-    cy.get('#home-article-black').within(() => {
+    cy.get('.article-tea').first().within(() => {
       cy.get('h2').contains('Black')
         .get('a').contains('Education').click()
     })
@@ -157,7 +158,7 @@ describe('Spilled', () => {
     .get('article').first().within(() => {
       cy.get('h2').contains('Let\'s \'spill the tea\' on tea!')
         .get('p').contains('Did you know')
-        .get('ol').children().should('have.length', '4')
+        .get('.creation-wrapper').children().should('have.length', '4')
         .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
     .get('article').last().within(() => {
