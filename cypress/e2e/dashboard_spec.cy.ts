@@ -27,7 +27,7 @@ describe('Spilled', () => {
       .get('p').contains('Blends can be made up of any tea base!')
       .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
-    //test main secion content - we need to add classes to some elements
+    //test main secion content - we may need to add classes to some elements
     //to make them easier to access    
   })
 
@@ -44,7 +44,7 @@ describe('Spilled', () => {
 
   })
   it('Displays tea info pages', () => {
-    //add interception of new network request
+  
 
   })
 
@@ -54,18 +54,19 @@ describe('Spilled', () => {
     .get('.article-tea').last().contains('button', 'See tea blends →').click()
   })
 
+  it('Displays tea details on card click', () => {
+    //add interception of single tea network request(s)
+  })
+
   it('Adds and removes teas from Favorites list', () => {
     cy.get('nav').contains('a', 'White').click()
-    .get('#baihoiyinzhen').within(() => {
-      cy.get('.fav-btn').click()
-    })
+    .get('#baihoiyinzhen.fav-btn').click()
     cy.get('.nav-favorites').click()
     .url().should('include', 'favorites')
-    .get('#baihoiyinzhen').within(() => {
-      cy.get('h3').contains('Baihoi Yinzhen')
-    // add assertions for new tea details
-      .get('.fav-btn').click()
-    }).should('not.exist')
+    .get('h3').contains('Baihoi Yinzhen')
+    //addassertions for tea details
+    .get('#baihoiyinzhen.fav-btn').click()
+    .should('not.exist')
     //check that favs page is empty and displays message
     
   })
@@ -75,7 +76,7 @@ describe('Spilled', () => {
     }).as('getTeas')
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Blends').click()
-    .get('p').contains('There was a problem')
+    .get('p').contains('Failed to fetch tea data')
     // test remaining error page content
     //stub 500 statusCode
     cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
@@ -83,7 +84,7 @@ describe('Spilled', () => {
     }).as('getTeas')
     .visit('http://localhost:3000/')
     .get('nav').contains('a', 'Black').click()
-    .get('p').contains('There was a problem')
+    .get('p').contains('Failed to fetch tea data')
     //test remaining error page content
   })
   it('Displays error message if visiting a bad path', () => {

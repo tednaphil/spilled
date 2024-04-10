@@ -1,9 +1,6 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
 import { NavLink, useNavigate } from "react-router-dom";
-import { allHardcodedTeas } from '../../utils/interface';
-
-
 
 
 function Home() {
@@ -12,7 +9,7 @@ function Home() {
     <div>
       <div className="intro-wrapper">
         <article className="article-intro">
-          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' />
+          <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' className="home-img"/>
           <div className="info">
             <h2 className="home-h2">Let's 'spill the tea' on tea!</h2>
             <p className="info-desc">
@@ -30,74 +27,46 @@ function Home() {
         </article>
       </div>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Black Tea</h2>
-          <p>{allHardcodedTeas[3].summary}</p>
-          <button className="infoButton">
-            <NavLink to="/tea/black/education">More info →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/black">See Black teas →</NavLink>
-          </button>
+            <NavLink to="/tea/black/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/black" className='home-nav-link'>See Black teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Oolong Tea</h2>
-          <div className="info-desc">
-            <p>{allHardcodedTeas[2].summary}</p>
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/oolong/education">More info →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/oolong">See Oolong teas →</NavLink>
-          </button>
+            <NavLink to="/tea/oolong/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/oolong" className='home-nav-link'>See Oolong teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>White Tea</h2>
-          <div className="info-desc">
-            <p>{allHardcodedTeas[1].summary}</p>
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/white/education">More info →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/white">See White teas →</NavLink>
-          </button>
+            <NavLink to="/tea/white/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/white" className='home-nav-link'>See White teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Green Tea</h2>
-          <div className="info-desc">
-            <p>{allHardcodedTeas[0].summary}</p>
-          </div>
-          <button className="infoButton">
-            <NavLink to="/tea/green/education">More info →</NavLink>
-          </button>
-          <button className="infoButton">
-            <NavLink to="/tea/green">See Green teas →</NavLink>
-          </button>
+            <NavLink to="/tea/green/education" className='education-link'>Education →</NavLink>
+            <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
       <article className="article-tea">
-        <img src={teas} />
+        <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Blends</h2>
           <div className="info-desc">
             <p>Blends can be made up of any tea base! Blends can also comprise of non-tea 'tea'. Such as Rooibos, Pu-Erh, Yerba Mate, and Hemp!</p>
             <p>Our site focuses on just the Camellia Sinensis plant to ease the transition into tea.</p>
           </div>
-          <button className="infoButton">
-            <NavLink to="/tea/blend">See tea blends →</NavLink>
-          </button>
+            <NavLink to="/tea/blend" className='home-nav-link'>See tea blends →</NavLink>
         </div>
       </article>
     </div>

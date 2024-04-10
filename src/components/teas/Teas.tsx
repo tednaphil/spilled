@@ -4,8 +4,6 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
-import React from 'react';
-import pic from '../../images/logo192.png';
 import multiTeas from '../../images/multi-teas.jpg'
 
 
@@ -29,14 +27,11 @@ function Teas() {
         if (category === 'favorites') {
             return setTeas(favs)
         } else {
-            const fetchedTeaData = await fetchTea();
-            // console.log('fetchedTeaData return', fetchedTeaData)
-            if (!fetchedTeaData) {
-                // navigate('*', { replace: true })
-                setError('There was a problem getting the tea. Try again later!')
-                return
-            } else {
+            try {
+                const fetchedTeaData = await fetchTea()
                 filterTeas(fetchedTeaData)
+            } catch(error: any) {
+                setError(`There was a problem - ${error.message}`)
             }
         }
     }
