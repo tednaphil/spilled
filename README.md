@@ -59,6 +59,13 @@
 - Wins
   ```
   ```
-- Goals
+- Challenges
   ```
   ```
+<!--
+- Future Features
+  ```
+  1. Search bar
+  2. Display for all tea with filtering capability
+  ```
+-->
