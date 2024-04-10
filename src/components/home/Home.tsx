@@ -58,7 +58,7 @@ function Home() {
             <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea"  id='home-article-blends'>
+      <article className="article-tea"  id='home-article-blend'>
         <img src={teas} alt='' className="home-img"/>
         <div className="info">
           <h2>Blends</h2>

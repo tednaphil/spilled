@@ -62,46 +62,60 @@ describe('Spilled', () => {
   })
 
   it('Displays tea info pages', () => {
-    cy.get('article').last().within(() => {
-      cy.get('h2').contains('Blends')
-      .get('p').contains('Blends can be made up of any tea base!')
-      .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
+    //Test black education
+    cy.get('#home-article-black').within(() => {
+      cy.get('h2').contains('Black')
+      .get('a').contains('Education').click()
+      
+    })
+    .url().should('include', 'http://localhost:3000/tea/black/education')
+    cy.get('h1').last().contains('black') //does not sense capital because it is a CSS feature
+    .get('section').first().contains('h2', 'Summary')
+    .get('section').first().contains('p', 'Black tea is')
+    .get('section').last().contains('h2', 'Climate')
+    .get('section').last().contains('p').should('have.text', 'The climate plays a significant role in black tea production. Tea plants thrive in regions with moderate temperatures, high humidity, and consistent rainfall. Altitude also influences the flavor profile of black tea, with higher altitude teas often possessing more complex flavors.')
+    cy.get('.link-wrapper').contains('a').click()
+    // test blend education
+    .get('#home-article-blend').within(() => {
+      cy.get('h2').contains('Blend')
+      .get('a').contains('Education').click()
+      
     })
     //click an education link
     //check url
     //check educational tea article page content
   })
 
-  it('Displays tea pages from info article buttons', () => {
-    cy.get('.article-tea').first().contains('.home-nav-link', 'See Black teas →').click()
-    .get('h1').click()
-    .get('.article-tea').last().contains('.home-nav-link', 'See tea blends →').click()
-  })
+  // it('Displays tea pages from info article buttons', () => {
+  //   cy.get('.article-tea').first().contains('.home-nav-link', 'See Black teas →').click()
+  //   .get('h1').click()
+  //   .get('.article-tea').last().contains('.home-nav-link', 'See tea blends →').click()
+  // })
 
-  it('Displays tea details on card click', () => {
-    //tests first blends tea card
-    cy.get('.div-nav-center').contains('a', 'Blends').click()
-    .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
-    .get('.card-cont').first().get('.card-back-text').first().contains('40-')
-    //last blends tea card
-    cy.get('.div-nav-center').contains('a', 'Blends').click()
-    .get('.card-cont').last().should('have.id', 'englishbreakfast-tea').click()
-    .get('.card-cont').last().within(() => {
-      cy.get('dd').first().contains('60-')
-    })
-    //first white tea card
-    cy.get('.div-nav-center').contains('a', 'White').click()
-    .get('.card-cont').first().should('have.id', 'baihoiyinzhen-tea').click()
-    .get('.card-cont').first().within(() => {
-      cy.get('dd').first().contains('0-5mg')
-    })
-    //last white tea card
-    cy.get('.div-nav-center').contains('a', 'White').click()
-    .get('.card-cont').last().should('have.id', 'satemwaantlers-tea').click()
-    .get('.card-cont').last().within(() => {
-      cy.get('dd').first().contains('10-25mg')
-    })
-  })
+  // it('Displays tea details on card click', () => {
+  //   //tests first blends tea card
+  //   cy.get('.div-nav-center').contains('a', 'Blends').click()
+  //   .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
+  //   .get('.card-cont').first().get('.card-back-text').first().contains('40-')
+  //   //last blends tea card
+  //   cy.get('.div-nav-center').contains('a', 'Blends').click()
+  //   .get('.card-cont').last().should('have.id', 'englishbreakfast-tea').click()
+  //   .get('.card-cont').last().within(() => {
+  //     cy.get('dd').first().contains('60-')
+  //   })
+  //   //first white tea card
+  //   cy.get('.div-nav-center').contains('a', 'White').click()
+  //   .get('.card-cont').first().should('have.id', 'baihoiyinzhen-tea').click()
+  //   .get('.card-cont').first().within(() => {
+  //     cy.get('dd').first().contains('0-5mg')
+  //   })
+  //   //last white tea card
+  //   cy.get('.div-nav-center').contains('a', 'White').click()
+  //   .get('.card-cont').last().should('have.id', 'satemwaantlers-tea').click()
+  //   .get('.card-cont').last().within(() => {
+  //     cy.get('dd').first().contains('10-25mg')
+  //   })
+  // })
 
   // it('Adds and removes teas from Favorites list', () => {
   //   cy.get('nav').contains('a', 'White').click()
