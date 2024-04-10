@@ -43,9 +43,7 @@ describe('Spilled', () => {
         cy.get('h2').contains('Blends')
           .get('p').contains('Blends can be made up of any tea base!')
           .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
-      })
-    //test main secion content - we may need to add classes to some elements
-    //to make them easier to access    
+      })  
   })
 
   it('Displays tea pages from nav bar', () => {
@@ -54,19 +52,17 @@ describe('Spilled', () => {
       .get('.card-cont').should('have.length', '2')
       .get('img').should('have.attr', 'src').should('include', 'data:image')
       .get('.card-cont').first().contains('h3', 'Earl Grey')
-      //check content on page
+      .get('.card-cont').first().contains('p', 'smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey')
       .get('nav').contains('a', 'White').click()
       .url().should('include', 'white')
       .get('.card-cont').should('have.length', '2')
       .get('img').should('have.attr', 'src').should('include', 'data:image')
       .get('.card-cont').first().contains('h3', 'Baihoi Yinzhen')
-      //check content on page
+      .get('.card-cont').first().contains('p', 'sweet, vegetal, and delicate')
       .get('.nav-favorites').click()
       .url().should('include', 'favorites')
       .get('p').contains('don\'t have any favorites')
       .get('a').contains('Go Home')
-    //check that empty favorites page displays message
-
   })
 
   it('Displays tea info pages', () => {
@@ -128,10 +124,11 @@ describe('Spilled', () => {
     cy.get('.nav-favorites').click()
       .url().should('include', 'favorites')
       .get('h3').contains('Baihoi Yinzhen')
-      //addassertions for tea details
+      .get('.card-cont').first().contains('p', 'sweet, vegetal, and delicate')
       .get('#baihoiyinzhen-unfavorite.fav-btn').click()
       .should('not.exist')
-    //check that favs page is empty and displays message
+      .get('p').contains('don\'t have any favorites')
+      .get('a').contains('Go Home')
 
   })
 
