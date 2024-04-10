@@ -11,7 +11,7 @@
 
 ## Preview:
 <div align="center">
-  <img src="" alt="app demo">
+  <img src="Spilled Demo.gif" alt="app demo">
 
 </div>
 <p align="center">Technologies Used</p>
