@@ -26,7 +26,7 @@
 </div>
 
 ## Installation Instructions:
-- Visit the deployed [link](link)
+- Visit the deployed [link](https://spilled-o6wf5rm61-corys-projects-8e9f64e4.vercel.app/)
 - OR run the following on command line to clone the repo and run the app locally:
     ```
     git clone git@github.com:corysanders3/spilled.git
@@ -59,7 +59,6 @@
   - Learn and implement Typescript in a one week sprint
   - Develop robust e-2-e test suite with intercepted network requests
   - Consistent and modular file structure
-  
   ```
 - Wins
   ```
