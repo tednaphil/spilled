@@ -1,11 +1,11 @@
 import './Teas.css';
 import Card from '../card/Card';
 import spilledTea from "../../images/Coffee-Burst.svg";
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchTea } from '../../apiCalls';
 import { Tea } from '../../utils/interface';
-import multiTeas from '../../images/multi-teas.jpg'
+import multiTeas from '../../images/multi-teas.jpg';
 
 function Teas() {
 
@@ -13,14 +13,20 @@ function Teas() {
 
     const initialFavs: Tea[] = JSON.parse(sessionStorage.getItem("favs") || '[]');
     const category = useParams<string>().category
+    const location = useLocation();
 
-    const [teas, setTeas] = useState<Tea[] | null>(null)
+    const [teas, setTeas] = useState<Tea[] | null>(null);
     const [favs, setFavs] = useState<Tea[]>(initialFavs);
     const [error, setError] = useState<string>('');
-    const [favNames, setFavNames] = useState<Array<string>>([])
-    
+    const [favNames, setFavNames] = useState<Array<string>>([]);
+    const [searchInput, setSearchInput] = useState<string>('');
+    const [noTea, setNoTea] = useState<string>('');
+    const [allTea, setAllTea] = useState<Tea[] | null>(null);
 
     useEffect(() => {
+        setError('');
+        setNoTea('');
+        setSearchInput('');
         fetchData();
     }, [category])
 
@@ -29,8 +35,13 @@ function Teas() {
             return setTeas(favs)
         } else {
             try {
-                const fetchedTeaData = await fetchTea()
-                filterTeas(fetchedTeaData)
+                const fetchedTeaData = await fetchTea();
+
+                if(category === 'all') {
+                    organizeTeas(fetchedTeaData)
+                } else {
+                    filterTeas(fetchedTeaData)
+                }
             } catch(error: any) {
                 setError(`There was a problem - ${error.message}`)
             }
@@ -43,19 +54,19 @@ function Teas() {
     }
 
     function organizeTeas(data: Tea[]) {
-        const index = data.findIndex(d => d.name === 'Black Tea' || d.name === 'Green Tea'
-            || d.name === 'Wulong (oolong) Tea' || d.name === 'White Tea'
-        )
-        if(index !== -1) {
-            data.splice(index, 1)
-        }
-        data.forEach((d) => {
+        const teasToExclude = ['Black Tea', 'Green Tea', 'Wulong (oolong) Tea', 'White Tea'];
+        const newData = data.filter((d) => !teasToExclude.includes(d.name))
+
+        newData.forEach((d) => {
             if(d.image.includes('herokuapp')) {
                 d.image = multiTeas
             }
         })
-
-        setTeas(data);
+        newData.sort((a, b) => a.name.localeCompare(b.name))
+        setTeas(newData);
+        if(category === 'all') {
+            setAllTea(newData)
+        }
     }
 
     function addFavs(newFav: Tea) {
@@ -70,6 +81,7 @@ function Teas() {
     }
     
     useEffect(() => {
+        setNoTea('');
         sessionStorage.clear()
         sessionStorage.setItem("favs", JSON.stringify(favs));
         const allFavs: string | null | Tea[] = sessionStorage.getItem("favs") || '{}'
@@ -106,9 +118,39 @@ function Teas() {
         }
     }
 
+    useEffect(() => {
+        setNoTea('');
+
+        if(searchInput.trim().length > 0) {
+            const searchTeas: Tea[] | undefined = allTea?.filter((t) => t.name.toLowerCase().includes(searchInput))
+            if(searchTeas && searchTeas.length > 0) {
+                setTeas(searchTeas)
+            } else {
+                setNoTea('There are no teas to display...')
+                setTeas(null)
+            }
+        } else if(location.pathname === '/tea/all'){
+            setTeas(allTea)
+        }
+    }, [searchInput])
+
     return (
         <>
         <h2 className='cat-header'>{catHeader}</h2>
+        { category === 'all' &&
+            <form className='form-search'>
+                <label htmlFor='search'>Search</label>
+                <input 
+                    type='text'
+                    id='search'
+                    name='search'
+                    value={searchInput}
+                    placeholder='Type to search...'
+                    onChange={e => setSearchInput(e.target.value)}
+                />
+            </form>
+        }
+        { noTea && <h3 className='no-favs'>{noTea}</h3>}
         { error && 
             <section className="api-error">
                 <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
