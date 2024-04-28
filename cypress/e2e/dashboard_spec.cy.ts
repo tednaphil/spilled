@@ -27,7 +27,8 @@ describe('Spilled', () => {
   it('Displays landing page', () => {
     cy.get('h1').contains('Spilled')
       .get('nav').children().should('have.length', 3)
-      .get('.div-nav-center').children().should('have.length', 5)
+      .get('.div-nav-center').children().should('have.length', 6)
+      .get('.div-nav-center').contains('a', 'All Teas')
       .get('.div-nav-center').contains('a', 'Blends')
       .get('.div-nav-center').contains('a', 'Black')
       .get('.div-nav-center').contains('a', 'Green')
@@ -131,6 +132,10 @@ describe('Spilled', () => {
       .get('p').contains('don\'t have any favorites')
       .get('a').contains('Go Home')
 
+  })
+
+  it('Searches for teas by name', () => {
+    
   })
 
   it('Displays error message if api calls fail', () => {

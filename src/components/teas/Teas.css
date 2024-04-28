@@ -45,6 +45,11 @@
     text-align: center;
 }
 
+.loading-image {
+    margin-top: -30px;
+    width: 50%;
+}
+
 @media screen and (max-width: 784px) {
     #search {
         font-size: 25px;

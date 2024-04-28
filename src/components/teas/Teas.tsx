@@ -143,7 +143,8 @@ function Teas() {
         <>
         {loading && <article className='loading-screen'>
                 <h2 className='loading-message'>Loading...</h2>
-                <img src='https://media1.giphy.com/media/L3KJjjqtoyzCuIVF7e/giphy.gif?cid=6c09b952sgbkkl6c3urr75ui5yb137czyu89lvrtko24wpdw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s'/>
+                {/* <img src='https://media1.giphy.com/media/L3KJjjqtoyzCuIVF7e/giphy.gif?cid=6c09b952sgbkkl6c3urr75ui5yb137czyu89lvrtko24wpdw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s' alt='steaming teacup'/> */}
+                <img className='loading-image'src='https://media4.giphy.com/media/kDlE0Am9MIOh1aNsjZ/source.gif' alt='boiling teapot'/>
             </article>}
         <h2 className='cat-header'>{catHeader}</h2>
         { category === 'all' &&
