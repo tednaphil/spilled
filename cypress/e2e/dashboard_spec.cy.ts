@@ -135,7 +135,14 @@ describe('Spilled', () => {
   })
 
   it('Searches for teas by name', () => {
-    
+    cy.get('nav').contains('a', 'All Teas').click()
+    .url().should('contain', '/all')
+    .get('input').should('have.value', '')
+    .get('input').type('gr').should('have.value', 'gr')
+    .get('.card-cont').should('have.length', '1')
+    .get('img').should('have.attr', 'src').should('include', 'data:image')
+    .get('.card-cont').first().contains('h3', 'Earl Grey')
+    .get('.card-cont').first().contains('p', 'smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey')
   })
 
   it('Displays error message if api calls fail', () => {
