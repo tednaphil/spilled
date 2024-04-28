@@ -10,8 +10,20 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 function Home() {
 
+  // const [loading, setLoading]= useState(true)
+  // use useEffect to setLoading to false after a timeout
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //       setLoading(false)
+  //     }, 3500)
+  // }, [])
+
   return (
     <div>
+      {/* {loading && <article className='loading-screen'>
+                <h2 className='loading-message'>Loading...</h2>
+            </article>} */}
       <div className="intro-wrapper">
         <article className="article-intro">
           <img src={teas} alt='Cupcake baking pan with different tea blends filling each cup' className="home-img"/>

@@ -22,12 +22,16 @@ function Teas() {
     const [searchInput, setSearchInput] = useState<string>('');
     const [noTea, setNoTea] = useState<string>('');
     const [allTea, setAllTea] = useState<Tea[] | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
         setError('');
         setNoTea('');
         setSearchInput('');
         fetchData();
+        setTimeout(() => {
+            setLoading(false)
+         }, 3500)
     }, [category])
 
     async function fetchData() {
@@ -44,6 +48,7 @@ function Teas() {
                 }
             } catch(error: any) {
                 setError(`There was a problem - ${error.message}`)
+                setLoading(false)
             }
         }
     }
@@ -136,6 +141,10 @@ function Teas() {
 
     return (
         <>
+        {loading && <article className='loading-screen'>
+                <h2 className='loading-message'>Loading...</h2>
+                <img src='https://media1.giphy.com/media/L3KJjjqtoyzCuIVF7e/giphy.gif?cid=6c09b952sgbkkl6c3urr75ui5yb137czyu89lvrtko24wpdw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s'/>
+            </article>}
         <h2 className='cat-header'>{catHeader}</h2>
         { category === 'all' &&
             <form className='form-search'>

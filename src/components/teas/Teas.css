@@ -41,6 +41,10 @@
     font-size: 30px;
 }
 
+.loading-screen {
+    text-align: center;
+}
+
 @media screen and (max-width: 784px) {
     #search {
         font-size: 25px;
