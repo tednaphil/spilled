@@ -145,8 +145,8 @@ function Teas() {
                 <h2 className='loading-message'>Loading...</h2>
                 <img className='loading-image'src='https://media4.giphy.com/media/kDlE0Am9MIOh1aNsjZ/source.gif' alt='boiling teapot'/>
             </article>}
-        <h2 className='cat-header'>{catHeader}</h2>
-        { category === 'all' &&
+        {/* <h2 className='cat-header'>{catHeader}</h2> */}
+        {/* { category === 'all' &&
             <form className='form-search'>
                 <label htmlFor='search'>Search</label>
                 <input 
@@ -158,7 +158,7 @@ function Teas() {
                     onChange={e => setSearchInput(e.target.value)}
                 />
             </form>
-        }
+        } */}
         { noTea && <h3 className='no-favs'>{noTea}</h3>}
         { error && 
             <section className="api-error">
@@ -171,9 +171,24 @@ function Teas() {
             <p className="no-favs">You don't have any favorites - go find some!</p>
             <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
         </>}
-        <section className='cards-section'>
-            {teaCards}
-        </section>
+       {!loading &&
+       <>
+        <h2 className='cat-header'>{catHeader}</h2>
+        { category === 'all' &&
+            <form className='form-search'>
+              <label htmlFor='search'>Search</label>
+              <input 
+                type='text'
+                id='search'
+                name='search'
+                value={searchInput}
+                placeholder='Type to search...'
+                onChange={e => setSearchInput(e.target.value)}
+                    />
+            </form>
+        }
+        <section className='cards-section'>{teaCards}</section>
+        </>}
         </>
     )
 }
