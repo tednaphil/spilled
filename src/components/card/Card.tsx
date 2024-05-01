@@ -58,7 +58,6 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
       setCardIsClicked(false)
     }
   }
-  console.log(targetTea)
 
   function ingredients(tea: any): string {
     let teaReturn: string;

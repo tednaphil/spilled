@@ -27,7 +27,8 @@ describe('Spilled', () => {
   it('Displays landing page', () => {
     cy.get('h1').contains('Spilled')
       .get('nav').children().should('have.length', 3)
-      .get('.div-nav-center').children().should('have.length', 5)
+      .get('.div-nav-center').children().should('have.length', 6)
+      .get('.div-nav-center').contains('a', 'All Teas')
       .get('.div-nav-center').contains('a', 'Blends')
       .get('.div-nav-center').contains('a', 'Black')
       .get('.div-nav-center').contains('a', 'Green')
@@ -131,6 +132,17 @@ describe('Spilled', () => {
       .get('p').contains('don\'t have any favorites')
       .get('a').contains('Go Home')
 
+  })
+
+  it('Searches for teas by name', () => {
+    cy.get('nav').contains('a', 'All Teas').click()
+    .url().should('contain', '/all')
+    .get('input').should('have.value', '')
+    .get('input').type('gr').should('have.value', 'gr')
+    .get('.card-cont').should('have.length', '1')
+    .get('img').should('have.attr', 'src').should('include', 'data:image')
+    .get('.card-cont').first().contains('h3', 'Earl Grey')
+    .get('.card-cont').first().contains('p', 'smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey')
   })
 
   it('Displays error message if api calls fail', () => {

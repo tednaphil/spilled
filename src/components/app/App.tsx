@@ -5,10 +5,8 @@ import Teas from '../teas/Teas';
 import Error from '../error/Error'
 import TeaEd from '../teaEd/TeaEd'
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 
 function App() {
-  const [isRedirected, setIsRedirected] = useState<boolean>()
   const location = useLocation().pathname
 
   return (

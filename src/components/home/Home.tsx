@@ -5,7 +5,7 @@ import black from "../../images/black.svg";
 import oolong from "../../images/oolong.svg";
 import green from "../../images/green.svg";
 import white from "../../images/white.svg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 function Home() {
