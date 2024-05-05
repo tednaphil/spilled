@@ -1,5 +1,5 @@
 # <p align="center">[🍵Spilled🫖](https://spilled-cmsy1ss06-corys-projects-8e9f64e4.vercel.app/)</p>
-<p align='center' >👆<b>Click the heading to visit the deploy link</b>👆</p>
+<p align='center' >👆<b>Click the heading to visit the deployed link</b>👆</p>
 
 <p align="center">Single-user application focused on providing educational content on tea types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
 
@@ -27,10 +27,10 @@
 </div>
 
 ## Installation Instructions:
-- Visit the deployed [link](https://spilled-cmsy1ss06-corys-projects-8e9f64e4.vercel.app/)
+- Visit the deployed [link](https://spilled-seven.vercel.app/)
 - OR run the following on command line to clone the repo and run the app locally:
     ```
-    git clone git@github.com:corysanders3/spilled.git
+    git clone git@github.com:tednaphil/spilled.git
     cd spilled
     npm install
     npm start
