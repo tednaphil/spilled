@@ -145,18 +145,6 @@ function Teas() {
                 <h2 className='loading-message'>Loading...</h2>
                 <img className='loading-image'src='https://media4.giphy.com/media/kDlE0Am9MIOh1aNsjZ/source.gif' alt='boiling teapot'/>
             </article>}
-        { noTea && <h3 className='no-favs'>{noTea}</h3>}
-        { error && 
-            <section className="api-error">
-                <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
-                <h3 className='error-message'>Uh oh!</h3>
-                <p className='error-message'>{error}</p>
-            </section>
-        }
-        { noFaves() && <>
-            <p className="no-favs">You don't have any favorites - go find some!</p>
-            <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
-        </>}
        {!loading &&
        <>
         <h2 className='cat-header'>{catHeader}</h2>
@@ -173,6 +161,18 @@ function Teas() {
                     />
             </form>
         }
+        { noTea && <h3 className='no-favs'>{noTea}</h3>}
+        { error && 
+            <section className="api-error">
+                <img id='error-image' src={spilledTea} alt='Tea cup tipped over with liquid spilling out' />
+                <h3 className='error-message'>Uh oh!</h3>
+                <p className='error-message'>{error}</p>
+            </section>
+        }
+        { noFaves() && <>
+            <p className="no-favs">You don't have any favorites - go find some!</p>
+            <Link className="home-link" id="no-favs-link" to="/">Go Home</Link>
+        </>}
         <section className='cards-section'>{teaCards}</section>
         </>}
         </>
