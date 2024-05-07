@@ -1,5 +1,5 @@
-# <p align="center">[🍵Spilled🫖](https://spilled-cmsy1ss06-corys-projects-8e9f64e4.vercel.app/)</p>
-<p align='center' >👆<b>Click the heading to visit the deployed link</b>👆</p>
+# <p align="center">[🍵Spilled🫖](https://spilled-seven.vercel.app/)</p>
+<p align='center' >👆<b>Click the heading to visit the app!</b>👆</p>
 
 <p align="center">Single-user application focused on providing educational content on tea types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
 
