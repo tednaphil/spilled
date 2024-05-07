@@ -37,23 +37,12 @@
     ```
 
 ### Run Tests
-<!--- Run the following on command line to install Cypress: `npm i -D cypress`
-- Add script to `package.json` file
-    ``` json
-    {
-      "scripts": {
-        "cypress": "cypress open"
-      }
-    }
-    ```
-    -->
 - Ensure you're running the app locally (see Installation Instructions above)
 - Run the following on command line to open Cypress: `npm run cypress`
 - Click `E2E Testing`, then `Start E2E Testing` in desired browser
 - Select `dashboard_spec` to run all tests
 
 ## Context:
-<!-- wins, challenges, time spent, goals, approaches etc -->
 - ~30 hours to complete test suite of and functionality
 - Goals
   ```
