@@ -1,5 +1,9 @@
-# <p align="center">[🍵Spilled🫖](https://spilled-seven.vercel.app/)</p>
-<p align='center' >👆<b>Click the heading to visit the app!</b>👆</p>
+<div align="center">
+  <img src="https://github.com/tednaphil/spilled/assets/76406423/ba29f256-b2a6-4df3-9ef5-6b18bb2ef822" alt="spilled logo" height="200px">
+
+</div>
+
+### <p align="center">Visit the app [here](https://spilled-seven.vercel.app/)</p>
 
 <p align="center">Single-user application focused on providing educational content on tea types and what makes them unique. Designed to accommodate a wide range of users, ranging in age, gender, and disability status.</p>
 
