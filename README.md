@@ -48,6 +48,7 @@
 
 ## Context:
 - ~30 hours to complete test suite of and functionality
+- See wireframe [here](https://github.com/tednaphil/spilled/blob/main/Spilled%20Wireframe.png)
 - Goals
   ```
   - Learn and implement Typescript in a one week sprint
