@@ -1,9 +1,10 @@
 const fetchTea = async () => {
     try {
-        const response = await fetch('https://boonakitea.cyclic.app/api/all');
+        const response = await fetch('https://spilled-api.onrender.com/teas');
         if (!response.ok) {
             throw new Error('Failed to fetch tea data')
         }
+        // console.log(response.json)
         return await response.json();
     } catch (error: any) {
         throw error
@@ -12,10 +13,11 @@ const fetchTea = async () => {
 
 const fetchSingleTea = async (id: number) => {
     try {
-        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${id}`)
+        const response = await fetch(`https://spilled-api.onrender.com/teas/${id}`)
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
+        // console.log(response.json())
         return await response.json()
     } catch (error: any) {
         throw error

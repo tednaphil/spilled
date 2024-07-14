@@ -52,19 +52,20 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
       let tea = await fetchSingleTea(id)
-      let target = tea[0]
-      setTargetTea(target)
+      // let target = tea[0]
+      // setTargetTea(target)
+      setTargetTea(tea)
       setCardIsClicked(!cardIsClicked ? true : false)
     } else {
       setCardIsClicked(false)
     }
   }
 
-  function ingredients(tea: any): string {
-    let teaReturn: string;
-    tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
-    return teaReturn
-  }
+  // function ingredients(tea: any): string {
+  //   let teaReturn: string;
+  //   tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
+  //   return teaReturn
+  // }
 
   return (
     <div className="card-wrapper">
@@ -91,8 +92,8 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
             <dl className='card-back-dl' style={cardIsClicked ? css : ncss}>
               <dt><strong>Caffeine content:</strong></dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
-              <dt><strong>Main Ingredients:</strong></dt>
-              <dd className="card-back-text" >{ingredients(targetTea)}</dd>
+              {/* <dt><strong>Main Ingredients:</strong></dt> */}
+              {/* <dd className="card-back-text" >{ingredients(targetTea)}</dd> */}
               <dt><strong>Origin:</strong></dt>
               <dd className="card-back-text">{targetTea.origin}</dd>
               <dt><strong>Tasting notes:</strong></dt>

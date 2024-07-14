@@ -29,9 +29,10 @@ function Teas() {
         setNoTea('');
         setSearchInput('');
         fetchData();
-        setTimeout(() => {
-            setLoading(false)
-         }, 3500)
+        // setTimeout(() => {
+        //     setLoading(false)
+        //  }, 3500)
+         //remove loading timeout and add setloadingFalse to network request
     }, [category])
 
     async function fetchData() {
@@ -46,6 +47,7 @@ function Teas() {
                 } else {
                     filterTeas(fetchedTeaData)
                 }
+                setLoading(false)
             } catch(error: any) {
                 setError(`There was a problem - ${error.message}`)
                 setLoading(false)
