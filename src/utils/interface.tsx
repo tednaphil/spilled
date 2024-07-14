@@ -4,8 +4,7 @@ export interface Tea {
     slug:string,
     image:string,
     origin:string,
-    type:string,
-    //will need to be changed to style
+    style:string,
     caffeine:string,
     caffenieLevel:string,
     decription:string,

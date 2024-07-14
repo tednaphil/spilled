@@ -32,7 +32,6 @@ function Teas() {
         // setTimeout(() => {
         //     setLoading(false)
         //  }, 3500)
-         //remove loading timeout and add setloadingFalse to network request
     }, [category])
 
     async function fetchData() {
@@ -56,7 +55,7 @@ function Teas() {
     }
 
     function filterTeas(fetchedTeaData: any) {
-        const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
+        const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.style === category)
         !filteredTeaData.length ? navigate('*', { replace: true }) : organizeTeas(filteredTeaData);
     }
 
