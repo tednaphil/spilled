@@ -11,7 +11,7 @@ function Nav() {
         </div>
         <div className="div-nav-center">
           <NavLink to='/tea/all' className='navlink'>All Teas</NavLink>
-          <NavLink to="/tea/blend" className='navlink'>Blends</NavLink>
+          <NavLink to="/tea/herbal" className='navlink'>Herbal</NavLink>
           <NavLink to="/tea/black" className='navlink'>Black</NavLink>
           <NavLink to="/tea/green" className='navlink'>Green</NavLink>
           <NavLink to="/tea/oolong" className='navlink'>Oolong</NavLink>

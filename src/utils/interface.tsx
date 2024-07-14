@@ -1,15 +1,14 @@
 export interface Tea {
-    _id:string,
+    id:number,
     name:string,
     slug:string,
-    altnames:string,
     image:string,
     origin:string,
     type:string,
+    //will need to be changed to style
     caffeine:string,
     caffenieLevel:string,
     decription:string,
-    sources:[string],
     colorDescription:string,
     tasteDescription:string,
 }

@@ -10,9 +10,9 @@ const fetchTea = async () => {
     }
 }
 
-const fetchSingleTea = async (slug: string) => {
+const fetchSingleTea = async (id: number) => {
     try {
-        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${slug}`)
+        const response = await fetch(`https://boonakitea.cyclic.app/api/teas/${id}`)
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }

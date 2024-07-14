@@ -8,6 +8,7 @@ import favActive from '../../images/heart-active.svg'
 import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
+  id: number;
   name: string;
   slug: string;
   tea: Tea;
@@ -17,7 +18,7 @@ interface CardProp {
 }
 
 
-function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp) {
+function Card({ id, img, name, slug, tea, description, addFavs, favNames }: CardProp) {
 
   let location = useLocation().pathname
   const [targetTea, setTargetTea] = useState<any>({})
@@ -36,8 +37,8 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
     favNames.forEach((fav) => {
       if (fav === name) {
         setisFavorited(true)
-        console.log('fav', fav)
-        console.log('name', name)
+        // console.log('fav', fav)
+        // console.log('name', name)
       }
     })
   }, [])
@@ -50,7 +51,7 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
-      let tea = await fetchSingleTea(slug)
+      let tea = await fetchSingleTea(id)
       let target = tea[0]
       setTargetTea(target)
       setCardIsClicked(!cardIsClicked ? true : false)

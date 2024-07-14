@@ -59,7 +59,7 @@ function Teas() {
     }
 
     function organizeTeas(data: Tea[]) {
-        const teasToExclude = ['Black Tea', 'Green Tea', 'Wulong (oolong) Tea', 'White Tea'];
+        const teasToExclude = ['Black Tea', 'Green Tea', 'Wulong (oolong) Tea'/*, 'White Tea'*/];
         const newData = data.filter((d) => !teasToExclude.includes(d.name))
 
         newData.forEach((d) => {
@@ -102,6 +102,7 @@ function Teas() {
         return (
             <Card
                 tea={tea}
+                id={tea.id}
                 img={tea.image}
                 name={tea.name}
                 slug={tea.slug}
