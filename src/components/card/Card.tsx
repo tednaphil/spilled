@@ -37,8 +37,6 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
     favNames.forEach((fav) => {
       if (fav === name) {
         setisFavorited(true)
-        // console.log('fav', fav)
-        // console.log('name', name)
       }
     })
   }, [])
@@ -52,8 +50,6 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
       let tea = await fetchSingleTea(id)
-      // let target = tea[0]
-      // setTargetTea(target)
       setTargetTea(tea)
       setCardIsClicked(!cardIsClicked ? true : false)
     } else {

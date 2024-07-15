@@ -29,9 +29,6 @@ function Teas() {
         setNoTea('');
         setSearchInput('');
         fetchData();
-        // setTimeout(() => {
-        //     setLoading(false)
-        //  }, 3500)
     }, [category])
 
     async function fetchData() {
