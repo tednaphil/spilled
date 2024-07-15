@@ -1,25 +1,29 @@
 describe('Spilled', () => {
   beforeEach(() => {
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas', {
       statusCode: 200,
       fixture: 'test_teas'
     }).as('getTeas')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/earlgrey', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas/5', {
       statusCode: 200,
       fixture: 'single_tea'
     }).as('getEarlGrey')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/englishbreakfast', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas/6', {
       statusCode: 200,
       fixture: 'englishbreakfast'
     }).as('getEnglishbreakfast')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/baihoiyinzhen', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas/4', {
       statusCode: 200,
       fixture: 'baihoiyinzhen'
     }).as('getBaihoiyinzhen')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/teas/satemwaantlers', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas/8', {
       statusCode: 200,
       fixture: 'satemwaantlers'
     }).as('getSatemwaantlers')
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas/9', {
+      statusCode: 200,
+      fixture: 'dianhong'
+    }).as('getDiahong')
     cy.viewport(1117, 700)
       .visit('http://localhost:3000/')
   })
@@ -29,7 +33,7 @@ describe('Spilled', () => {
       .get('nav').children().should('have.length', 3)
       .get('.div-nav-center').children().should('have.length', 6)
       .get('.div-nav-center').contains('a', 'All Teas')
-      .get('.div-nav-center').contains('a', 'Blends')
+      .get('.div-nav-center').contains('a', 'Herbal')
       .get('.div-nav-center').contains('a', 'Black')
       .get('.div-nav-center').contains('a', 'Green')
       .get('.div-nav-center').contains('a', 'Oolong')
@@ -42,22 +46,22 @@ describe('Spilled', () => {
           .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
       })
       .get('article').last().within(() => {
-        cy.get('h2').contains('Blends')
-          .get('p').contains('Blends can be made up of any tea base!')
-          .get('img').should('have.attr', 'src').should('include', '/static/media/blend')
+        cy.get('h2').contains('Herbal')
+          .get('p').contains('Herbal teas, made from a variety of dried herbs, spices, flowers, and fruits, are caffeine-free infusions')
+          .get('img').should('have.attr', 'src').should('include', '/static/media')
       })  
   })
 
   it('Displays tea pages from nav bar', () => {
-    cy.get('nav').contains('a', 'Blends').click()
-      .url().should('include', 'blend')
-      .get('.card-cont').should('have.length', '2')
+    cy.get('nav').contains('a', 'Herbal').click()
+      .url().should('include', 'herbal')
+      .get('.card-cont').should('have.length', '1')
       .get('img').should('have.attr', 'src').should('include', 'data:image')
-      .get('.card-cont').first().contains('h3', 'Earl Grey')
-      .get('.card-cont').first().contains('p', 'smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey')
+      .get('.card-cont').first().contains('h3', 'Satemwa Antlers')
+      .get('.card-cont').first().contains('p', 'delicate sweetness of apricot and lychee lingers on the pallet')
       .get('nav').contains('a', 'White').click()
       .url().should('include', 'white')
-      .get('.card-cont').should('have.length', '2')
+      .get('.card-cont').should('have.length', '1')
       .get('img').should('have.attr', 'src').should('include', 'data:image')
       .get('.card-cont').first().contains('h3', 'Baihoi Yinzhen')
       .get('.card-cont').first().contains('p', 'sweet, vegetal, and delicate')
@@ -96,27 +100,22 @@ describe('Spilled', () => {
   it('Displays tea pages from info article buttons', () => {
     cy.get('.article-tea').first().contains('.home-nav-link', 'See Black teas →').click()
       .get('h1').click()
-      .get('.article-tea').last().contains('.home-nav-link', 'See tea blends →').click()
+      .get('.article-tea').last().contains('.home-nav-link', 'See Herbal teas →').click()
   })
 
   it('Displays tea details on card click', () => {
-    cy.get('.div-nav-center').contains('a', 'Blends').click()
-      .get('.card-cont').first().should('have.id', 'earlgrey-tea').click()
-      .get('.card-cont').first().get('.card-back-text').first().contains('40-')
-    cy.get('.div-nav-center').contains('a', 'Blends').click()
-      .get('.card-cont').last().should('have.id', 'englishbreakfast-tea').click()
+    cy.get('.div-nav-center').contains('a', 'Herbal').click()
+      .get('.card-cont').first().should('have.id', 'satemwaantlers-tea').click()
+      .get('.card-cont').first().get('.card-back-text').first().contains('10-25mg')
+    cy.get('.div-nav-center').contains('a', 'Black').click()
+      .get('.card-cont').last().should('have.id', 'dianhong-tea').click()
       .get('.card-cont').last().within(() => {
-        cy.get('dd').first().contains('60-')
+        cy.get('dd').first().contains('20-40mg')
       })
     cy.get('.div-nav-center').contains('a', 'White').click()
-      .get('.card-cont').first().should('have.id', 'baihoiyinzhen-tea').click()
-      .get('.card-cont').first().within(() => {
+      .get('.card-cont').last().should('have.id', 'baihoiyinzhen-tea').click()
+      .get('.card-cont').last().within(() => {
         cy.get('dd').first().contains('0-5mg')
-      })
-    cy.get('.div-nav-center').contains('a', 'White').click()
-      .get('.card-cont').last().should('have.id', 'satemwaantlers-tea').click()
-      .get('.card-cont').last().within(() => {
-        cy.get('dd').first().contains('10-25mg')
       })
   })
 
@@ -146,13 +145,13 @@ describe('Spilled', () => {
   })
 
   it('Displays error message if api calls fail', () => {
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas', {
       statusCode: 400,
     }).as('getTeas')
       .visit('http://localhost:3000/')
-      .get('nav').contains('a', 'Blends').click()
+      .get('nav').contains('a', 'Herbal').click()
       .get('p').contains('Failed to fetch tea data')
-    cy.intercept('GET', 'https://boonakitea.cyclic.app/api/all', {
+    cy.intercept('GET', 'https://spilled-api.onrender.com/teas', {
       statusCode: 500,
     }).as('getTeas')
       .visit('http://localhost:3000/')
@@ -174,9 +173,9 @@ describe('Spilled', () => {
         .get('img').should('have.attr', 'src').should('include', '/static/media/teas')
     })
     .get('article').last().within(() => {
-      cy.get('h2').contains('Blends')
-        .get('p').contains('Blends can be made up of any tea base!')
-        .get('img').should('have.attr', 'src').should('include', '/static/media/blend')
+      cy.get('h2').contains('Herbal')
+        .get('p').contains('Herbal teas, made from a variety of dried herbs, spices, flowers, and fruits, are caffeine-free infusions')
+        .get('img').should('have.attr', 'src').should('include', '/static/media/herbal')
     })
   })
 })

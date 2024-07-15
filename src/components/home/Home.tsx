@@ -95,10 +95,10 @@ function Home() {
         <div className="info">
           <h2>Herbal</h2>
           <div className="info-desc">
-            <p>Herbal tea info!</p>
-            <p>More herbal tea info</p>
+            <p>Herbal teas, made from a variety of dried herbs, spices, flowers, and fruits, are caffeine-free infusions that offer a range of flavors and potential health benefits.
+              They are often consumed for their soothing properties and can aid in relaxation, digestion, and overall wellness.</p>
           </div>
-            <NavLink to="/tea/herbal" className='home-nav-link'>See herbal teas →</NavLink>
+            <NavLink to="/tea/herbal" className='home-nav-link'>See Herbal teas →</NavLink>
         </div>
       </article>
     </div>

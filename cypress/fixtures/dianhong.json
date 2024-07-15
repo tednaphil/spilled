@@ -1,0 +1,13 @@
+{
+    "id": 9,
+    "name": "Dianhong Tea",
+    "slug": "dianhong",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/GoldenDianHong.jpg/800px-GoldenDianHong.jpg?20071029183852",
+    "origin": "Yunnan Province, China",
+    "style": "black",
+    "caffeine": "20-40mg",
+    "caffeineLevel": "moderate",
+    "decription": "A relatively high-end, gourmet Chinese black tea sometimes used in various tea blends. The main difference between Dianhong and other Chinese black teas is the amount of fine leaf buds, or \"golden tips,\" present in the dried tea.",
+    "colorDescription": "golden orange",
+    "tasteDescription": "sweet, floral, and honey-like, though tends to be stronger and more bitter than other red teas"
+}

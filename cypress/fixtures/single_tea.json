@@ -1,21 +1,13 @@
-
-[
-    {
-        "_id": "63092102a643c85c74b00e90",
+{
+        "id": 5,
         "name": "Earl Grey",
         "slug": "earlgrey",
-        "altnames": "",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Earl_Grey_Tea.jpg/640px-Earl_Grey_Tea.jpg",
         "origin": "UK*",
-        "type": "blend",
+        "style": "blend",
         "caffeine": "40-120mg",
         "caffeineLevel": "very high",
-        "mainIngredients": "black tea, oil of bergamot",
         "description": "A tea blend which has been flavoured with oil of bergamot",
         "colorDescription": "amber, deep orange",
-        "tasteDescription": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey",
-        "sources": [
-            "https://en.wikipedia.org/wiki/Earl_Grey_tea"
-        ]
+        "tasteDescription": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey"
     }
-]
