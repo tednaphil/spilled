@@ -8,6 +8,7 @@ import favActive from '../../images/heart-active.svg'
 import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
+  id: number;
   name: string;
   slug: string;
   tea: Tea;
@@ -17,7 +18,7 @@ interface CardProp {
 }
 
 
-function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp) {
+function Card({ id, img, name, slug, tea, description, addFavs, favNames }: CardProp) {
 
   let location = useLocation().pathname
   const [targetTea, setTargetTea] = useState<any>({})
@@ -36,8 +37,6 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
     favNames.forEach((fav) => {
       if (fav === name) {
         setisFavorited(true)
-        console.log('fav', fav)
-        console.log('name', name)
       }
     })
   }, [])
@@ -50,20 +49,19 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
 
   async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
     if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
-      let tea = await fetchSingleTea(slug)
-      let target = tea[0]
-      setTargetTea(target)
+      let tea = await fetchSingleTea(id)
+      setTargetTea(tea)
       setCardIsClicked(!cardIsClicked ? true : false)
     } else {
       setCardIsClicked(false)
     }
   }
 
-  function ingredients(tea: any): string {
-    let teaReturn: string;
-    tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
-    return teaReturn
-  }
+  // function ingredients(tea: any): string {
+  //   let teaReturn: string;
+  //   tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
+  //   return teaReturn
+  // }
 
   return (
     <div className="card-wrapper">
@@ -90,8 +88,8 @@ function Card({ img, name, slug, tea, description, addFavs, favNames }: CardProp
             <dl className='card-back-dl' style={cardIsClicked ? css : ncss}>
               <dt><strong>Caffeine content:</strong></dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
-              <dt><strong>Main Ingredients:</strong></dt>
-              <dd className="card-back-text" >{ingredients(targetTea)}</dd>
+              {/* <dt><strong>Main Ingredients:</strong></dt> */}
+              {/* <dd className="card-back-text" >{ingredients(targetTea)}</dd> */}
               <dt><strong>Origin:</strong></dt>
               <dd className="card-back-text">{targetTea.origin}</dd>
               <dt><strong>Tasting notes:</strong></dt>

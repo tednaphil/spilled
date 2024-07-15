@@ -29,9 +29,6 @@ function Teas() {
         setNoTea('');
         setSearchInput('');
         fetchData();
-        setTimeout(() => {
-            setLoading(false)
-         }, 3500)
     }, [category])
 
     async function fetchData() {
@@ -46,6 +43,7 @@ function Teas() {
                 } else {
                     filterTeas(fetchedTeaData)
                 }
+                setLoading(false)
             } catch(error: any) {
                 setError(`There was a problem - ${error.message}`)
                 setLoading(false)
@@ -54,12 +52,12 @@ function Teas() {
     }
 
     function filterTeas(fetchedTeaData: any) {
-        const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.type === category)
+        const filteredTeaData = fetchedTeaData?.filter((tea: Tea) => tea.style === category)
         !filteredTeaData.length ? navigate('*', { replace: true }) : organizeTeas(filteredTeaData);
     }
 
     function organizeTeas(data: Tea[]) {
-        const teasToExclude = ['Black Tea', 'Green Tea', 'Wulong (oolong) Tea', 'White Tea'];
+        const teasToExclude = ['Black Tea', 'Green Tea', 'Wulong (oolong) Tea'/*, 'White Tea'*/];
         const newData = data.filter((d) => !teasToExclude.includes(d.name))
 
         newData.forEach((d) => {
@@ -102,6 +100,7 @@ function Teas() {
         return (
             <Card
                 tea={tea}
+                id={tea.id}
                 img={tea.image}
                 name={tea.name}
                 slug={tea.slug}

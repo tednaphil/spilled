@@ -1,20 +1,14 @@
-[
-    {
-        "_id": "63092102a643c85c74b00e92",
+{
+        "id": 6,
         "name": "English Breakfast tea",
         "slug": "englishbreakfast",
-        "altnames": "Breakfast tea",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/English_breakfast_tea_tin.jpg/536px-English_breakfast_tea_tin.jpg",
         "origin": "UK",
-        "type": "blend",
+        "style": "black",
         "caffeine": "60-100mg",
         "caffeineLevel": "very high",
         "mainIngredients": "black tea (varied)",
         "description": "a traditional blend of black teas from Assam, Ceylon, Keemun and Kenyan teas.",
         "colorDescription": "deep amber",
-        "tasteDescription": "may be slightly sweet, bitter, or malty",
-        "sources": [
-            "https://en.wikipedia.org/wiki/English_breakfast_tea"
-        ]
+        "tasteDescription": "may be slightly sweet, bitter, or malty"
     }
-]

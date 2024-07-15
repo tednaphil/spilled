@@ -30,7 +30,10 @@
   <img src="https://img.shields.io/badge/Vercel-000?logo=vercel&logoColor=fff&style=for-the-badge" alt="vercel badge">
 </div>
 
-## Installation Instructions:
+## BE Repo:
+- See the new spilled-api repo [here](https://github.com/tednaphil/spilled-api)!
+
+## FE Installation Instructions:
 - Visit the deployed [link](https://spilled-seven.vercel.app/)
 - OR run the following on command line to clone the repo and run the app locally:
     ```
@@ -64,12 +67,11 @@
 - Challenges
   ```
   - Stepping back to see the crossover between JS and TS
-  - Session storage usage
+  - Having users' favorites persist after page reloads - solved by using Session storage
   ```
 <!--
 - Future Features
   ```
-  1. Search bar
-  2. Display for all tea with filtering capability
+  2. filtering capability for all teas
   ```
 -->

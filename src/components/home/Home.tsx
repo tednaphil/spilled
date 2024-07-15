@@ -1,6 +1,7 @@
 import "./Home.css";
 import teas from "../../images/teas.svg";
-import blend from "../../images/blend.svg";
+// import blend from "../../images/blend.svg";
+import herbal from "../../images/herbal.png";
 import black from "../../images/black.svg";
 import oolong from "../../images/oolong.svg";
 import green from "../../images/green.svg";
@@ -78,7 +79,7 @@ function Home() {
             <NavLink to="/tea/green" className='home-nav-link'>See Green teas →</NavLink>
         </div>
       </article>
-      <article className="article-tea"  id='home-article-blend'>
+      {/* <article className="article-tea"  id='home-article-blend'>
         <img src={blend} alt='Tea Blend' className="home-img tea-image"/>
         <div className="info">
           <h2>Blends</h2>
@@ -87,6 +88,17 @@ function Home() {
             <p>Our site focuses on just the Camellia Sinensis plant to ease the transition into tea.</p>
           </div>
             <NavLink to="/tea/blend" className='home-nav-link'>See tea blends →</NavLink>
+        </div>
+      </article> */}
+      <article className="article-tea"  id='home-article-blend'>
+        <img src={herbal} alt='Herbal Tea' className="home-img tea-image"/>
+        <div className="info">
+          <h2>Herbal</h2>
+          <div className="info-desc">
+            <p>Herbal teas, made from a variety of dried herbs, spices, flowers, and fruits, are caffeine-free infusions that offer a range of flavors and potential health benefits.
+              They are often consumed for their soothing properties and can aid in relaxation, digestion, and overall wellness.</p>
+          </div>
+            <NavLink to="/tea/herbal" className='home-nav-link'>See Herbal teas →</NavLink>
         </div>
       </article>
     </div>
