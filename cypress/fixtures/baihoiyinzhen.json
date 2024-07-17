@@ -6,8 +6,8 @@
         "origin": "China",
         "style": "white",
         "caffeine": "0-5mg",
-        "caffeineLevel": "very low",
+        "caffeine_level": "very low",
         "description": "A white tea made from only the top buds of the Camellia sinensis plant.",
-        "colorDescription": "light orange, light yellow",
-        "tasteDescription": "sweet, vegetal, and delicate"
+        "color_description": "light orange, light yellow",
+        "taste_description": "sweet, vegetal, and delicate"
     }

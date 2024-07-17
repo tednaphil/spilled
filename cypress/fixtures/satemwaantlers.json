@@ -6,8 +6,8 @@
         "origin": "Malawi",
         "style": "herbal",
         "caffeine": "10-25mg",
-        "caffeineLevel": "moderate",
+        "caffeine_level": "moderate",
         "description": "A white tea made from a blend of select Superior Cultivars from Malawi, making it rich in theanine and antioxidants.",
-        "colorDescription": "golden yellow",
-        "tasteDescription": "delicate sweetness of apricot and lychee lingers on the pallet"
+        "color_description": "golden yellow",
+        "taste_description": "delicate sweetness of apricot and lychee lingers on the pallet"
     }

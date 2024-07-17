@@ -6,8 +6,8 @@
         "origin": "UK*",
         "style": "blend",
         "caffeine": "40-120mg",
-        "caffeineLevel": "very high",
+        "carreine_level": "very high",
         "description": "A tea blend which has been flavoured with oil of bergamot",
-        "colorDescription": "amber, deep orange",
-        "tasteDescription": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey"
+        "color_description": "amber, deep orange",
+        "taste_description": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey"
     }

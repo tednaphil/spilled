@@ -7,10 +7,10 @@
         "origin": "Assam, India",
         "style": "black",
         "caffeine": "60-110mg",
-        "caffeineLevel": "high",
+        "carreine_level": "high",
         "decription": "Assam tea is mostly grown at or near sea level and is known for its body, briskness, malty flavour, and strong, bright colour. Assam teas, or blends containing Assam, are often sold as \"breakfast\" teas.",
-        "colorDescription": "deep-amber",
-        "tasteDescription": "The flavor can range from brisk, smokey, earthy, musky and strong to a lighter cup with chocolate, cocoa, or even sweet and spicy notes"
+        "color_description": "deep-amber",
+        "taste_description": "The flavor can range from brisk, smokey, earthy, musky and strong to a lighter cup with chocolate, cocoa, or even sweet and spicy notes"
     },
     {
         "id": 2,
@@ -20,10 +20,10 @@
         "origin": "Japan",
         "style": "green",
         "caffeine": "20-40mg",
-        "caffeineLevel": "low",
+        "carreine_level": "low",
         "description": "A Japanese green tea prepared by infusing whole tea leaves in hot water.",
-        "colorDescription": "light green",
-        "tasteDescription": "fresh, herbal, or grassy flavor, which can have varying vegetal grassy notes depending on how long it is steeped."
+        "color_description": "light green",
+        "taste_description": "fresh, herbal, or grassy flavor, which can have varying vegetal grassy notes depending on how long it is steeped."
     },
     {
         "id": 3,
@@ -33,10 +33,10 @@
         "origin": "China",
         "style": "oolong",
         "caffeine": "20-30mg",
-        "caffeineLevel": "moderate",
+        "carreine_level": "moderate",
         "description": "A Wuyi rock tea grown in the Wuyi Mountains of Fujian Province, China",
-        "colorDescription": "orange-yellow, bright and clear",
-        "tasteDescription": "peaty and earthy notes with hints of stone fruit, brown sugar, and molasses"
+        "color_description": "orange-yellow, bright and clear",
+        "taste_description": "peaty and earthy notes with hints of stone fruit, brown sugar, and molasses"
     },
     {
         "id": 4,
@@ -46,10 +46,10 @@
         "origin": "China",
         "style": "white",
         "caffeine": "0-5mg",
-        "caffeineLevel": "very low",
+        "carreine_level": "very low",
         "description": "A white tea made from only the top buds of the Camellia sinensis plant.",
-        "colorDescription": "light orange, light yellow",
-        "tasteDescription": "sweet, vegetal, and delicate"
+        "color_description": "light orange, light yellow",
+        "taste_description": "sweet, vegetal, and delicate"
     },
     {
         "id": 5,
@@ -59,11 +59,11 @@
         "origin": "UK*",
         "style": "blend",
         "caffeine": "40-120mg",
-        "caffeineLevel": "very high",
+        "carreine_level": "very high",
         "mainIngredients": "black tea, oil of bergamot",
         "description": "A tea blend which has been flavoured with oil of bergamot",
-        "colorDescription": "amber, deep orange",
-        "tasteDescription": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey"
+        "color_description": "amber, deep orange",
+        "taste_description": "smoky, earthy, spicy, nutty, citrus, caramel, leather, fruity, and honey"
     },
     {
         "id": 6,
@@ -73,11 +73,11 @@
         "origin": "UK",
         "style": "blend",
         "caffeine": "60-100mg",
-        "caffeineLevel": "very high",
+        "carreine_level": "very high",
         "mainIngredients": "black tea (varied)",
         "description": "a traditional blend of black teas from Assam, Ceylon, Keemun and Kenyan teas.",
-        "colorDescription": "deep amber",
-        "tasteDescription": "may be slightly sweet, bitter, or malty"
+        "color_description": "deep amber",
+        "taste_description": "may be slightly sweet, bitter, or malty"
     },
     {
         "id": 7,
@@ -87,10 +87,10 @@
         "origin": "Japan",
         "style": "green",
         "caffeine": "based on plant growth",
-        "caffeineLevel": "varied",
+        "carreine_level": "varied",
         "description": "A type of green tea, composed of the dust, tea buds and small leaves that are left behind after processing Gyokuro or Sencha",
-        "colorDescription": "intense green, deep green",
-        "tasteDescription": "mild, sweet, and grassy flavor with bitter after taste"
+        "color_description": "intense green, deep green",
+        "taste_description": "mild, sweet, and grassy flavor with bitter after taste"
     },
     {
         "id": 8,
@@ -100,10 +100,10 @@
         "origin": "Malawi",
         "style": "herbal",
         "caffeine": "10-25mg",
-        "caffeineLevel": "moderate",
+        "carreine_level": "moderate",
         "description": "A white tea made from a blend of select Superior Cultivars from Malawi, making it rich in theanine and antioxidants.",
-        "colorDescription": "golden yellow",
-        "tasteDescription": "delicate sweetness of apricot and lychee lingers on the pallet"
+        "color_description": "golden yellow",
+        "taste_description": "delicate sweetness of apricot and lychee lingers on the pallet"
     },
     {
         "id": 9,
@@ -113,9 +113,9 @@
         "origin": "Yunnan Province, China",
         "style": "black",
         "caffeine": "20-40mg",
-        "caffeineLevel": "moderate",
+        "carreine_level": "moderate",
         "decription": "A relatively high-end, gourmet Chinese black tea sometimes used in various tea blends. The main difference between Dianhong and other Chinese black teas is the amount of fine leaf buds, or \"golden tips,\" present in the dried tea.",
-        "colorDescription": "golden orange",
-        "tasteDescription": "sweet, floral, and honey-like, though tends to be stronger and more bitter than other red teas"
+        "color_description": "golden orange",
+        "taste_description": "sweet, floral, and honey-like, though tends to be stronger and more bitter than other red teas"
     }
 ]
