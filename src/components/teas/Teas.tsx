@@ -105,7 +105,7 @@ function Teas() {
                 name={tea.name}
                 slug={tea.slug}
                 key={tea.slug}
-                description={tea.tasteDescription}
+                description={tea.taste_description}
                 addFavs={addFavs}
                 favNames={favNames}
             />
