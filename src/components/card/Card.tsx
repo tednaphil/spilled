@@ -93,7 +93,7 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
               <dt><strong>Origin:</strong></dt>
               <dd className="card-back-text">{targetTea.origin}</dd>
               <dt><strong>Tasting notes:</strong></dt>
-              <dd className="card-back-text">{targetTea.tasteDescription}</dd>
+              <dd className="card-back-text">{targetTea.taste_description}</dd>
             </dl>
           </div>
         </div>

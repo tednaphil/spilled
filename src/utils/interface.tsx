@@ -6,10 +6,10 @@ export interface Tea {
     origin:string,
     style:string,
     caffeine:string,
-    caffenieLevel:string,
+    caffenie_level:string,
     decription:string,
-    colorDescription:string,
-    tasteDescription:string,
+    color_description:string,
+    taste_description:string,
 }
 
 export type TeaHardcoded = {

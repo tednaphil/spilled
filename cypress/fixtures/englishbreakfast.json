@@ -6,9 +6,9 @@
         "origin": "UK",
         "style": "black",
         "caffeine": "60-100mg",
-        "caffeineLevel": "very high",
+        "caffeine_level": "very high",
         "mainIngredients": "black tea (varied)",
         "description": "a traditional blend of black teas from Assam, Ceylon, Keemun and Kenyan teas.",
-        "colorDescription": "deep amber",
-        "tasteDescription": "may be slightly sweet, bitter, or malty"
+        "color_description": "deep amber",
+        "taste_description": "may be slightly sweet, bitter, or malty"
     }
