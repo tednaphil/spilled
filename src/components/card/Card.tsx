@@ -46,7 +46,7 @@ function Card({
         setisFavorited(true);
       }
     });
-  }, []);
+  });
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
