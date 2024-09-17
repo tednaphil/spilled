@@ -4,7 +4,6 @@ const fetchTea = async () => {
         if (!response.ok) {
             throw new Error('Failed to fetch tea data')
         }
-        // console.log(response.json)
         return await response.json();
     } catch (error: any) {
         throw error
@@ -17,7 +16,6 @@ const fetchSingleTea = async (id: number) => {
         if (!response.ok) {
             throw new Error("Couldn't find that tea!")
         }
-        // console.log(response.json())
         return await response.json()
     } catch (error: any) {
         throw error
