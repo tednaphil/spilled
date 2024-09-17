@@ -2,9 +2,9 @@ import "./Card.css";
 import { Tea } from "../../utils/interface";
 import { useState, useEffect } from "react";
 import { fetchSingleTea } from "../../apiCalls";
-import unFav from '../../images/remove-icon.svg'
-import favInactive from '../../images/heart-inactive.svg'
-import favActive from '../../images/heart-active.svg'
+import unFav from "../../images/remove-icon.svg";
+import favInactive from "../../images/heart-inactive.svg";
+import favActive from "../../images/heart-active.svg";
 import { useLocation } from "react-router-dom";
 interface CardProp {
   img: string;
@@ -14,46 +14,57 @@ interface CardProp {
   tea: Tea;
   description: string;
   addFavs: (newFav: Tea) => void;
-  favNames: string[]
+  favNames: string[];
 }
 
-
-function Card({ id, img, name, slug, tea, description, addFavs, favNames }: CardProp) {
-
-  let location = useLocation().pathname
-  const [targetTea, setTargetTea] = useState<any>({})
-  const [cardIsClicked, setCardIsClicked] = useState<boolean>(false)
-  const [isFavorited, setisFavorited] = useState<boolean>(false)
+function Card({
+  id,
+  img,
+  name,
+  slug,
+  tea,
+  description,
+  addFavs,
+  favNames,
+}: CardProp) {
+  let location = useLocation().pathname;
+  const [targetTea, setTargetTea] = useState<any>({});
+  const [cardIsClicked, setCardIsClicked] = useState<boolean>(false);
+  const [isFavorited, setisFavorited] = useState<boolean>(false);
 
   const css = {
-    transform: 'rotateY(180deg)',
-  }
+    transform: "rotateY(180deg)",
+  };
 
   const ncss = {
-    transform: 'rotateY(0deg)'
-  }
+    transform: "rotateY(0deg)",
+  };
 
   useEffect(() => {
     favNames.forEach((fav) => {
       if (fav === name) {
-        setisFavorited(true)
+        setisFavorited(true);
       }
-    })
-  }, [])
-
+    });
+  }, []);
 
   function favTea(e: React.MouseEvent<HTMLButtonElement>) {
     addFavs(tea);
-    setisFavorited(!isFavorited ? true : false)
+    setisFavorited(!isFavorited ? true : false);
   }
 
-  async function fetchTea(e: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement> | any): Promise<any> {
-    if( e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
-      let tea = await fetchSingleTea(id)
-      setTargetTea(tea)
-      setCardIsClicked(!cardIsClicked ? true : false)
+  async function fetchTea(
+    e:
+      | React.MouseEvent<HTMLDivElement>
+      | React.KeyboardEvent<HTMLDivElement>
+      | any
+  ): Promise<any> {
+    if (e.type === "click" || e.key === "Enter" || e.key === " ") {
+      let tea = await fetchSingleTea(id);
+      setTargetTea(tea);
+      setCardIsClicked(!cardIsClicked ? true : false);
     } else {
-      setCardIsClicked(false)
+      setCardIsClicked(false);
     }
   }
 
@@ -65,15 +76,48 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
 
   return (
     <div className="card-wrapper">
-      {location !== '/tea/favorites' ?
-        <button className="fav-btn" id={`${slug}-favorite`} onClick={(e) => favTea(e)}>
-          <img src={isFavorited ? favActive : favInactive} alt={isFavorited ? 'favorite active' : 'favorite inactive'} className="unfav-btn" aria-label='favorite' role="button" />
-        </button> :
-        <button className="fav-btn" id={`${slug}-unfavorite`} onClick={(e) => favTea(e)}>
-          <img src={unFav} alt='unfavorite' className="unfav-btn" aria-label='unfavorite' />
+      {location !== "/tea/favorites" ? (
+        <button
+          className="fav-btn"
+          id={`${slug}-favorite`}
+          onClick={(e) => favTea(e)}
+        >
+          <img
+            src={isFavorited ? favActive : favInactive}
+            alt={isFavorited ? "favorite active" : "favorite inactive"}
+            className="unfav-btn"
+            aria-label="favorite"
+            role="button"
+          />
         </button>
-      }
-      <div className="card-cont" id={`${slug}-tea`} role='button' aria-label={`${slug} tea Details`} onClick={(e) => { fetchTea(e) }} style={cardIsClicked ? css : ncss} onKeyDownCapture={(e) => { fetchTea(e) }} tabIndex={0}>
+      ) : (
+        <button
+          className="fav-btn"
+          id={`${slug}-unfavorite`}
+          onClick={(e) => favTea(e)}
+        >
+          <img
+            src={unFav}
+            alt="unfavorite"
+            className="unfav-btn"
+            aria-label="unfavorite"
+          />
+        </button>
+      )}
+      <div
+        className="card-cont"
+        id={`${slug}-tea`}
+        role="button"
+        aria-label={`${slug} tea Details`}
+        onClick={(e) => {
+          fetchTea(e);
+        }}
+        style={cardIsClicked ? css : ncss}
+        onKeyDownCapture={(e) => {
+          fetchTea(e);
+        }}
+        tabIndex={0}
+      >
         <div className="card-inner" style={cardIsClicked ? css : ncss}>
           <div className="card-front">
             <div className="img-wrapper">
@@ -85,14 +129,20 @@ function Card({ id, img, name, slug, tea, description, addFavs, favNames }: Card
             </div>
           </div>
           <div className="card-back">
-            <dl className='card-back-dl' style={cardIsClicked ? css : ncss}>
-              <dt><strong>Caffeine content:</strong></dt>
+            <dl className="card-back-dl" style={cardIsClicked ? css : ncss}>
+              <dt>
+                <strong>Caffeine content:</strong>
+              </dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
               {/* <dt><strong>Main Ingredients:</strong></dt> */}
               {/* <dd className="card-back-text" >{ingredients(targetTea)}</dd> */}
-              <dt><strong>Origin:</strong></dt>
+              <dt>
+                <strong>Origin:</strong>
+              </dt>
               <dd className="card-back-text">{targetTea.origin}</dd>
-              <dt><strong>Tasting notes:</strong></dt>
+              <dt>
+                <strong>Tasting notes:</strong>
+              </dt>
               <dd className="card-back-text">{targetTea.taste_description}</dd>
             </dl>
           </div>
