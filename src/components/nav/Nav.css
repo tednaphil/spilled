@@ -7,6 +7,7 @@
     padding: 5px;
     min-height: fit-content;
     font-family: 'proxima-nova', sans-serif;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.534);
 }
 
 .navlink {
