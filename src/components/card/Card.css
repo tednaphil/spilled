@@ -7,7 +7,7 @@
   height: 100%;
   text-align: center;
   background: linear-gradient(white, white) padding-box,
-  radial-gradient( rgb(175, 186, 175), rgba(223, 229, 224, 0.408));
+    radial-gradient(rgb(175, 186, 175), rgba(223, 229, 224, 0.408));
   border-radius: 5px;
   border: 3px solid transparent;
   padding: 10%;
@@ -26,7 +26,8 @@
   text-align: center;
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -41,7 +42,7 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background-color: rgb(177,174,145, .5);
+  background-color: rgb(177, 174, 145, 0.5);
   color: black;
   border: 1px solid transparent;
   border-radius: 50%;
@@ -73,7 +74,7 @@ h3 {
   width: 30px;
 }
 
-.fav-btn{
+.fav-btn {
   position: absolute;
   top: 4px;
   right: -55px;
@@ -107,7 +108,7 @@ h3 {
   position: relative;
 }
 
-.card-back-dl{
+.card-back-dl {
   position: absolute;
   display: flex;
   flex-direction: column;

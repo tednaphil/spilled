@@ -1,21 +1,21 @@
-.error-wrapper{
-    text-align: center;
-    & .error-message {
-        margin-left: 0;
-    }
+.error-wrapper {
+  text-align: center;
+  & .error-message {
+    margin-left: 0;
+  }
 }
 
 #error-image {
-    height:40vh;
+  height: 40vh;
 }
 
 .error-message {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #error-home-link {
-    border-radius: 15px;
-    outline: 1px black solid;
-    display: inline-block;
-    padding: 10px 20px;
+  border-radius: 15px;
+  outline: 1px black solid;
+  display: inline-block;
+  padding: 10px 20px;
 }
