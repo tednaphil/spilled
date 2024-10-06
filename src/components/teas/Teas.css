@@ -29,11 +29,17 @@
 }
 
 #search {
-    padding-left: 10px;
+    padding-left: 15px;
     margin-left: 10px;
     font-size: 30px;
-    border-radius: 50px;
+    border-radius: 30px;
+    border: 1px, solid, black;
     width: 60%;
+    height: 40px;
+    filter: drop-shadow(4px 4px 4px lightgrey);
+    &::placeholder {
+        color: lightgrey;
+    }
 }
 
 .form-search {
