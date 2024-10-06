@@ -8,6 +8,7 @@
 
 .cat-header {
     margin-left: 20px;
+    text-transform: capitalize;
 }
 
 .no-favs {

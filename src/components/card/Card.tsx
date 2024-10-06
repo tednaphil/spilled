@@ -68,12 +68,6 @@ function Card({
     }
   }
 
-  // function ingredients(tea: any): string {
-  //   let teaReturn: string;
-  //   tea.mainIngredients ? teaReturn = tea.mainIngredients : teaReturn = ' ';
-  //   return teaReturn
-  // }
-
   return (
     <div className="card-wrapper">
       {location !== "/tea/favorites" ? (
@@ -134,8 +128,6 @@ function Card({
                 <strong>Caffeine content:</strong>
               </dt>
               <dd className="card-back-text">{targetTea.caffeine}</dd>
-              {/* <dt><strong>Main Ingredients:</strong></dt> */}
-              {/* <dd className="card-back-text" >{ingredients(targetTea)}</dd> */}
               <dt>
                 <strong>Origin:</strong>
               </dt>

@@ -5,7 +5,6 @@ import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTea } from "../../apiCalls";
 import { Tea, Categories } from "../../utils/interface";
-import multiTeas from "../../images/multi-teas.jpg";
 
 function Teas() {
   const navigate = useNavigate();
@@ -49,7 +48,7 @@ function Teas() {
         setLoading(false);
       }
     }
-  }
+  };
 
   function filterTeas(fetchedTeaData: any) {
     const filteredTeaData = fetchedTeaData?.filter(
@@ -58,27 +57,15 @@ function Teas() {
     !filteredTeaData.length
       ? navigate("*", { replace: true })
       : organizeTeas(filteredTeaData);
-  }
+  };
 
   function organizeTeas(data: Tea[]) {
-    const teasToExclude = [
-      "Black Tea",
-      "Green Tea",
-      "Wulong (oolong) Tea",
-    ];
-    const newData = data.filter((d) => !teasToExclude.includes(d.name));
-
-    newData.forEach((d) => {
-      if (d.image.includes("herokuapp")) {
-        d.image = multiTeas;
-      }
-    });
-    newData.sort((a, b) => a.name.localeCompare(b.name));
+    const newData = data.sort((a, b) => a.name.localeCompare(b.name));
     setTeas(newData);
     if (category === Categories.all) {
       setAllTea(newData);
     }
-  }
+  };
 
   function addFavs(newFav: Tea) {
     if (favs.some((fav) => fav.slug === newFav.slug)) {
@@ -90,7 +77,7 @@ function Teas() {
     } else {
       setFavs([...favs, newFav]);
     }
-  }
+  };
 
   useEffect(() => {
     setNoTea("");
@@ -121,10 +108,6 @@ function Teas() {
       />
     );
   });
-
-  const catHeader = `${category?.split("")[0].toUpperCase()}${category?.slice(
-    1
-  )}`;
 
   const noFaves = (): boolean => {
     if (category === Categories.favs && !favs.length) {
@@ -166,8 +149,8 @@ function Teas() {
       )}
       {!loading && (
         <>
-          <h2 className="cat-header">{catHeader}</h2>
-          {category === "all" && (
+          <h2 className="cat-header">{category}</h2>
+          {category === Categories.all && (
             <form className="form-search">
               <label htmlFor="search">Search</label>
               <input
