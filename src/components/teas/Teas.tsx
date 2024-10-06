@@ -32,6 +32,7 @@ function Teas() {
 
   async function fetchData() {
     if (category === "favorites") {
+      setLoading(false)
       return setTeas(favs);
     } else {
       try {
