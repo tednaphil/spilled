@@ -1,5 +1,4 @@
 import "./Error.css";
-import React from "react";
 import spilledTea from "../../images/Coffee-Burst.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
