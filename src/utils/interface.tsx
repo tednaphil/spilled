@@ -70,3 +70,13 @@ export const allHardcodedTeas: TeaHardcoded[] = [
         climate: 'The climate plays a significant role in black tea production. Tea plants thrive in regions with moderate temperatures, high humidity, and consistent rainfall. Altitude also influences the flavor profile of black tea, with higher altitude teas often possessing more complex flavors.'
     }
 ]
+
+export enum Categories {
+    all = 'all',
+    herbal = 'herbal',
+    black = 'black',
+    green = 'green',
+    oolong = 'oolong',
+    white = 'white',
+    favs = 'favorites',
+}

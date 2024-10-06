@@ -4,7 +4,7 @@ import spilledTea from "../../images/Coffee-Burst.svg";
 import { useParams, useNavigate, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTea } from "../../apiCalls";
-import { Tea } from "../../utils/interface";
+import { Tea, Categories } from "../../utils/interface";
 import multiTeas from "../../images/multi-teas.jpg";
 
 function Teas() {
@@ -31,14 +31,14 @@ function Teas() {
   }, [category]);
 
   async function fetchData() {
-    if (category === "favorites") {
+    if (category === Categories.favs) {
       setLoading(false);
       return setTeas(favs);
     } else {
       try {
         const fetchedTeaData = await fetchTea();
 
-        if (category === "all") {
+        if (category === Categories.all) {
           organizeTeas(fetchedTeaData);
         } else {
           filterTeas(fetchedTeaData);
@@ -75,7 +75,7 @@ function Teas() {
     });
     newData.sort((a, b) => a.name.localeCompare(b.name));
     setTeas(newData);
-    if (category === "all") {
+    if (category === Categories.all) {
       setAllTea(newData);
     }
   }
@@ -127,7 +127,7 @@ function Teas() {
   )}`;
 
   const noFaves = (): boolean => {
-    if (category === "favorites" && !favs.length) {
+    if (category === Categories.favs && !favs.length) {
       return true;
     } else {
       return false;
