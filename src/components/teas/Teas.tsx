@@ -63,7 +63,7 @@ function Teas() {
     const teasToExclude = [
       "Black Tea",
       "Green Tea",
-      "Wulong (oolong) Tea" /*, 'White Tea'*/,
+      "Wulong (oolong) Tea",
     ];
     const newData = data.filter((d) => !teasToExclude.includes(d.name));
 
