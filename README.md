@@ -50,8 +50,9 @@
 - Select `dashboard_spec` to run all tests
 
 ## Context:
-- ~30 hours to complete test suite of and functionality
-- See wireframe [here](https://github.com/tednaphil/spilled/blob/main/Spilled%20Wireframe.png)
+Approximately 30 hours were spent to complete this application's test suite and functionality.
+
+
 - Goals
   ```
   - Learn and implement Typescript in a one week sprint
@@ -69,6 +70,10 @@
   - Stepping back to see the crossover between JS and TS
   - Having users' favorites persist after page reloads - solved initially by using Session Storage since the API originally consumed did not have `POST` or `DELETE` endpoints
   ```
+## Wireframe:
+  <div align="center">
+  <img src="https://github.com/tednaphil/spilled/blob/main/Spilled%20Wireframe.png?raw=true" alt="mvp wireframe">
+</div>
 <!--
 - Future Features
   ```
