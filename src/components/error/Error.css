@@ -3,19 +3,19 @@
     & .error-message {
         margin-left: 0;
     }
-
 }
 
 #error-image {
     height:40vh;
 }
 
+.error-message {
+    font-size: 1.5rem;
+}
+
 #error-home-link {
-    font-family: 'proxima-nova', sans-serif;
     border-radius: 15px;
     outline: 1px black solid;
     display: inline-block;
-    & :hover {
-        background-color: hsla(120, 7%, 92%, 0.461);
-    }
+    padding: 10px 20px;
 }
