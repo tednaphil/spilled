@@ -16,9 +16,15 @@
 
 #no-favs-link,
 .no-favs,
-.cat-header,
 .error-message {
-    margin-left: 20px
+    margin-left: 40px
+}
+
+#no-favs-link {
+    border-radius: 15px;
+    outline: 1px black solid;
+    display: inline-block;
+    padding: 10px 20px;
 }
 
 .api-error {
