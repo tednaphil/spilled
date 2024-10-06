@@ -18,7 +18,7 @@
     margin-left: 20px;
 }
 
-.navlink:hover, .h1:hover {
+.navlink:hover {
     background-color: hsla(120, 7%, 92%, 0.461);
     border-radius: 15px;
     text-decoration: underline;

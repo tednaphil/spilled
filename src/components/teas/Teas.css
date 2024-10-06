@@ -36,9 +36,9 @@
     border: 1px, solid, black;
     width: 60%;
     height: 40px;
-    filter: drop-shadow(4px 4px 4px lightgrey);
+    filter: drop-shadow(4px 4px 4px rgba(128, 128, 128, 0.534));
     &::placeholder {
-        color: lightgrey;
+        color: rgba(128, 128, 128, 0.534);
     }
 }
 
