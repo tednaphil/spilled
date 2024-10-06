@@ -67,7 +67,7 @@
 - Challenges
   ```
   - Stepping back to see the crossover between JS and TS
-  - Having users' favorites persist after page reloads - solved by using Session storage
+  - Having users' favorites persist after page reloads - solved initially by using Session Storage since the API originally consumed did not have `POST` or `DELETE` endpoints
   ```
 <!--
 - Future Features
