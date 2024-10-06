@@ -43,7 +43,7 @@ function TeaArticle({ tea, slug }: Props) {
       </div>
       <div className="link-wrapper">
         <NavLink to="/" className="home-link">
-          ⃪ Go back
+          ← Go back
         </NavLink>
         <NavLink to={`/tea/${slug}`} className="teas-link">
           See {slug} tea →

@@ -1,83 +1,96 @@
 .cards-section {
-    padding: 20px 70px 20px 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    grid-auto-rows: 400px;
-    grid-gap: 80px;
+  padding: 20px 70px 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-auto-rows: 400px;
+  grid-gap: 80px;
 }
 
 .cat-header {
-    margin-left: 20px;
+  margin-left: 20px;
+  text-transform: capitalize;
 }
 
 .no-favs {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 #no-favs-link,
 .no-favs,
-.cat-header,
 .error-message {
-    margin-left: 20px
+  margin-left: 40px;
+}
+
+#no-favs-link {
+  border-radius: 15px;
+  outline: 1px black solid;
+  display: inline-block;
+  padding: 10px 20px;
 }
 
 .api-error {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-top: -80px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: -80px;
 }
 
 #search {
-    padding-left: 10px;
-    margin-left: 10px;
-    font-size: 30px;
-    border-radius: 50px;
-    width: 300px;
+  padding-left: 15px;
+  margin-left: 10px;
+  font-size: 30px;
+  border-radius: 30px;
+  border: 1px, solid, black;
+  width: 60%;
+  height: 40px;
+  filter: drop-shadow(4px 4px 4px rgba(128, 128, 128, 0.534));
+  &::placeholder {
+    color: rgba(128, 128, 128, 0.534);
+  }
 }
 
 .form-search {
-    margin-left: 25px;
-    font-size: 30px;
+  margin-left: 40px;
+  font-size: 30px;
 }
 
 .loading-screen {
-    text-align: center;
+  text-align: center;
 }
 
 .loading-image {
-    margin-top: -30px;
-    width: 50%;
+  margin-top: -30px;
+  width: 50%;
 }
 
 @media screen and (max-width: 784px) {
-    #search {
-        font-size: 25px;
-        width: 250px;
-    }
+  #search {
+    font-size: 25px;
+    width: 250px;
+  }
 
-    .form-search {
-        font-size: 25px;
-    }
+  .form-search {
+    font-size: 25px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    .cards-section {
-        grid-template-columns: repeat(auto-fill, 280px);
-    }
+  .cards-section {
+    grid-template-columns: repeat(auto-fill, 280px);
+  }
 
-    #search {
-        font-size: 25px;
-        width: 230px;
-    }
+  #search {
+    font-size: 25px;
+    width: 230px;
+  }
 }
 
 @media screen and (max-width: 364px) {
-    .form-search {
-        margin-left: 35px;
-    }
+  .form-search {
+    margin-left: 35px;
+  }
 
-    #search {
-        margin-left: 0px;
-    }
+  #search {
+    margin-left: 0px;
+  }
 }

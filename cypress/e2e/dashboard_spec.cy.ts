@@ -323,7 +323,7 @@ describe("Spilled", () => {
     cy.visit("http://localhost:3000/teas/badpath")
       .get("#error-image")
       .should("have.attr", "src")
-      .get("h1")
+      .get("h2")
       .contains("Uh oh!")
       .get(".error-message")
       .contains("We couldn't find that page")

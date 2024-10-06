@@ -1,5 +1,4 @@
 import "./Error.css";
-import React from "react";
 import spilledTea from "../../images/Coffee-Burst.svg";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -19,7 +18,6 @@ const Error = () => {
 
   useEffect(() => {
     window.onbeforeunload = () => {
-      //    setIsRedirected(false)
       if (isRedirected === true) {
         navigate("../", { replace: true });
       }
@@ -33,7 +31,7 @@ const Error = () => {
         src={spilledTea}
         alt="Tea cup tipped over with liquid spilling out"
       />
-      <h1>Uh oh!</h1>
+      <h2>Uh oh!</h2>
       <p className="error-message">We couldn't find that page</p>
       <Link className="home-link" id="error-home-link" to="/">
         Go back home

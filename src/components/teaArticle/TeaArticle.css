@@ -1,72 +1,74 @@
 .education-wrapper {
-    padding: 50px 150px 0px 150px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 40px;
+  padding: 50px 150px 0px 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 40px;
 }
 
 h1 {
-    margin-left: 20px;
-    text-transform: capitalize;
+  margin-left: 20px;
+  text-transform: capitalize;
 }
 
 .tea-section {
-    border-radius: 20px 40px;
-    padding: 20px;
-    background-color: hsla(120, 7%, 92%, 0.461);
+  border-radius: 20px 40px;
+  padding: 20px;
+  background-color: hsla(120, 7%, 92%, 0.461);
 }
 
 #ed-summary {
-    border-radius: 0px;
+  border-radius: 0px;
 }
 
 .link-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 50px;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
 }
 
-.home-link, .teas-link {
-    width: fit-content;
-    height: fit-content;
-    font-size: 3vh;
-    border-radius: 15px;
-    margin-bottom: 10px;
-    padding: 10px;
-    text-decoration: none;
-    color: #010101;
-    border-radius: 15px;
+.home-link,
+.teas-link {
+  width: fit-content;
+  height: fit-content;
+  font-size: 3vh;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: #010101;
+  border-radius: 15px;
 }
 
 .home-link {
-    padding-left: 25px;
+  padding-left: 25px;
 }
 
-.home-link:hover, .teas-link:hover {
-    background-color: hsla(120, 7%, 92%, 0.461);
-    text-decoration: underline;
+.home-link:hover,
+.teas-link:hover {
+  background-color: hsla(120, 7%, 92%, 0.461);
+  text-decoration: underline;
 }
 
 .education-h2 {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 @media screen and (max-width: 1023px) {
-    .education-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .education-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .education-wrapper {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .education-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .education-wrapper {
-        grid-template-columns: repeat(1, 1fr);
-        padding: 50px 80px 0px 80px;
-    }
+  .education-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 50px 80px 0px 80px;
+  }
 }
