@@ -7,7 +7,8 @@ interface Props {
   user: Profile | null
 }
 
-function Nav(user: Props) {
+function Nav({user}: Props) {
+  console.log(user)
   return (
     <header className="header">
       <nav className="nav-bar">
@@ -37,13 +38,19 @@ function Nav(user: Props) {
           </NavLink>
         </div>
         <div className="div-nav-right">
+
+          {user ?
           <NavLink className="nav-favorites" to="/tea/favorites">
             <img
               className="favorite-img"
               src={favorite}
               alt="bookmark with heart shape"
             />
-          </NavLink>
+          </NavLink> :
+          <button>
+            Login
+          </button>
+          }
         </div>
       </nav>
     </header>
