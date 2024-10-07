@@ -30,9 +30,18 @@
   color: #010101;
   margin: 0;
   margin-left: 20px;
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-family: "Macondo Swash Caps", cursive;
   font-weight: 400;
+}
+
+.log-in-out {
+    border: none;
+    background: none;
+    &:hover {
+        cursor: pointer;
+        background-color: hsla(120, 7%, 92%, 0.461);
+    }
 }
 
 .div-nav-right,

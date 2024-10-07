@@ -2,13 +2,14 @@ import { NavLink, Link } from "react-router-dom";
 import "./Nav.css";
 import favorite from "../../images/favorite-save.png";
 import { Profile } from "../../utils/interface";
+import { LogIn, LogOut } from "react-feather";
+
 
 interface Props {
   user: Profile | null
 }
 
 function Nav({user}: Props) {
-  console.log(user)
   return (
     <header className="header">
       <nav className="nav-bar">
@@ -40,14 +41,21 @@ function Nav({user}: Props) {
         <div className="div-nav-right">
 
           {user ?
+          <>
           <NavLink className="nav-favorites" to="/tea/favorites">
             <img
               className="favorite-img"
               src={favorite}
               alt="bookmark with heart shape"
             />
-          </NavLink> :
-          <button>
+          </NavLink>
+          <button className="log-in-out">
+            <LogOut/>
+            Logout
+          </button>
+          </> :
+          <button className="log-in-out">
+            <LogIn/>
             Login
           </button>
           }
