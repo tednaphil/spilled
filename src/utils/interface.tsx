@@ -1,3 +1,8 @@
+export interface Profile {
+    id: number;
+    username: string;
+}
+
 export interface Tea {
   id: number;
   name: string;

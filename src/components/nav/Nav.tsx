@@ -1,8 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
 import "./Nav.css";
 import favorite from "../../images/favorite-save.png";
+import { Profile } from "../../utils/interface";
 
-function Nav() {
+interface Props {
+  user: Profile | null
+}
+
+function Nav(user: Props) {
   return (
     <header className="header">
       <nav className="nav-bar">

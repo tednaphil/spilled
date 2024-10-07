@@ -5,11 +5,15 @@ import Teas from "../teas/Teas";
 import Error from "../error/Error";
 import TeaEd from "../teaEd/TeaEd";
 import { Routes, Route } from "react-router-dom";
+import { postUser } from "../../apiCalls";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <div className="App">
-      <Nav />
+      <Nav user={user}/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
