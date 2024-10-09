@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav user={user}/>
+      <Nav user={user, setUser}/>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -6,10 +6,11 @@ import { LogIn, LogOut } from "react-feather";
 
 
 interface Props {
-  user: Profile | null
+  user: Profile | null,
+  setUser: (userData: Profile) => null
 }
 
-function Nav({user}: Props) {
+function Nav({user, setUser}: Props) {
   return (
     <header className="header">
       <nav className="nav-bar">
